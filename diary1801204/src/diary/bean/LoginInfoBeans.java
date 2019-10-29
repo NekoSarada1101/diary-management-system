@@ -1,6 +1,8 @@
 package diary.bean;
 
-public class LoginInfoBeans {
+import java.io.Serializable;
+
+public class LoginInfoBeans implements Serializable {
     private String student_id = null;
     private String class_code = null;
     private String student_name = null;

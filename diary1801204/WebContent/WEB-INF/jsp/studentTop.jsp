@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
-    String student_name = ((LoginInfoBeans)session.getAttribute("loginInfo")).getStudent_name();
+    String student_name = ((LoginInfoBeans)session.getAttribute("login-info")).getStudent_name();
 %>
 <!DOCTYPE html>
 <html>

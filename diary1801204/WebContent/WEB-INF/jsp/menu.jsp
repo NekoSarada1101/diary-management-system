@@ -7,7 +7,7 @@
     <title>学生トップメニュー</title>
 </head>
 <body>
-<%@include file="mypage.jsp" %>
+<%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
 <form action="select" method="get">
     <input type="submit" value="登録・修正・削除">
