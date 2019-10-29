@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -14,9 +13,16 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * 日誌登録画面で入力した値を取得した後日誌登録確認画面へ遷移するServletクラス
+ * @author ryouta
+ */
 @WebServlet("/diaryinsertcheck")
 public class DiaryInsertCheckServlet extends HttpServlet {
 
+    /**
+     * 日誌登録画面で入力した値、本日の日付、ログインしている学生の学籍番号を取得しBeansに格納した後日誌登録確認画面へ遷移する
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String good_point = request.getParameter("good-point");
@@ -40,7 +46,6 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         diaryBeans.setStudent_comment(student_comment);
 
         session.setAttribute("diary-beans", diaryBeans);
-
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertCheck.jsp").forward(request, response);
     }
 }
