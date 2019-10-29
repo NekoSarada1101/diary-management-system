@@ -1,14 +1,24 @@
+
 package diary.dao;
-
-
-import diary.bean.LoginInfoBeans;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import diary.bean.LoginInfoBeans;
+
+/**
+ * データベースに接続して学生のログイン処理を行うクラス
+ * @author ryo
+ */
 public class UserDao extends DaoBase {
-    //ログイン処理
+
+    /**
+     * 学生のログイン処理とログインした学生の情報の取得
+     * @param student_id ログイン画面で入力された学籍番号
+     * @param password ログイン画面で入力されたパスワード
+     * @return ログインに成功したらログインした学生の情報 失敗したらnull
+     */
     public LoginInfoBeans getLoginInfo(String student_id, String password) {
         LoginInfoBeans loginInfo = null;
         PreparedStatement stmt = null;

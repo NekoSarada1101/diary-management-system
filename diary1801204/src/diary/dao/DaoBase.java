@@ -5,10 +5,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * データベースの接続と切断をするクラス
+ * @author ryo
+ */
 public class DaoBase {
     protected Connection con = null;
 
-    //データベース接続
+    /**
+     * データベースdiary1801204に接続する
+     */
     public void dbConnect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -21,7 +27,9 @@ public class DaoBase {
         }
     }
 
-    //データベース切断
+    /**
+     * データベースから切断する
+     */
     public void dbClose() {
         try {
             if (con != null) {

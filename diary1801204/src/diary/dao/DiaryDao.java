@@ -9,7 +9,17 @@ import java.util.List;
 
 import diary.bean.DiaryBeans;
 
+/**
+ * データベースから日誌の情報を取得、更新、削除を行うクラス
+ * @author ryo
+ */
 public class DiaryDao extends DaoBase {
+
+    /**
+     * ログインしている人の日誌の情報をすべて取得してリストにする
+     * @param student_id
+     * @return 取得した日誌の情報を格納したリスト
+     */
     public List<DiaryBeans> getDiaryListFromDb(String student_id) {
         DiaryBeans diaryBeans = null;
         PreparedStatement stmt = null;
@@ -19,7 +29,7 @@ public class DiaryDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement("SELECT insert_date, good_point, bad_point, student_comment, teacher_comment FROM diary WHERE student_id = ? ORDER BY insert_date DESC");
+            stmt = con.prepareStatement("SELECT * FROM diary WHERE student_id = ? ORDER BY insert_date DESC");
             stmt.setString(1, student_id);
             rs = stmt.executeQuery();
 
@@ -27,7 +37,9 @@ public class DiaryDao extends DaoBase {
 
             while (rs.next()) {
                 diaryBeans = new DiaryBeans();
+                diaryBeans.setClass_code(rs.getString("class_code"));
                 diaryBeans.setInsert_date(rs.getString("insert_date"));
+                diaryBeans.setStudent_id(rs.getString("student_name"));
                 diaryBeans.setGood_point(rs.getString("good_point"));
                 diaryBeans.setBad_point(rs.getString("bad_point"));
                 diaryBeans.setStudent_comment(rs.getString("student_comment"));
@@ -47,6 +59,11 @@ public class DiaryDao extends DaoBase {
         return list;
     }
 
+    /**
+     * データベースに生徒が入力した日誌の情報を登録する
+     * @param diaryBeans データベースに登録する日誌の情報
+     * @return 日誌の登録に成功したらtrue
+     */
     public boolean insertDiaryToDb(DiaryBeans diaryBeans) {
         PreparedStatement stmt = null;
 
