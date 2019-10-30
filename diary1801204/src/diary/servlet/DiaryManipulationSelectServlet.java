@@ -29,7 +29,7 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
         DiaryDao diaryDao = new DiaryDao();
-        List<DiaryBeans> diaryList = diaryDao.getDiaryListFromDb(student_id);
+        List<DiaryBeans> diaryList = diaryDao.fetchDiaryListFromDb(student_id);
 
         session.setAttribute("diary-list", diaryList);
         request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
