@@ -4,11 +4,11 @@
          pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diaryList = (List<DiaryBeans>) session.getAttribute("diary-list");
-String error_message = (String) session.getAttribute("error-message");
-if(error_message == null){
-    error_message = "";
-}
-session.removeAttribute("error-message");
+    String error_message = (String) session.getAttribute("error-message");
+    if (error_message == null) {
+        error_message = "";
+    }
+    session.removeAttribute("error-message");
 %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,8 @@ session.removeAttribute("error-message");
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
 <h3>登録・修正・削除</h3>
-<p><%=error_message %></p>
+<p><%=error_message %>
+</p>
 <table>
     <thead>
     <tr>
@@ -35,7 +36,7 @@ session.removeAttribute("error-message");
     <tbody>
     <% for (int i = 0; i < diaryList.size(); i++) { %>
     <tr>
-        <td><%--@declare id="fix delete"--%><input type="radio" name="selectDiary" value="<%=i%>" form="fix delete">
+        <td><input type="radio" name="select-diary" value="<%=i%>" onclick="selectDiary(<%=i%>)">
         </td>
         <td><%=diaryList.get(i).getInsert_date()%>
         </td>
@@ -50,18 +51,27 @@ session.removeAttribute("error-message");
     </tbody>
 </table>
 
+<form action="diaryupdateinput" method="post">
+    <input type="hidden" name="select-diary" id="update" value="">
+    <input type="submit" value="修正">
+</form>
 <form action="diaryinsertinput" method="post">
     <input type="submit" value="登録">
 </form>
-<form action="diaryfixinput" method="post">
-    <input type="submit" value="修正" id="fix">
-</form>
 <form action="diarydeletecheck" method="post">
-    <input type="submit" value="削除" id="delete">
+    <input type="hidden" name="select-diary" id="delete" value="">
+    <input type="submit" value="削除">
 </form>
 
 <form action="menu" method="get">
     <input type="submit" value="戻る">
 </form>
+
+<script>
+    function selectDiary (position){
+        document.getElementById("update").value = position;
+        document.getElementById("delete").value = position;
+    }
+</script>
 </body>
 </html>

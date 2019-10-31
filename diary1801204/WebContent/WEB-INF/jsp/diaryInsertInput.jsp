@@ -19,7 +19,7 @@
     <input type="submit" value="登録">
 </form>
 
-<form action="select" method="post">
+<form action="select" method="get">
     <input type="submit" value="戻る">
 </form>
 </body>

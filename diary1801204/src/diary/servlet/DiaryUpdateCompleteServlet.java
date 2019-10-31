@@ -1,3 +1,4 @@
+
 package diary.servlet;
 
 import javax.servlet.ServletException;
@@ -8,19 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ログイン画面へ遷移するServletクラス
+ * 日誌修正完了画面へ遷移するServletクラス
  * @author ryouta
+ *
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/diaryupdatecomplete")
+public class DiaryUpdateCompleteServlet extends HttpServlet {
 
     /**
-     * ログイン画面へ遷移する
+     * 日誌修正完了画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("LoginServlet");
+        System.out.println("DiaryUpdateCompleteServlet");
 
-        request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateComplete.jsp").forward(request, response);
     }
 }

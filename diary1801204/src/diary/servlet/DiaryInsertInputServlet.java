@@ -19,6 +19,8 @@ public class DiaryInsertInputServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("DiaryInsertInputServlet");
+
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);
     }
 }

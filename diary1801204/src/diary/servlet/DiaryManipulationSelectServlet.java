@@ -25,6 +25,8 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("DiaryManipulationSelectServlet");
+
         HttpSession session = request.getSession();
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 

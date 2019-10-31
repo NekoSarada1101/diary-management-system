@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -13,20 +12,20 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌操作選択画面で指定した日誌の情報を取得した後日誌削除確認画面へ遷移するServletクラス
+ * 日誌操作選択画面で指定した日誌の情報を取得した後日誌修正画面へ遷移するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
-@WebServlet("/diarydeletecheck")
-public class DiaryDeleteCheckServlet extends HttpServlet {
+@WebServlet("/diaryupdateinput")
+public class DiaryUpdateInputServlet extends HttpServlet {
 
     /**
-     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後日誌削除確認画面へ遷移する
+     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後日誌修正画面へ遷移する
      * 日誌が指定されていなかったら日誌操作選択画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryDeleteCheckServlet");
+        System.out.println("DiaryUpdateInputServlet");
 
         HttpSession session = request.getSession();
         List<DiaryBeans> diaryList = (List<DiaryBeans>) session.getAttribute("diary-list");
@@ -38,7 +37,7 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
             response.sendRedirect("select");
         } else {
             session.setAttribute("diary-beans", diaryList.get(Integer.parseInt(position_in_diaryList)));
-            request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
         }
     }
 }

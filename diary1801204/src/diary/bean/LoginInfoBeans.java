@@ -1,11 +1,10 @@
-
 package diary.bean;
 
 import java.io.Serializable;
 
 /**
  * ログインした人の情報を格納するBeansクラス
- * @author ryo
+ * @author ryouta
  */
 public class LoginInfoBeans implements Serializable {
     private String student_id = null;

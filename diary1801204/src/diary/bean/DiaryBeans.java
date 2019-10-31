@@ -1,11 +1,10 @@
-
 package diary.bean;
 
 import java.io.Serializable;
 
 /**
  * 日誌の情報を格納するBeansクラス
- * @author ryo
+ * @author ryouta
  */
 public class DiaryBeans implements Serializable {
     private String class_code = null;

@@ -13,28 +13,28 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 指定された日誌情報をデータベースから削除するServletクラス
+ * 入力された日誌情報でデータベースを更新するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
-@WebServlet("/diarydelete")
-public class DiaryDeleteServlet extends HttpServlet {
+@WebServlet("/diaryupdate")
+public class DiaryUpdateServlet extends HttpServlet {
 
     /**
-     * 日誌情報をデータベースから削除する
+     * 日誌情報でデータベースを更新する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryDeleteServlet");
+        System.out.println("DiaryUpdateServlet");
 
         HttpSession session = request.getSession();
         DiaryBeans diaryBeans = (DiaryBeans) session.getAttribute("diary-beans");
 
         DiaryDao diaryDao = new DiaryDao();
-        diaryDao.deleteDiaryFromDb(diaryBeans);
+        diaryDao.updateDiaryToDb(diaryBeans);
 
         session.removeAttribute("diary-beans");
 
-        response.sendRedirect("diarydeletecomplete");
+        response.sendRedirect("diaryupdatecomplete");
     }
 }

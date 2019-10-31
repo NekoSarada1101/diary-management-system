@@ -1,15 +1,14 @@
-
 package diary.dao;
+
+import diary.bean.LoginInfoBeans;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import diary.bean.LoginInfoBeans;
-
 /**
  * データベースに接続して学生のログイン処理を行うクラス
- * @author ryo
+ * @author ryouta
  */
 public class UserDao extends DaoBase {
 
@@ -20,6 +19,10 @@ public class UserDao extends DaoBase {
      * @return ログインに成功したらログインした学生の情報 失敗したらnull
      */
     public LoginInfoBeans getLoginInfo(String student_id, String password) {
+        System.out.println("DiaryDao : getLoginInfo");
+        System.out.println("param : student_id = " + student_id);
+        System.out.println("param : password = " + password);
+
         LoginInfoBeans loginInfo = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -48,6 +51,10 @@ public class UserDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        System.out.println("return : loginInfo = " + loginInfo);
+        System.out.println("                   : student_id = " + loginInfo.getStudent_id());
+        System.out.println("                   : class_code = " + loginInfo.getClass_code());
+        System.out.println("                   : student_name = " + loginInfo.getStudent_name());
         return loginInfo;
     }
 }

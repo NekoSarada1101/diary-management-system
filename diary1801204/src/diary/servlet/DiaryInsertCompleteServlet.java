@@ -20,6 +20,8 @@ public class DiaryInsertCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("DiaryInsertCompleteServlet");
+
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertComplete.jsp").forward(request, response);
     }
 }
