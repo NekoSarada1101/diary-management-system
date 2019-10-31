@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 /**
  * データベースの接続と切断をするクラス
+ *
  * @author ryouta
  */
 public class DaoBase {
@@ -22,6 +23,7 @@ public class DaoBase {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

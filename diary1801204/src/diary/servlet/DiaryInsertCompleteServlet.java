@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * 日誌登録完了画面へ遷移するServletクラス
+ *
  * @author ryouta
  *
  */
@@ -20,7 +21,7 @@ public class DiaryInsertCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryInsertCompleteServlet");
+        System.out.println("DiaryInsertCompleteServlet"); //test
 
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertComplete.jsp").forward(request, response);
     }

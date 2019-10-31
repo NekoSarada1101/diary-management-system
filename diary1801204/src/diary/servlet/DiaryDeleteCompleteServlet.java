@@ -21,7 +21,7 @@ public class DiaryDeleteCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryDeleteCompleteServlet");
+        System.out.println("DiaryDeleteCompleteServlet"); //test
 
         request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteComplete.jsp").forward(request, response);
     }

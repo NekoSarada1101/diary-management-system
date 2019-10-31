@@ -25,7 +25,7 @@ public class DiaryDeleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryDeleteServlet");
+        System.out.println("DiaryDeleteServlet"); //test
 
         HttpSession session = request.getSession();
         DiaryBeans diaryBeans = (DiaryBeans) session.getAttribute("diary-beans");
@@ -34,7 +34,6 @@ public class DiaryDeleteServlet extends HttpServlet {
         diaryDao.deleteDiaryFromDb(diaryBeans);
 
         session.removeAttribute("diary-beans");
-
         response.sendRedirect("diarydeletecomplete");
     }
 }

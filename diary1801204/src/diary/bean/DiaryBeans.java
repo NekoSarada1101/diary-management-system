@@ -4,14 +4,15 @@ import java.io.Serializable;
 
 /**
  * 日誌の情報を格納するBeansクラス
+ *
  * @author ryouta
  */
 public class DiaryBeans implements Serializable {
-    private String class_code = null;
-    private String insert_date = null;
-    private String student_id = null;
-    private String good_point = null;
-    private String bad_point = null;
+    private String class_code      = null;
+    private String insert_date     = null;
+    private String student_id      = null;
+    private String good_point      = null;
+    private String bad_point       = null;
     private String student_comment = null;
     private String teacher_comment = null;
 

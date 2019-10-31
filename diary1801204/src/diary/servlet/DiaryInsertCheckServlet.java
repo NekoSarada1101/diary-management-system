@@ -15,6 +15,7 @@ import java.util.Calendar;
 
 /**
  * 日誌登録画面で入力した値を取得した後日誌登録確認画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/diaryinsertcheck")
@@ -25,10 +26,10 @@ public class DiaryInsertCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryInsertCheckServlet");
+        System.out.println("DiaryInsertCheckServlet"); //test
 
-        String good_point = request.getParameter("good-point");
-        String bad_point = request.getParameter("bad-point");
+        String good_point      = request.getParameter("good-point");
+        String bad_point       = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
         Calendar cal = Calendar.getInstance();

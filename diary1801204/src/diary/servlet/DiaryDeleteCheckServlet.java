@@ -26,7 +26,7 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryDeleteCheckServlet");
+        System.out.println("DiaryDeleteCheckServlet"); //test
 
         HttpSession session = request.getSession();
         List<DiaryBeans> diaryList = (List<DiaryBeans>) session.getAttribute("diary-list");
@@ -36,6 +36,7 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
         if (position_in_diaryList.equals("")) {
             session.setAttribute("error-message", "修正または削除する日誌を選択してください");
             response.sendRedirect("select");
+
         } else {
             session.setAttribute("diary-beans", diaryList.get(Integer.parseInt(position_in_diaryList)));
             request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);

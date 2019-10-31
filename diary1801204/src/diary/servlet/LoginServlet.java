@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("LoginServlet");
+        System.out.println("LoginServlet"); //test
 
         request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
     }

@@ -23,12 +23,13 @@ public class DiaryDao extends DaoBase {
      * @return 取得した日誌の情報を格納したリスト
      */
     public List<DiaryBeans> fetchDiaryListFromDb(String student_id) {
+        //test
         System.out.println("DiaryDao : fetchDiaryListFromDb");
         System.out.println("param : student_id = " + student_id);
 
-        DiaryBeans diaryBeans = null;
+        DiaryBeans diaryBeans  = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null;
+        ResultSet rs           = null;
 
         List<DiaryBeans> list = null;
 
@@ -42,11 +43,11 @@ public class DiaryDao extends DaoBase {
 
             while (rs.next()) {
                 diaryBeans = new DiaryBeans();
-                diaryBeans.setClass_code(rs.getString("class_code"));
-                diaryBeans.setInsert_date(rs.getString("insert_date"));
-                diaryBeans.setStudent_id(rs.getString("student_id"));
-                diaryBeans.setGood_point(rs.getString("good_point"));
-                diaryBeans.setBad_point(rs.getString("bad_point"));
+                diaryBeans.setClass_code     (rs.getString("class_code"));
+                diaryBeans.setInsert_date    (rs.getString("insert_date"));
+                diaryBeans.setStudent_id     (rs.getString("student_id"));
+                diaryBeans.setGood_point     (rs.getString("good_point"));
+                diaryBeans.setBad_point      (rs.getString("bad_point"));
                 diaryBeans.setStudent_comment(rs.getString("student_comment"));
                 diaryBeans.setTeacher_comment(rs.getString("teacher_comment"));
                 list.add(diaryBeans);
@@ -54,6 +55,7 @@ public class DiaryDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
+
         } finally {
             try {
                 this.dbClose();
@@ -61,7 +63,7 @@ public class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        System.out.println("return : list = " + list);
+        System.out.println("return : list = " + list); //test
         return list;
     }
 
@@ -72,6 +74,7 @@ public class DiaryDao extends DaoBase {
      * @return 日誌の登録に成功したらtrue
      */
     public boolean insertDiaryToDb(DiaryBeans diaryBeans) {
+        //test
         System.out.println("DiaryDao : insertDiaryToDb");
         System.out.println("param : diaryBeans = " + diaryBeans);
         System.out.println("                   : class_code = " + diaryBeans.getClass_code());
@@ -96,8 +99,9 @@ public class DiaryDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("return : is_success = false");
+            System.out.println("return : is_success = false"); //test
             return /* is_success = */ false;
+
         } finally {
             try {
                 this.dbClose();
@@ -105,7 +109,7 @@ public class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        System.out.println("return : is_success = true");
+        System.out.println("return : is_success = true"); //test
         return /* is_success = */ true;
     }
 
@@ -115,6 +119,7 @@ public class DiaryDao extends DaoBase {
      * @param diaryBeans データベースから削除する日誌の情報
      */
     public void deleteDiaryFromDb(DiaryBeans diaryBeans) {
+        //test
         System.out.println("DiaryDao : deleteDiaryFromDb");
         System.out.println("param : diaryBeans = " + diaryBeans);
         System.out.println("                   : class_code = " + diaryBeans.getClass_code());
@@ -131,6 +136,7 @@ public class DiaryDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
+
         } finally {
             try {
                 this.dbClose();
@@ -146,6 +152,7 @@ public class DiaryDao extends DaoBase {
      * @param diaryBeans 更新する日誌の情報
      */
     public void updateDiaryToDb(DiaryBeans diaryBeans) {
+        //test
         System.out.println("DiaryDao : updateDiaryToDb");
         System.out.println("param : diaryBeans = " + diaryBeans);
         System.out.println("                   : class_code = " + diaryBeans.getClass_code());
@@ -169,6 +176,7 @@ public class DiaryDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
+
         } finally {
             try {
                 this.dbClose();

@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * 日誌登録画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/diaryinsertinput")
@@ -19,7 +20,7 @@ public class DiaryInsertInputServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryInsertInputServlet");
+        System.out.println("DiaryInsertInputServlet"); //test
 
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);
     }

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 /**
  * データベースに接続して学生のログイン処理を行うクラス
+ *
  * @author ryouta
  */
 public class UserDao extends DaoBase {
@@ -19,6 +20,7 @@ public class UserDao extends DaoBase {
      * @return ログインに成功したらログインした学生の情報 失敗したらnull
      */
     public LoginInfoBeans getLoginInfo(String student_id, String password) {
+        //test
         System.out.println("DiaryDao : getLoginInfo");
         System.out.println("param : student_id = " + student_id);
         System.out.println("param : password = " + password);
@@ -37,13 +39,15 @@ public class UserDao extends DaoBase {
             rs.next();
 
             loginInfo = new LoginInfoBeans();
-            loginInfo.setStudent_id(rs.getString("student_id"));
-            loginInfo.setClass_code(rs.getString("class_code"));
+            loginInfo.setStudent_id  (rs.getString("student_id"));
+            loginInfo.setClass_code  (rs.getString("class_code"));
             loginInfo.setStudent_name(rs.getString("student_name"));
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("return : null"); //test
             return null;
+
         } finally {
             try {
                 this.dbClose();
@@ -51,6 +55,7 @@ public class UserDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //test
         System.out.println("return : loginInfo = " + loginInfo);
         System.out.println("                   : student_id = " + loginInfo.getStudent_id());
         System.out.println("                   : class_code = " + loginInfo.getClass_code());

@@ -13,6 +13,7 @@ import java.io.IOException;
 
 /**
  * ログイン認証を行った後画面遷移を行うServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/auth")
@@ -24,16 +25,19 @@ public class AuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String stuent_id = request.getParameter("student-id");
+        System.out.println("AuthServlet"); //test
+
+        String student_id       = request.getParameter("student-id");
         String student_password = request.getParameter("student-password");
 
         UserDao userDao = new UserDao();
-        LoginInfoBeans loginInfoBeans = userDao.getLoginInfo(stuent_id, student_password);
+        LoginInfoBeans loginInfoBeans = userDao.getLoginInfo(student_id, student_password);
 
         HttpSession session = request.getSession();
         if (loginInfoBeans != null) {
             session.setAttribute("login-info", loginInfoBeans);
             response.sendRedirect("menu");
+
         } else {
             session.setAttribute("error-message", "学籍番号またはパスワードが間違っています");
             response.sendRedirect("login");

@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * 学生の日誌のリストを取得した後登録修正削除選択画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/select")
@@ -25,7 +26,7 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryManipulationSelectServlet");
+        System.out.println("DiaryManipulationSelectServlet"); //test
 
         HttpSession session = request.getSession();
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();

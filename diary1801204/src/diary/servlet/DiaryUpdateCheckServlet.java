@@ -23,10 +23,10 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryUpdateCheckServlet");
+        System.out.println("DiaryUpdateCheckServlet"); //test
 
-        String good_point = request.getParameter("good-point");
-        String bad_point = request.getParameter("bad-point");
+        String good_point      = request.getParameter("good-point");
+        String bad_point       = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
         HttpSession session = request.getSession();
