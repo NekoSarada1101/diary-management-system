@@ -30,12 +30,12 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
         String student_comment = request.getParameter("student-comment");
 
         HttpSession session = request.getSession();
-        DiaryBeans diaryBeans = (DiaryBeans) session.getAttribute("diary-beans");
-        diaryBeans.setGood_point(good_point);
-        diaryBeans.setBad_point(bad_point);
-        diaryBeans.setStudent_comment(student_comment);
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        diary_beans.setGood_point(good_point);
+        diary_beans.setBad_point(bad_point);
+        diary_beans.setStudent_comment(student_comment);
 
-        session.setAttribute("diary-beans", diaryBeans);
+        session.setAttribute("diary-beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateCheck.jsp").forward(request, response);
     }
 }

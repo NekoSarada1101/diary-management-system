@@ -30,16 +30,16 @@ public class AuthServlet extends HttpServlet {
         String student_id       = request.getParameter("student-id");
         String student_password = request.getParameter("student-password");
 
-        UserDao userDao = new UserDao();
-        LoginInfoBeans loginInfoBeans = userDao.getLoginInfo(student_id, student_password);
+        UserDao user_dao = new UserDao();
+        LoginInfoBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
 
         HttpSession session = request.getSession();
-        if (loginInfoBeans != null) {
-            session.setAttribute("login-info", loginInfoBeans);
+        if (login_info_beans != null) {
+            session.setAttribute("login-info", login_info_beans);
             response.sendRedirect("menu");
 
         } else {
-            session.setAttribute("error-message", "学籍番号またはパスワードが間違っています");
+            session.setAttribute("error-message", "Student ID or password is incorrect");
             response.sendRedirect("login");
         }
     }

@@ -27,10 +27,10 @@ public class DiaryInsertServlet extends HttpServlet {
         System.out.println("DiaryInsertServlet"); //test
 
         HttpSession session = request.getSession();
-        DiaryBeans diaryBeans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
-        DiaryDao diaryDao = new DiaryDao();
-        boolean is_success = diaryDao.insertDiaryToDb(diaryBeans);
+        DiaryDao diary_dao = new DiaryDao();
+        boolean is_success = diary_dao.insertDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");
 

@@ -28,10 +28,10 @@ public class DiaryDeleteServlet extends HttpServlet {
         System.out.println("DiaryDeleteServlet"); //test
 
         HttpSession session = request.getSession();
-        DiaryBeans diaryBeans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
-        DiaryDao diaryDao = new DiaryDao();
-        diaryDao.deleteDiaryFromDb(diaryBeans);
+        DiaryDao diary_dao = new DiaryDao();
+        diary_dao.deleteDiaryFromDb(diary_beans);
 
         session.removeAttribute("diary-beans");
         response.sendRedirect("diarydeletecomplete");

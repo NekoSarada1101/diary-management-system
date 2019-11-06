@@ -31,10 +31,28 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-        DiaryDao diaryDao = new DiaryDao();
-        List<DiaryBeans> diaryList = diaryDao.fetchDiaryListFromDb(student_id);
+        DiaryDao diary_dao = new DiaryDao();
+        List<DiaryBeans> diary_list = diary_dao.fetchDiaryListFromDb(student_id);
 
-        session.setAttribute("diary-list", diaryList);
+        session.setAttribute("diary-list", diary_list);
+        request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        System.out.println("DiaryManipulationSelectServlet"); //text
+
+        String sort_column = request.getParameter("sort-column");
+        String sort_order = request.getParameter("sort-order");
+
+        HttpSession session = request.getSession();
+        String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+
+        DiaryDao diary_dao = new DiaryDao();
+        List<DiaryBeans> sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
+
+        session.setAttribute("diary-list", sorted_diary_list);
         request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
     }
 }

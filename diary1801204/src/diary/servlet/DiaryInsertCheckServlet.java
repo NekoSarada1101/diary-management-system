@@ -40,15 +40,15 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         String class_code = ((LoginInfoBeans) session.getAttribute("login-info")).getClass_code();
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-        DiaryBeans diaryBeans = new DiaryBeans();
-        diaryBeans.setClass_code(class_code);
-        diaryBeans.setInsert_date(today);
-        diaryBeans.setStudent_id(student_id);
-        diaryBeans.setGood_point(good_point);
-        diaryBeans.setBad_point(bad_point);
-        diaryBeans.setStudent_comment(student_comment);
+        DiaryBeans diary_beans = new DiaryBeans();
+        diary_beans.setClass_code(class_code);
+        diary_beans.setInsert_date(today);
+        diary_beans.setStudent_id(student_id);
+        diary_beans.setGood_point(good_point);
+        diary_beans.setBad_point(bad_point);
+        diary_beans.setStudent_comment(student_comment);
 
-        session.setAttribute("diary-beans", diaryBeans);
+        session.setAttribute("diary-beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertCheck.jsp").forward(request, response);
     }
 }

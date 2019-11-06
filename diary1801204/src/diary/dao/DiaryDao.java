@@ -27,9 +27,9 @@ public class DiaryDao extends DaoBase {
         System.out.println("DiaryDao : fetchDiaryListFromDb");
         System.out.println("param : student_id = " + student_id);
 
-        DiaryBeans diaryBeans  = null;
+        DiaryBeans diary_beans = null;
         PreparedStatement stmt = null;
-        ResultSet rs           = null;
+        ResultSet rs = null;
 
         List<DiaryBeans> list = null;
 
@@ -42,15 +42,15 @@ public class DiaryDao extends DaoBase {
             list = new ArrayList<>();
 
             while (rs.next()) {
-                diaryBeans = new DiaryBeans();
-                diaryBeans.setClass_code     (rs.getString("class_code"));
-                diaryBeans.setInsert_date    (rs.getString("insert_date"));
-                diaryBeans.setStudent_id     (rs.getString("student_id"));
-                diaryBeans.setGood_point     (rs.getString("good_point"));
-                diaryBeans.setBad_point      (rs.getString("bad_point"));
-                diaryBeans.setStudent_comment(rs.getString("student_comment"));
-                diaryBeans.setTeacher_comment(rs.getString("teacher_comment"));
-                list.add(diaryBeans);
+                diary_beans = new DiaryBeans();
+                diary_beans.setClass_code(rs.getString("class_code"));
+                diary_beans.setInsert_date(rs.getString("insert_date"));
+                diary_beans.setStudent_id(rs.getString("student_id"));
+                diary_beans.setGood_point(rs.getString("good_point"));
+                diary_beans.setBad_point(rs.getString("bad_point"));
+                diary_beans.setStudent_comment(rs.getString("student_comment"));
+                diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
+                list.add(diary_beans);
             }
 
         } catch (SQLException e) {
@@ -70,31 +70,31 @@ public class DiaryDao extends DaoBase {
     /**
      * データベースに学生が入力した日誌の情報を登録(INSERT)する
      *
-     * @param diaryBeans データベースに登録する日誌の情報
+     * @param diary_beans データベースに登録する日誌の情報
      * @return 日誌の登録に成功したらtrue
      */
-    public boolean insertDiaryToDb(DiaryBeans diaryBeans) {
+    public boolean insertDiaryToDb(DiaryBeans diary_beans) {
         //test
         System.out.println("DiaryDao : insertDiaryToDb");
-        System.out.println("param : diaryBeans = " + diaryBeans);
-        System.out.println("                   : class_code = " + diaryBeans.getClass_code());
-        System.out.println("                   : insert_date = " + diaryBeans.getInsert_date());
-        System.out.println("                   : student_id = " + diaryBeans.getStudent_id());
-        System.out.println("                   : good_point = " + diaryBeans.getGood_point());
-        System.out.println("                   : bad_point = " + diaryBeans.getBad_point());
-        System.out.println("                   : studen_comment = " + diaryBeans.getStudent_comment());
+        System.out.println("param : diaryBeans = " + diary_beans);
+        System.out.println("                   : class_code = " + diary_beans.getClass_code());
+        System.out.println("                   : insert_date = " + diary_beans.getInsert_date());
+        System.out.println("                   : student_id = " + diary_beans.getStudent_id());
+        System.out.println("                   : good_point = " + diary_beans.getGood_point());
+        System.out.println("                   : bad_point = " + diary_beans.getBad_point());
+        System.out.println("                   : studen_comment = " + diary_beans.getStudent_comment());
 
         PreparedStatement stmt = null;
 
         try {
             this.dbConnect();
             stmt = con.prepareStatement("INSERT INTO diary (class_code, insert_date, student_id, good_point, bad_point, student_comment) VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setString(1, diaryBeans.getClass_code());
-            stmt.setString(2, diaryBeans.getInsert_date());
-            stmt.setString(3, diaryBeans.getStudent_id());
-            stmt.setString(4, diaryBeans.getGood_point());
-            stmt.setString(5, diaryBeans.getBad_point());
-            stmt.setString(6, diaryBeans.getStudent_comment());
+            stmt.setString(1, diary_beans.getClass_code());
+            stmt.setString(2, diary_beans.getInsert_date());
+            stmt.setString(3, diary_beans.getStudent_id());
+            stmt.setString(4, diary_beans.getGood_point());
+            stmt.setString(5, diary_beans.getBad_point());
+            stmt.setString(6, diary_beans.getStudent_comment());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -116,22 +116,22 @@ public class DiaryDao extends DaoBase {
     /**
      * データベースから学生が指定した日誌の情報を削除(DELETE)する
      *
-     * @param diaryBeans データベースから削除する日誌の情報
+     * @param diary_beans データベースから削除する日誌の情報
      */
-    public void deleteDiaryFromDb(DiaryBeans diaryBeans) {
+    public void deleteDiaryFromDb(DiaryBeans diary_beans) {
         //test
         System.out.println("DiaryDao : deleteDiaryFromDb");
-        System.out.println("param : diaryBeans = " + diaryBeans);
-        System.out.println("                   : class_code = " + diaryBeans.getClass_code());
-        System.out.println("                   : insert_date = " + diaryBeans.getInsert_date());
+        System.out.println("param : diaryBeans = " + diary_beans);
+        System.out.println("                   : class_code = " + diary_beans.getClass_code());
+        System.out.println("                   : insert_date = " + diary_beans.getInsert_date());
 
         PreparedStatement stmt = null;
 
         try {
             this.dbConnect();
             stmt = con.prepareStatement("DELETE FROM diary WHERE class_code = ? AND insert_date = ?");
-            stmt.setString(1, diaryBeans.getClass_code());
-            stmt.setString(2, diaryBeans.getInsert_date());
+            stmt.setString(1, diary_beans.getClass_code());
+            stmt.setString(2, diary_beans.getInsert_date());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -149,29 +149,29 @@ public class DiaryDao extends DaoBase {
     /**
      * データベースの情報を学生が入力した情報に更新(UPDATE)する
      *
-     * @param diaryBeans 更新する日誌の情報
+     * @param diary_beans 更新する日誌の情報
      */
-    public void updateDiaryToDb(DiaryBeans diaryBeans) {
+    public void updateDiaryToDb(DiaryBeans diary_beans) {
         //test
         System.out.println("DiaryDao : updateDiaryToDb");
-        System.out.println("param : diaryBeans = " + diaryBeans);
-        System.out.println("                   : class_code = " + diaryBeans.getClass_code());
-        System.out.println("                   : insert_date = " + diaryBeans.getInsert_date());
-        System.out.println("                   : student_id = " + diaryBeans.getStudent_id());
-        System.out.println("                   : good_point = " + diaryBeans.getGood_point());
-        System.out.println("                   : bad_point = " + diaryBeans.getBad_point());
-        System.out.println("                   : student_comment = " + diaryBeans.getStudent_comment());
+        System.out.println("param : diaryBeans = " + diary_beans);
+        System.out.println("                   : class_code = " + diary_beans.getClass_code());
+        System.out.println("                   : insert_date = " + diary_beans.getInsert_date());
+        System.out.println("                   : student_id = " + diary_beans.getStudent_id());
+        System.out.println("                   : good_point = " + diary_beans.getGood_point());
+        System.out.println("                   : bad_point = " + diary_beans.getBad_point());
+        System.out.println("                   : student_comment = " + diary_beans.getStudent_comment());
 
         PreparedStatement stmt = null;
 
         try {
             this.dbConnect();
             stmt = con.prepareStatement("UPDATE diary SET good_point = ?, bad_point = ?, student_comment = ? WHERE class_code = ? AND insert_date = ?");
-            stmt.setString(1, diaryBeans.getGood_point());
-            stmt.setString(2, diaryBeans.getBad_point());
-            stmt.setString(3, diaryBeans.getStudent_comment());
-            stmt.setString(4, diaryBeans.getClass_code());
-            stmt.setString(5, diaryBeans.getInsert_date());
+            stmt.setString(1, diary_beans.getGood_point());
+            stmt.setString(2, diary_beans.getBad_point());
+            stmt.setString(3, diary_beans.getStudent_comment());
+            stmt.setString(4, diary_beans.getClass_code());
+            stmt.setString(5, diary_beans.getInsert_date());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -184,5 +184,52 @@ public class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<DiaryBeans> fetchSortedDiaryListFromDb(String student_id, String sort_column, String sort_order) {
+        //test
+        System.out.println("DiaryDao : fetchSortedDiaryListFromDb");
+        System.out.println("param : student_id = " + student_id);
+        System.out.println("param : sort_column = " + sort_column);
+        System.out.println("param : sort_order = " + sort_order);
+
+        DiaryBeans diary_beans = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<DiaryBeans> list = null;
+
+        try {
+            this.dbConnect();
+            stmt = con.prepareStatement("SELECT * FROM diary WHERE student_id = ? ORDER BY ? ?");
+            stmt.setString(1, student_id);
+            stmt.setString(2, sort_column);
+            stmt.setString(3, sort_order);
+            rs = stmt.executeQuery();
+
+            list = new ArrayList<>();
+
+            while (rs.next()) {
+                diary_beans = new DiaryBeans();
+                diary_beans.setClass_code(rs.getString("class_code"));
+                diary_beans.setInsert_date(rs.getString("insert_date"));
+                diary_beans.setStudent_id(rs.getString("student_id"));
+                diary_beans.setGood_point(rs.getString("good_point"));
+                diary_beans.setBad_point(rs.getString("bad_point"));
+                diary_beans.setStudent_comment(rs.getString("student_comment"));
+                diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
+                list.add(diary_beans);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                this.dbClose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("return : list = " + list); //test
+        return list;
     }
 }

@@ -25,7 +25,7 @@ public class UserDao extends DaoBase {
         System.out.println("param : student_id = " + student_id);
         System.out.println("param : password = " + password);
 
-        LoginInfoBeans loginInfo = null;
+        LoginInfoBeans login_info = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -38,10 +38,10 @@ public class UserDao extends DaoBase {
             rs = stmt.executeQuery();
             rs.next();
 
-            loginInfo = new LoginInfoBeans();
-            loginInfo.setStudent_id  (rs.getString("student_id"));
-            loginInfo.setClass_code  (rs.getString("class_code"));
-            loginInfo.setStudent_name(rs.getString("student_name"));
+            login_info = new LoginInfoBeans();
+            login_info.setStudent_id  (rs.getString("student_id"));
+            login_info.setClass_code  (rs.getString("class_code"));
+            login_info.setStudent_name(rs.getString("student_name"));
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,10 +56,10 @@ public class UserDao extends DaoBase {
             }
         }
         //test
-        System.out.println("return : loginInfo = " + loginInfo);
-        System.out.println("                   : student_id = " + loginInfo.getStudent_id());
-        System.out.println("                   : class_code = " + loginInfo.getClass_code());
-        System.out.println("                   : student_name = " + loginInfo.getStudent_name());
-        return loginInfo;
+        System.out.println("return : loginInfo = " + login_info);
+        System.out.println("                   : student_id = " + login_info.getStudent_id());
+        System.out.println("                   : class_code = " + login_info.getClass_code());
+        System.out.println("                   : student_name = " + login_info.getStudent_name());
+        return login_info;
     }
 }

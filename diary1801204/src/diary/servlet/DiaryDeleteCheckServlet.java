@@ -29,16 +29,16 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
         System.out.println("DiaryDeleteCheckServlet"); //test
 
         HttpSession session = request.getSession();
-        List<DiaryBeans> diaryList = (List<DiaryBeans>) session.getAttribute("diary-list");
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
         String position_in_diaryList = request.getParameter("select-diary");
 
         if (position_in_diaryList.equals("")) {
-            session.setAttribute("error-message", "修正または削除する日誌を選択してください");
+            session.setAttribute("error-message", "Please select a diary to correct or delete");
             response.sendRedirect("select");
 
         } else {
-            session.setAttribute("diary-beans", diaryList.get(Integer.parseInt(position_in_diaryList)));
+            session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
             request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);
         }
     }
