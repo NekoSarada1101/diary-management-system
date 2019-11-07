@@ -18,26 +18,40 @@
 
     <%--Original--%>
 </head>
-<body class="container pt-3 pb-3">
-<div class="row">
-    <img src="img/cup.png" alt="カップ" class="col-3 align-top h-50 p-0">
+<body class="p-0">
+<header>
+    <div class="image position-absolute"></div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong class="text-white">DiaryManagementSystem</strong></a>
+    </nav>
+</header>
 
-    <div class="col-8 vh-100">
-        <div class="col-8 border border-dark bg-white pt-3 pr-lg-5 pl-lg-5 pr-md-3 pl-md-3 pr-1 pl-1 form">
-            <h1 class="text-center border-bottom border-dark">Login</h1>
+<div class="container-fluid vh-100">
+    <div class="col-12 col-md-9 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1 main">
+        <h1 class="text-center border-bottom border-dark">学生ログイン</h1>
 
-            <form action="auth" method="post" class="mt-5">
-                Student ID
-                <input type="text" name="student-id" class="form-control mb-5" required>
+        <form action="auth" method="post" class="mt-5 col-lg-6 col-md-9 col-12 mr-auto ml-auto">
+            <!-- Material input -->
+            <div class="md-form">
+                <i class="fas fa-user prefix"></i>
+                <input type="text" id="inputIconEx1" class="form-control" required>
+                <label for="inputIconEx1">学籍番号</label>
+            </div>
 
-                Password
-                <input type="password" name="student-password" class="form-control mb-5" required>
+            <!-- Material input -->
+            <div class="md-form mt-5">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="inputIconEx2" class="form-control" required>
+                <label for="inputIconEx2">パスワード</label>
+            </div>
 
-                <p class="text-center text-danger"><%=error_message%></p>
+            <p class="text-center text-danger"><%=error_message%>
+            </p>
 
-                <div class="text-center mt-5"><input type="submit" value="Login" class="btn btn-info btn-lg"></div>
-            </form>
-        </div>
+            <div class="text-center mt-5">
+                <button type="submit" class="btn btn-primary">ログイン</button>
+            </div>
+        </form>
     </div>
 </div>
 

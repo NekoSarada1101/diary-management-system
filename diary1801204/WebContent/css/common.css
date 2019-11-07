@@ -1,0 +1,19 @@
+.image {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../img/book.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+}
