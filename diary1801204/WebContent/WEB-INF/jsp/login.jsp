@@ -21,27 +21,27 @@
 <body class="p-0">
 <header>
     <div class="image position-absolute"></div>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar z-depth-1">
         <a class="navbar-brand" href="#"><strong class="text-white">DiaryManagementSystem</strong></a>
     </nav>
 </header>
 
 <div class="container-fluid vh-100">
-    <div class="col-12 col-md-9 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1 main">
+    <div class="col-12 col-md-9 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">学生ログイン</h1>
 
         <form action="auth" method="post" class="mt-5 col-lg-6 col-md-9 col-12 mr-auto ml-auto">
             <!-- Material input -->
             <div class="md-form">
                 <i class="fas fa-user prefix"></i>
-                <input type="text" id="inputIconEx1" class="form-control" required>
+                <input type="text" id="inputIconEx1" class="form-control" name="student-id" required>
                 <label for="inputIconEx1">学籍番号</label>
             </div>
 
             <!-- Material input -->
             <div class="md-form mt-5">
                 <i class="fas fa-lock prefix"></i>
-                <input type="password" id="inputIconEx2" class="form-control" required>
+                <input type="password" id="inputIconEx2" class="form-control" name="student-password" required>
                 <label for="inputIconEx2">パスワード</label>
             </div>
 

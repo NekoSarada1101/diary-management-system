@@ -9,26 +9,24 @@
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
+    <link rel="stylesheet" href="css/menu.css">
 </head>
-<body class="container pt-3 pb-3">
-<div class="row">
-    <div class="h-25 col-3">
-        <a href="menu"><img src="img/cup.png" alt="カップ" class="h-50 p-0"></a>
-    </div>
+<body class="p-0">
+<%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-    <div class="col-8 vh-100">
-        <div class="col-8 border border-dark bg-white pt-3 pr-lg-5 pl-lg-5 pr-md-3 pl-md-3 pr-1 pl-1 form">
-            <h1 class="text-center border-bottom border-dark">Menu</h1>
+<div class="container-fluid vh-100">
+    <div class="col-12 col-md-9 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
+        <h1 class="text-center border-bottom border-dark">メニュー</h1>
 
-            <form action="select" method="get">
-                <div class="text-center mt-5"><input type="submit" value="Register・Correct・Delete"
-                                                     class="btn btn-info btn-lg"></div>
+        <div class="row mt-5">
+            <form action="select" method="get" class="col-6 p-0 ml-auto mr-1">
+                <button type="submit" class="image1 w-100"><div class="link text-white">登録・修正・削除</div></button>
             </form>
 
-            <form action="list" method="get">
-                <div class="text-center mt-5"><input type="submit" value="Diary Browsing"
-                                                     class="btn btn-success btn-lg"></div>
+            <form action="select" method="get" class="col-5 p-0 mr-auto">
+                <button type="submit" class="image2 w-100"><div class="link text-white">日誌閲覧</div></button>
             </form>
+
         </div>
     </div>
 </div>

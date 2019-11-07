@@ -1,0 +1,16 @@
+.image1 {
+  background-image: url("../img/write.jpg");
+  height: 300px;
+  background-size: cover;
+}
+
+.image2 {
+  background-image: url("../img/read.jpg");
+  height: 300px;
+  background-size: cover;
+}
+
+.link{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
