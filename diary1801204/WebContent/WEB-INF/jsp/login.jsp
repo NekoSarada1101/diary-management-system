@@ -27,10 +27,10 @@
 </header>
 
 <div class="container-fluid vh-100">
-    <div class="col-12 col-md-9 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">学生ログイン</h1>
 
-        <form action="auth" method="post" class="mt-5 col-lg-6 col-md-9 col-12 mr-auto ml-auto">
+        <form action="auth" method="post" class="mt-5 col-lg-6 col-md-8 col-sm-10 col-12 mr-auto ml-auto">
             <!-- Material input -->
             <div class="md-form">
                 <i class="fas fa-user prefix"></i>
