@@ -186,12 +186,13 @@ public class DiaryDao extends DaoBase {
         }
     }
 
-    public List<DiaryBeans> fetchSortedDiaryListFromDb(String student_id, String sort_column, String sort_order) {
+    public List<DiaryBeans> fetchSortedDiaryListFromDb(String student_id, String sort_column, String sort_order, String from_servlet_name) {
         //test
         System.out.println("DiaryDao : fetchSortedDiaryListFromDb");
         System.out.println("param : student_id = " + student_id);
         System.out.println("param : sort_column = " + sort_column);
         System.out.println("param : sort_order = " + sort_order);
+        System.out.println("param : from_servlet_name = " + from_servlet_name);
 
         DiaryBeans diary_beans = null;
         PreparedStatement stmt = null;
@@ -201,10 +202,12 @@ public class DiaryDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement("SELECT * FROM diary WHERE student_id = ? ORDER BY ? ?");
+            String sql = "SELECT * FROM diary WHERE student_id = ? ORDER BY";
+
+            String edited_sql = editSqlSentence(sql, sort_column, sort_order, from_servlet_name);
+
+            stmt = con.prepareStatement(edited_sql);
             stmt.setString(1, student_id);
-            stmt.setString(2, sort_column);
-            stmt.setString(3, sort_order);
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -231,5 +234,22 @@ public class DiaryDao extends DaoBase {
         }
         System.out.println("return : list = " + list); //test
         return list;
+    }
+
+    public String editSqlSentence(String sql, String sort_column, String sort_order, String from_servlet_name) {
+        boolean is_sort_allowed_column;
+
+        //fetchSortedDiaryListFromDbメソッドを呼び出したServletクラスごとにソートが許可されたカラムかを判定する
+        if (from_servlet_name.equals("DiaryManipulationSelectServlet")) {
+            is_sort_allowed_column = (sort_column.equals("insert_date") || sort_column.equals("good_point") || sort_column.equals("bad_point") || sort_column.equals("student_comment"));
+        } else {
+            is_sort_allowed_column = false;
+        }
+
+        if (is_sort_allowed_column) {
+            sql += " " + sort_column + " " + sort_order;
+        }
+
+        return sql;
     }
 }

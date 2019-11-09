@@ -50,7 +50,8 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
         DiaryDao diary_dao = new DiaryDao();
-        List<DiaryBeans> sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
+        String from_servlet_name = "DiaryManipulationSelectServlet";
+        List<DiaryBeans> sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order, from_servlet_name);
 
         session.setAttribute("diary-list", sorted_diary_list);
         request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);

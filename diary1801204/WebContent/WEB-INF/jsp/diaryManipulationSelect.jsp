@@ -19,98 +19,82 @@
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
+    <link rel="stylesheet" href="css/diaryManipulationSelect.css">
 </head>
-<body class="container pt-3 pb-3">
-<div class="row">
-    <img src="img/cup.png" alt="カップ" class="col-3 align-top h-50 p-0">
+<body class="p-0">
+<%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-    <div class="col-8 vh-100">
-        <div class="col-8 border border-dark bg-white pt-3 pr-lg-5 pl-lg-5 pr-md-3 pl-md-3 pr-1 pl-1 form">
-            <h1 class="text-center border-bottom border-dark">Register・Correct・Delete</h1>
+<div class="container-fluid vh-100">
+    <div class="col-12 col-md-10 ml-auto mr-auto p-5 bg-white z-depth-1">
+        <h1 class="text-center border-bottom border-dark">登録・修正・削除選択</h1>
 
-            <p class="text-center text-danger"><%=error_message%>
-            </p>
+        <p class="text-center text-danger"><%=error_message%>
+        </p>
+        <form action="diaryinsertinput" method="post" class="text-right register">
+            <input type="submit" value="新規登録" class="btn btn-info btn-lg btn-block">
+        </form>
 
-            <form action="select" method="post">
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="sort-column">
-                        <option value="insert_date">Insert date</option>
-                    </select>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
 
-                    <select class="custom-select" name="sort-order">
-                        <option value="ASC">Ascending order</option>
-                        <option value="DESC">Descending order</option>
-                    </select>
-                    <input type="submit" value="Sort" class="btn btn-primary">
-                </div>
-            </form>
+            <table class="table table-hover border-top mr-auto ml-auto mb-0">
+                <thead>
+                <tr class="row">
+                    <th class="col-3" scope="col">日付</th>
+                    <th class="col-2" scope="col">良い点</th>
+                    <th class="col-2" scope="col">悪い点</th>
+                    <th class="col-3" scope="col">コメント</th>
+                    <th class="col-2" scope="col">操作</th>
+                </tr>
 
-            <table class="table table-hover mr-auto ml-auto col-10 col-md-11 p-0">
                 <tbody>
                 <% for (int i = 0; i < diary_list.size(); i++) { %>
-                <tr class="row table-light border-top">
-                    <th class="col-1" scope="row">
-                        <input type="radio" name="select-diary" value="<%=i%>" onclick="selectDiary(<%=i%>)">
+                <tr class="row">
+                    <th class="col-3" scope="row"><%=diary_list.get(i).getInsert_date()%>
                     </th>
-                    <th class="col-10"><%=diary_list.get(i).getInsert_date()%>
-                    </th>
-                </tr>
-
-                <tr class="row table-light">
-                    <th class="col-4">Good point</th>
-                    <td class="col-8"><%=diary_list.get(i).getGood_point()%>
+                    <td class="col-2"><%=diary_list.get(i).getGood_point()%>
                     </td>
-                </tr>
-
-                <tr class="row table-light">
-                    <th class="col-4">Bad point</th>
-                    <td class="col-8"><%=diary_list.get(i).getBad_point()%>
+                    <td class="col-2"><%=diary_list.get(i).getBad_point()%>
                     </td>
-                </tr>
-
-                <tr class="row table-light">
-                    <th class="col-4" scope="row">Comment</th>
-                    <td class="col-8"><%=diary_list.get(i).getStudent_comment()%>
+                    <td class="col-3"><%=diary_list.get(i).getStudent_comment()%>
+                    </td>
+                    <td class="col-2">
+                        <form action="diaryupdateinput" method="post" class="text-center">
+                            <input type="hidden" name="select-diary" id="update" value="<%=i%>">
+                            <input type="submit" value="修正" class="btn btn-danger p-0">
+                        </form>
+                        <form action="diarydeletecheck" method="post" class="text-center">
+                            <input type="hidden" name="select-diary" id="delete" value="<%=i%>">
+                            <input type="submit" value="削除" class="btn btn-warning p-0">
+                        </form>
                     </td>
                 </tr>
                 <% } %>
                 </tbody>
             </table>
-
-            <div class="row">
-                <form action="diaryinsertinput" method="post" class="col-3">
-                    <div class="text-center mt-5"><input type="submit" value="Register" class="btn btn-info btn-lg">
-                    </div>
-                </form>
-
-                <form action="diaryupdateinput" method="post" class="col-3">
-                    <input type="hidden" name="select-diary" id="update" value="">
-                    <div class="text-center mt-5"><input type="submit" value="Correct" class="btn btn-warning btn-lg">
-                    </div>
-                </form>
-
-                <form action="diarydeletecheck" method="post" class="col-3">
-                    <input type="hidden" name="select-diary" id="delete" value="">
-                    <div class="text-center mt-5"><input type="submit" value="Delete" class="btn btn-danger btn-lg">
-                    </div>
-                </form>
-
-                <form action="menu" method="get" class="col-3">
-                    <div class="text-right mt-n5"><input type="submit" value="Back"
-                                                         class="btn btn-outline-primary btn-lg">
-                    </div>
-                </form>
-            </div>
         </div>
+
+        <form action="select" method="post">
+            <div class="input-group mb-3">
+                <select class="custom-select mt-2" name="sort-column">
+                    <option value="insert_date">日付</option>
+                    <option value="good_point">良い点</option>
+                    <option value="bad_point">悪い点</option>
+                    <option value="student_comment">コメント</option>
+                </select>
+
+                <select class="custom-select mt-2" name="sort-order">
+                    <option value="ASC">昇順</option>
+                    <option value="DESC">降順</option>
+                </select>
+                <input type="submit" value="ソート" class="btn btn-primary">
+            </div>
+        </form>
+
+        <form action="menu" method="get" class="text-right">
+            <input type="submit" value="戻る" class="btn btn-outline-dark">
+        </form>
     </div>
 </div>
-
-<script>
-    function selectDiary(position) {
-        document.getElementById("update").value = position;
-        document.getElementById("delete").value = position;
-    }
-</script>
 
 <%@include file="/WEB-INF/jsp/script.jsp" %>
 
