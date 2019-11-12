@@ -28,9 +28,13 @@ public class DiaryInsertCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiaryInsertCheckServlet"); //test
 
-        String good_point      = request.getParameter("good-point");
-        String bad_point       = request.getParameter("bad-point");
+        String good_point = request.getParameter("good-point");
+        String bad_point = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
+
+        if (good_point.equals("")) good_point = null;
+        if (bad_point.equals("")) bad_point = null;
+        if (student_comment.equals("")) student_comment = null;
 
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

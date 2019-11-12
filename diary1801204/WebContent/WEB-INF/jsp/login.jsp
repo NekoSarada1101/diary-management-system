@@ -21,13 +21,13 @@
 <body class="p-0">
 <header>
     <div class="image position-absolute"></div>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar z-depth-1">
+    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar z-depth-1">
         <a class="navbar-brand" href="#"><strong class="text-white">DiaryManagementSystem</strong></a>
     </nav>
 </header>
 
 <div class="container-fluid vh-100">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">学生ログイン</h1>
 
         <form action="auth" method="post" class="mt-5 col-lg-6 col-md-8 col-sm-10 col-12 mr-auto ml-auto">

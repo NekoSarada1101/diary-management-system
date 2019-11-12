@@ -15,7 +15,7 @@
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
 <div class="container-fluid vh-100">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto p-5 bg-white z-depth-1">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">メニュー</h1>
 
         <div class="row mt-5">
