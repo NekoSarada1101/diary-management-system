@@ -8,42 +8,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>日誌登録確認</title>
+    <title>日誌登録確認画面</title>
     <%--Flat UI--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
+    <link rel="stylesheet" href="css/diaryInsertCheck.css">
 </head>
-<body>
-<h3>日誌登録確認</h3>
-<table>
-    <thead>
-    <tr>
-        <th>良い点</th>
-        <th>悪い点</th>
-        <th>コメント</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><%=diary_beans.getGood_point()%>
-        </td>
-        <td><%=diary_beans.getBad_point()%>
-        </td>
-        <td><%=diary_beans.getStudent_comment()%>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<body class="p-0">
+<%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<form action="diaryinsert" method="get">
-    <input type="submit" value="登録する">
-</form>
+<div class="container-fluid vh-100">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
+        <h1 class="text-center border-bottom border-dark">日誌確認</h1>
 
-<form action="diaryinsertinput" method="post">
-    <input type="submit" value="戻る">
-</form>
+        <table class="table mr-auto ml-auto mb-0 col-12 mt-3">
+            <tr class="row">
+                <th class="col-4 border-right">日付</th>
+                <td class="col-8"><%=diary_beans.getInsert_date()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">良い点</th>
+                <td class="col-8"><%=diary_beans.getGood_point()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">悪い点</th>
+                <td class="col-8"><%=diary_beans.getBad_point()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">コメント</th>
+                <td class="col-8"><%=diary_beans.getStudent_comment()%>
+            </tr>
+        </table>
 
-<%@include file="/WEB-INF/jsp/script.jsp" %>
+        <form action="diaryinsert" method="get">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">登録する</button>
+            </div>
+        </form>
+
+        <form action="select" method="get" class="text-right back">
+            <button type="submit" class="btn btn-outline-dark">戻る</button>
+        </form>
+
+        <%@include file="/WEB-INF/jsp/script.jsp" %>
 </body>
 </html>

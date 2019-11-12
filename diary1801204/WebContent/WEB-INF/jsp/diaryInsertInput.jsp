@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>登録・修正・削除・選択画面</title>
+    <title>日誌登録入力画面</title>
     <%--Flat UI--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
@@ -41,7 +41,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-info btn-lg">登録する</button>
+                <button type="submit" class="btn btn-primary btn-lg">登録する</button>
             </div>
         </form>
 
