@@ -8,43 +8,52 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>日誌削除確認</title>
+    <title>日誌削除確認画面</title>
     <%--Flat UI--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
+    <link rel="stylesheet" href="css/diaryDelete.css">
 </head>
-<body>
-<h3>日誌削除確認</h3>
-<table>
-    <thead>
-    <tr>
-        <th>良い点</th>
-        <th>悪い点</th>
-        <th>コメント</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><%=diary_beans.getGood_point()%>
-        </td>
-        <td><%=diary_beans.getBad_point()%>
-        </td>
-        <td><%=diary_beans.getStudent_comment()%>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<body class="p-0">
+<%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<form action="diarydelete" method="get">
-    <input type="submit" value="削除する">
-</form>
+<div class="container-fluid vh-100">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
+        <h1 class="text-center border-bottom border-dark">日誌削除確認</h1>
 
-<form action="select" method="get">
-    <input type="submit" value="戻る">
-</form>
+        <table class="table mr-auto ml-auto mb-0 col-12 mt-5">
+            <tr class="row">
+                <th class="col-4 border-right">日付</th>
+                <td class="col-8"><%=diary_beans.getInsert_date()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">良い点</th>
+                <td class="col-8"><%=diary_beans.getGood_point()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">悪い点</th>
+                <td class="col-8"><%=diary_beans.getBad_point()%>
+            </tr>
+            <tr class="row">
+                <th class="col-4 border-right">コメント</th>
+                <td class="col-8"><%=diary_beans.getStudent_comment()%>
+            </tr>
+        </table>
 
+        <form action="diarydelete" method="get">
+            <div class="text-center mt-5">
+                <button type="submit" class="btn btn-primary btn-lg">削除する</button>
+            </div>
+        </form>
+
+        <form action="select" method="get" class="text-right back">
+            <button type="submit" class="btn btn-outline-dark">戻る</button>
+        </form>
+    </div>
+</div>
 
 <%@include file="/WEB-INF/jsp/script.jsp" %>
+
 </body>
 </html>

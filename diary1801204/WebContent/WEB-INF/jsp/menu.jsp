@@ -23,7 +23,7 @@
                 <button type="submit" class="image1 w-100"><div class="link text-white">登録・修正・削除</div></button>
             </form>
 
-            <form action="select" method="get" class="col-5 p-0 mr-auto">
+            <form action="list" method="get" class="col-5 p-0 mr-auto">
                 <button type="submit" class="image2 w-100"><div class="link text-white">日誌閲覧</div></button>
             </form>
 

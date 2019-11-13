@@ -9,7 +9,7 @@
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryInsertInput.css">
+    <link rel="stylesheet" href="css/diaryInsert.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
