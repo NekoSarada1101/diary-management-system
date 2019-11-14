@@ -31,8 +31,8 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
-        diary_beans.setGood_point(good_point);
-        diary_beans.setBad_point(bad_point);
+        diary_beans.setGood_point     (good_point);
+        diary_beans.setBad_point      (bad_point);
         diary_beans.setStudent_comment(student_comment);
 
         session.setAttribute("diary-beans", diary_beans);

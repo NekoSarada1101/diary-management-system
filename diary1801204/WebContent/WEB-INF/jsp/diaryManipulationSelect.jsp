@@ -10,12 +10,13 @@
     }
     session.removeAttribute("error-message");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>登録・修正・削除・選択画面</title>
-    <%--Flat UI--%>
+    <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
@@ -28,9 +29,10 @@
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">登録・修正・削除選択</h1>
 
-        <p class="text-center text-danger"><%=error_message%>
-        </p>
-        <form action="diaryinsertinput" method="post" class="text-right">
+        <p class="text-center text-danger"><%=error_message%></p>
+
+        <%--日誌登録入力画面へ--%>
+        <form action="diaryinsertinput" method="get" class="text-right">
                 <button type="submit" class="btn btn-info btn-lg register">新規登録</button>
         </form>
 
@@ -49,19 +51,18 @@
                 <tbody>
                 <% for (int i = 0; i < diary_list.size(); i++) { %>
                 <tr class="row">
-                    <th class="col-2 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%>
-                    </th>
-                    <td class="col-2 border-right"><%=diary_list.get(i).getGood_point()%>
-                    </td>
-                    <td class="col-2 border-right"><%=diary_list.get(i).getBad_point()%>
-                    </td>
-                    <td class="col-3 border-right"><%=diary_list.get(i).getStudent_comment()%>
-                    </td>
+                    <th class="col-2 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%></th>
+                    <td class="col-2 border-right"><%=diary_list.get(i).getGood_point()%></td>
+                    <td class="col-2 border-right"><%=diary_list.get(i).getBad_point()%></td>
+                    <td class="col-3 border-right"><%=diary_list.get(i).getStudent_comment()%></td>
                     <td class="col-3">
+                        <%--日誌修正入力画面へ--%>
                         <form action="diaryupdateinput" method="post" class="text-center">
                             <input type="hidden" name="select-diary" id="update" value="<%=i%>">
                             <button type="submit" class="btn btn-warning">修正</button>
                         </form>
+
+                        <%--日誌削除確認画面へ--%>
                         <form action="diarydeletecheck" method="post" class=text-center>
                             <input type="hidden" name="select-diary" id="delete" value="<%=i%>">
                             <button type="submit" class="btn btn-danger">削除</button>
@@ -73,6 +74,7 @@
             </table>
         </div>
 
+        <%--検索機能--%>
         <form action="search" method="post">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
@@ -81,6 +83,7 @@
             </div>
         </form>
 
+        <%--ソート機能--%>
         <form action="sort" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select mt-2" name="sort-column">
@@ -99,6 +102,7 @@
             </div>
         </form>
 
+        <%--メニュー画面へ--%>
         <form action="menu" method="get" class="text-right">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>

@@ -39,7 +39,7 @@ public class AuthServlet extends HttpServlet {
             response.sendRedirect("menu");
 
         } else {
-            session.setAttribute("error-message", "Student ID or password is incorrect");
+            session.setAttribute("error-message", "学籍番号またはパスワードが間違っています");
             response.sendRedirect("login");
         }
     }

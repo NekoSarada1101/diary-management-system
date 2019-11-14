@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>日誌修正完了画面</title>
-    <%--Flat UI--%>
+    <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
@@ -19,6 +19,7 @@
         <h1 class="text-center border-bottom border-dark">日誌修正完了</h1>
         <p class="text-center mt-5">日誌を修正しました</p>
 
+        <%--メニュー画面へ--%>
         <form action="menu" method="get" class="text-center mt-5">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>

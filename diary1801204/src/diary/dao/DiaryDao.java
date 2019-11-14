@@ -30,7 +30,6 @@ public class DiaryDao extends DaoBase {
         DiaryBeans diary_beans = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
         List<DiaryBeans> list = null;
 
         try {
@@ -64,6 +63,7 @@ public class DiaryDao extends DaoBase {
             }
         }
         System.out.println("return : list = " + list); //test
+
         return list;
     }
 
@@ -100,6 +100,7 @@ public class DiaryDao extends DaoBase {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("return : is_success = false"); //test
+
             return /* is_success = */ false;
 
         } finally {
@@ -110,6 +111,7 @@ public class DiaryDao extends DaoBase {
             }
         }
         System.out.println("return : is_success = true"); //test
+
         return /* is_success = */ true;
     }
 
@@ -186,13 +188,22 @@ public class DiaryDao extends DaoBase {
         }
     }
 
-    public List<DiaryBeans> fetchSortedDiaryListFromDb(String student_id, String sort_column, String sort_order, String from_servlet_name) {
+    /**
+     * 指定されたカラムを指定された順番にソートした日誌の情報をすべて取得(SELECT)してリストにして返す
+     *
+     * @param condition SQL文のWERHE句に指定する条件
+     * @param sort_column ソート対象のカラム名
+     * @param sort_order ソートの順番
+     * @param from_jsp_name このメソッドの呼び出し元の画面名
+     * @return 取得した日誌の情報を格納したリスト
+     */
+    public List<DiaryBeans> fetchSortedDiaryListFromDb(String condition, String sort_column, String sort_order, String from_jsp_name) {
         //test
         System.out.println("DiaryDao : fetchSortedDiaryListFromDb");
-        System.out.println("param : student_id = "        + student_id);
+        System.out.println("param : student_id = "        + condition);
         System.out.println("param : sort_column = "       + sort_column);
         System.out.println("param : sort_order = "        + sort_order);
-        System.out.println("param : from_servlet_name = " + from_servlet_name);
+        System.out.println("param : from_servlet_name = " + from_jsp_name);
 
         DiaryBeans diary_beans = null;
         PreparedStatement stmt = null;
@@ -202,12 +213,15 @@ public class DiaryDao extends DaoBase {
 
         try {
             this.dbConnect();
-            String sql = "SELECT * FROM diary WHERE student_id = ? ORDER BY";
-
-            String edited_sql = editSortSqlSentence(sql, sort_column, sort_order, from_servlet_name);
+            String sql = "SELECT * FROM diary";
+            String edited_sql = editSortSqlSentence(sql, sort_column, sort_order, from_jsp_name);
 
             stmt = con.prepareStatement(edited_sql);
-            stmt.setString(1, student_id);
+
+            if (!from_jsp_name.equals("dispDiaryList")) {
+                stmt.setString(1, condition);
+            }
+
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -225,6 +239,7 @@ public class DiaryDao extends DaoBase {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+
         } finally {
             try {
                 this.dbClose();
@@ -233,30 +248,122 @@ public class DiaryDao extends DaoBase {
             }
         }
         System.out.println("return : list = " + list); //test
+
         return list;
     }
 
+    /**
+     * 指定されたカラムがソートが許可されているカラムであるかをチェックする
+     * 呼び出し元の画面ごとにWHERE句を追加する
+     *
+     * @param sql データベースに発行するSQL文の雛形
+     * @param sort_column ソート対象のカラム名
+     * @param sort_order ソートの順番
+     * @param from_jsp_name このメソッドの呼び出し元の画面名
+     * @return 編集したSQL文
+     */
     public String editSortSqlSentence(String sql, String sort_column, String sort_order, String from_jsp_name) {
-        boolean is_sort_allowed_column;
+        boolean is_sort_allowed = false;
 
-        //fetchSortedDiaryListFromDbメソッドを呼び出したjspファイルごとにソートが許可されたカラムかを判定する
+        //fetchSortedDiaryListFromDbメソッドを呼び出したjspファイルごとにソート対象に指定されたカラムが許可れたものかを判定する
         if (from_jsp_name.equals("diaryManipulationSelect")) {
-            is_sort_allowed_column = (sort_column.equals("insert_date") || sort_column.equals("good_point") || sort_column.equals("bad_point") || sort_column.equals("student_comment"));
-        } else {
-            is_sort_allowed_column = false;
+            sql += " WHERE student_id = ? ORDER BY";
+
+            switch (sort_column) {
+                case "insert_date":
+                    is_sort_allowed = true;
+                    break;
+                case "good_point":
+                    is_sort_allowed = true;
+                    break;
+                case "bad_point":
+                    is_sort_allowed = true;
+                    break;
+                case "student_comment":
+                    is_sort_allowed = true;
+                    break;
+                default:
+                    is_sort_allowed = false;
+                    break;
+            }
+        } else if (from_jsp_name.equals("dispDiaryList")) {
+            sql += " ORDER BY";
+
+            switch (sort_column) {
+                case "insert_date":
+                    is_sort_allowed = true;
+                    break;
+                case "student_id":
+                    is_sort_allowed = true;
+                    break;
+                case "good_point":
+                    is_sort_allowed = true;
+                    break;
+                case "bad_point":
+                    is_sort_allowed = true;
+                    break;
+                case "student_comment":
+                    is_sort_allowed = true;
+                    break;
+                case "teacher_comment":
+                    is_sort_allowed = true;
+                    break;
+                default:
+                    is_sort_allowed = false;
+                    break;
+            }
+        } else if (from_jsp_name.equals("teacherDiaryManipulationSelect")) {
+            sql += " WHERE class_code = ? ORDER BY";
+
+            switch (sort_column) {
+                case "insert_date":
+                    is_sort_allowed = true;
+                    break;
+                case "student_id":
+                    is_sort_allowed = true;
+                    break;
+                case "good_point":
+                    is_sort_allowed = true;
+                    break;
+                case "bad_point":
+                    is_sort_allowed = true;
+                    break;
+                case "student_comment":
+                    is_sort_allowed = true;
+                    break;
+                case "teacher_comment":
+                    is_sort_allowed = true;
+                    break;
+                default:
+                    is_sort_allowed = false;
+                    break;
+            }
         }
 
-        if (is_sort_allowed_column) {
+        if (!(sort_order.equals("ASC") || sort_order.equals("DESC"))) {
+            is_sort_allowed = false;
+        }
+
+        //許可されたカラムかつ予約語が妥当なもの(ASC,DESC)なら
+        if (is_sort_allowed) {
             sql += " " + sort_column + " " + sort_order;
         }
 
         return sql;
     }
 
-    public List<DiaryBeans> fetchSearchedDiaryListFromDb(String student_id, String search_word, String from_jsp_name) {
+    /**
+     * 指定された単語をで曖昧検索を行って抽出された日誌の情報をすべて取得(SELECT)してリストにして返す
+     *
+     * @param condition SQL文のWHERE句に指定する条件
+     * @param search_word 曖昧検索を行う単語
+     * @param from_jsp_name このメソッドの呼び出し元の画面名
+     * @return 取得した日誌の情報を格納したリスト
+     */
+    public List<DiaryBeans> fetchSearchedDiaryListFromDb(String condition, String search_word, String from_jsp_name) {
         //test
         System.out.println("DiaryDao : fetchSearchedDiaryListFromDb");
-        System.out.println("param : student_id = "  + student_id);
+        System.out.println("param : condition = "  + condition);
         System.out.println("param : search_word = " + search_word);
         System.out.println("param : sort_order = "  + from_jsp_name);
 
@@ -267,7 +374,7 @@ public class DiaryDao extends DaoBase {
         List<DiaryBeans> list = null;
 
         try {
-            String sql = "SELECT * FROM diary WHERE insert_date LIKE ? OR good_point LIKE ? OR bad_point LIKE ?";
+            String sql = "SELECT * FROM diary WHERE insert_date LIKE ? OR good_point LIKE ? OR bad_point LIKE ? OR student_comment LIKE ?";
 
             String edited_sql = editSearchSqlSentence(sql, from_jsp_name);
 
@@ -277,11 +384,15 @@ public class DiaryDao extends DaoBase {
             stmt.setString(1, "%" + search_word + "%");
             stmt.setString(2, "%" + search_word + "%");
             stmt.setString(3, "%" + search_word + "%");
-            if (from_jsp_name.equals("diaryManipulationSelect")) {
-                stmt.setString(4, "%" + search_word + "%");
-            } else {
+            stmt.setString(4, "%" + search_word + "%");
 
+            if (from_jsp_name.equals("dispDiaryList")) {
+                stmt.setString(5, "%" + search_word + "%");
+                stmt.setString(6, "%" + search_word + "%");
+            }else if(from_jsp_name.equals("diaryManipulationSelect")){
+                stmt.setString(5,condition);
             }
+
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -309,16 +420,74 @@ public class DiaryDao extends DaoBase {
             }
         }
         System.out.println("return : list = " + list); //test
+
         return list;
     }
 
+    /**
+     * 呼び出し元の画面ごとにWHERE句の条件を追加する
+     *
+     * @param sql データベースに発行するSQL文の雛形
+     * @param from_jsp_name このメソッドの呼び出し元の画面名
+     * @return 編集したSQL文
+     */
     public String editSearchSqlSentence(String sql, String from_jsp_name) {
-
         if (from_jsp_name.equals("diaryManipulationSelect")) {
-            sql += " OR student_comment LIKE ?";
+            sql = "SELECT * FROM diary WHERE (insert_date LIKE ? OR good_point LIKE ? OR bad_point LIKE ? OR student_comment LIKE ?) AND student_id = ?";
+        } else if (from_jsp_name.equals("dispDiaryList")) {
+            sql += " OR student_id LIKE ? OR teacher_comment LIKE ?";
         } else {
 
         }
         return sql;
+    }
+
+    /**
+     * データベースに登録されている日誌の情報をすべて取得(SELECT)してリストにして返す
+     *
+     * @return 取得した日誌の情報を格納したリスト
+     */
+    public List<DiaryBeans> fetchAllDiaryListFromDb() {
+        //test
+        System.out.println("DiaryDao : fetchAllDiaryListFromDb");
+
+        DiaryBeans diary_beans = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<DiaryBeans> list = null;
+
+        try {
+            this.dbConnect();
+            stmt = con.prepareStatement("SELECT * FROM diary ORDER BY insert_date DESC");
+            rs = stmt.executeQuery();
+
+            list = new ArrayList<>();
+
+            while (rs.next()) {
+                diary_beans = new DiaryBeans();
+                diary_beans.setClass_code     (rs.getString("class_code"));
+                diary_beans.setInsert_date    (rs.getString("insert_date"));
+                diary_beans.setStudent_id     (rs.getString("student_id"));
+                diary_beans.setGood_point     (rs.getString("good_point"));
+                diary_beans.setBad_point      (rs.getString("bad_point"));
+                diary_beans.setStudent_comment(rs.getString("student_comment"));
+                diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
+                list.add(diary_beans);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            try {
+                this.dbClose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("return : list = " + list); //test
+
+        return list;
     }
 }

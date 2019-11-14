@@ -1,0 +1,13 @@
+.back{
+  margin-top: -60px;
+}
+
+.image {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../img/input.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}

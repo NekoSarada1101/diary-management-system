@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * データベースの接続と切断をするクラス
+ * データベースへの接続と切断をするクラス
  *
  * @author ryouta
  */

@@ -21,7 +21,6 @@ public class DiaryUpdateInputServlet extends HttpServlet {
 
     /**
      * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後日誌修正画面へ遷移する
-     * 日誌が指定されていなかったら日誌操作選択画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -32,13 +31,7 @@ public class DiaryUpdateInputServlet extends HttpServlet {
 
         String position_in_diaryList = request.getParameter("select-diary");
 
-        if (position_in_diaryList.equals("")) {
-            session.setAttribute("error-message", "Please select a diary to correct or delete");
-            response.sendRedirect("select");
-
-        } else {
-            session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
-            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
-        }
+        session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
+        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
     }
 }

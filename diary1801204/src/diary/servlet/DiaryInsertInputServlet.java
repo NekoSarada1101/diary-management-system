@@ -19,7 +19,7 @@ public class DiaryInsertInputServlet extends HttpServlet {
      * 日誌登録画面へ遷移する
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiaryInsertInputServlet"); //test
 
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);

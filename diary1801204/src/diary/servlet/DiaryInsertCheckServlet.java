@@ -28,12 +28,12 @@ public class DiaryInsertCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiaryInsertCheckServlet"); //test
 
-        String good_point = request.getParameter("good-point");
-        String bad_point = request.getParameter("bad-point");
+        String good_point      = request.getParameter("good-point");
+        String bad_point       = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
-        if (good_point.equals("")) good_point = null;
-        if (bad_point.equals("")) bad_point = null;
+        if (good_point.equals(""))      good_point = null;
+        if (bad_point.equals(""))       bad_point = null;
         if (student_comment.equals("")) student_comment = null;
 
         Calendar cal = Calendar.getInstance();
@@ -45,11 +45,11 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
         DiaryBeans diary_beans = new DiaryBeans();
-        diary_beans.setClass_code(class_code);
-        diary_beans.setInsert_date(today);
-        diary_beans.setStudent_id(student_id);
-        diary_beans.setGood_point(good_point);
-        diary_beans.setBad_point(bad_point);
+        diary_beans.setClass_code     (class_code);
+        diary_beans.setInsert_date    (today);
+        diary_beans.setStudent_id     (student_id);
+        diary_beans.setGood_point     (good_point);
+        diary_beans.setBad_point      (bad_point);
         diary_beans.setStudent_comment(student_comment);
 
         session.setAttribute("diary-beans", diary_beans);

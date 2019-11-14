@@ -15,6 +15,7 @@ public class UserDao extends DaoBase {
 
     /**
      * 学生のログイン処理とログインした学生の情報の取得
+     *
      * @param student_id ログイン画面で入力された学籍番号
      * @param password ログイン画面で入力されたパスワード
      * @return ログインに成功したらログインした学生の情報 失敗したらnull
@@ -23,7 +24,7 @@ public class UserDao extends DaoBase {
         //test
         System.out.println("DiaryDao : getLoginInfo");
         System.out.println("param : student_id = " + student_id);
-        System.out.println("param : password = " + password);
+        System.out.println("param : password = "   + password);
 
         LoginInfoBeans login_info = null;
         PreparedStatement stmt = null;
@@ -60,6 +61,7 @@ public class UserDao extends DaoBase {
         System.out.println("                   : student_id = " + login_info.getStudent_id());
         System.out.println("                   : class_code = " + login_info.getClass_code());
         System.out.println("                   : student_name = " + login_info.getStudent_name());
+
         return login_info;
     }
 }
