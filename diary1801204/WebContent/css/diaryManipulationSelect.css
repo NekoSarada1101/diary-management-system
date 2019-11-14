@@ -11,3 +11,13 @@
 .register{
   width: 30%;
 }
+
+.image {
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../img/write.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}

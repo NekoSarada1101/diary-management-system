@@ -14,7 +14,7 @@
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryManipulationSelect.css">
+    <link rel="stylesheet" href="css/dispDiaryList.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
