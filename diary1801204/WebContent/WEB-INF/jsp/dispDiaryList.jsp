@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>日誌閲覧画面</title>
-    <%--Flat UI--%>
+    <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
     <%--Original--%>
@@ -18,8 +18,6 @@
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
-TODO
-日誌をクリックすると日誌の詳細情報を見ることができるようにする
 
 <div class="container-fluid vh-100">
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
