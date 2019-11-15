@@ -14,9 +14,10 @@
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 animated bounceInUp">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌登録完了</h1>
+        <h1 class="animated jackInTheBox delay-1s text-center mt-5 text-success"><i class="far fa-check-circle"></i></h1>
         <p class="text-center mt-5">日誌を提出しました</p>
 
         <%--メニュー画面へ--%>

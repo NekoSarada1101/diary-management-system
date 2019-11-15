@@ -14,7 +14,7 @@
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌登録</h1>
 

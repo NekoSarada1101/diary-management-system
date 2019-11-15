@@ -20,7 +20,7 @@
 <body class="p-0">
 <header>
     <div class="image position-absolute"></div>
-    <nav class="navbar navbar-expand-lg navbar-white scrolling-navbar z-depth-1">
+    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar z-depth-1" id="teacher-nav">
         <a class="navbar-brand" href="#"><strong class="text-dark">DiaryManagementSystem</strong></a>
     </nav>
 </header>

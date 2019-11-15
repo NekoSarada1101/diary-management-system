@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <div class="image position-absolute"></div>
+    <div class="image position-absolute animated fadeIn"></div>
     <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar z-depth-1">
         <a class="navbar-brand" href="menu"><strong class="text-white">DiaryManagementSystem</strong></a>
         <span class="text-white"><%=student_name%>さん</span>

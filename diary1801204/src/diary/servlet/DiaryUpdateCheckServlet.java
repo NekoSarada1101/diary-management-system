@@ -29,6 +29,10 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
         String bad_point       = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
+        if (good_point.equals(""))      good_point = null;
+        if (bad_point.equals(""))       bad_point = null;
+        if (student_comment.equals("")) student_comment = null;
+
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
         diary_beans.setGood_point     (good_point);

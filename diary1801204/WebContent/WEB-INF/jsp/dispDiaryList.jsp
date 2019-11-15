@@ -19,7 +19,7 @@
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌閲覧</h1>
 
@@ -36,7 +36,7 @@
 
                 <tbody>
                 <% for (int i = 0; i < diary_list.size(); i++) { %>
-                <tr class="row">
+                <tr class="row animated bounceInUp">
                     <td class="col-3 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%>
                     </td>
                     <td class="col-3 border-right"><%=diary_list.get(i).getStudent_id()%>
@@ -73,7 +73,7 @@
             </table>
         </div>
 
-        <form action="search" method="post">
+        <form action="search" method="post" class="mt-3">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
                 <input type="hidden" value="dispDiaryList" name="from-jsp-name">

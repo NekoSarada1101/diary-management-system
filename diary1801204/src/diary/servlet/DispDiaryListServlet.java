@@ -2,6 +2,7 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.dao.CommonDiaryDao;
 import diary.dao.DiaryDao;
 
 import javax.servlet.ServletException;
@@ -30,8 +31,8 @@ public class DispDiaryListServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        DiaryDao diary_dao = new DiaryDao();
-        List<DiaryBeans> diary_list = diary_dao.fetchAllDiaryListFromDb();
+        DiaryDao diary_dao = new CommonDiaryDao();
+        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb("", "insert_date", "DESC");
 
         session.setAttribute("diary-list", diary_list);
         request.getRequestDispatcher("WEB-INF/jsp/dispDiaryList.jsp").forward(request, response);

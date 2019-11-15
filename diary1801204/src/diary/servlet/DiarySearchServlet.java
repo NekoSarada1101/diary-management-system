@@ -2,7 +2,11 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.LoginInfoBeans;
+import diary.bean.TeacherBeans;
+import diary.dao.CommonDiaryDao;
 import diary.dao.DiaryDao;
+import diary.dao.StudentDiaryDao;
+import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,18 +29,31 @@ public class DiarySearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiarySearchServlet"); //text
 
-        String search_word   = request.getParameter("search-word");
+        String search_word = request.getParameter("search-word");
         String from_jsp_name = request.getParameter("from-jsp-name");
 
         HttpSession session = request.getSession();
-        String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
+        List<DiaryBeans> searched_diary_list = null;
+        if (from_jsp_name.equals("diaryManipulationSelect")) {
+            String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-        DiaryDao diary_dao = new DiaryDao();
-        List<DiaryBeans> sorted_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word, from_jsp_name);
+            DiaryDao diary_dao = new StudentDiaryDao();
+            searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
+
+        } else if (from_jsp_name.equals("commentManipulationSelect")) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
+
+            DiaryDao diary_dao = new TeacherDiaryDao();
+            searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(class_code, search_word);
+
+        } else if (from_jsp_name.equals("dispDiaryList")) {
+            DiaryDao diary_dao = new CommonDiaryDao();
+            searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb("", search_word);
+        }
 
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
 
-        session.setAttribute("diary-list", sorted_diary_list);
+        session.setAttribute("diary-list", searched_diary_list);
         request.getRequestDispatcher(url).forward(request, response);
     }
 }

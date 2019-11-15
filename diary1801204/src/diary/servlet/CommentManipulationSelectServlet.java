@@ -2,7 +2,7 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.bean.LoginInfoBeans;
+import diary.bean.TeacherBeans;
 import diary.dao.DiaryDao;
 import diary.dao.StudentDiaryDao;
 
@@ -20,23 +20,23 @@ import java.util.List;
  *
  * @author ryouta
  */
-@WebServlet("/select")
-public class DiaryManipulationSelectServlet extends HttpServlet {
+@WebServlet("/commentselect")
+public class CommentManipulationSelectServlet extends HttpServlet {
 
     /**
-     * ログインした学生の学籍番号から取得した日誌のリストを取得した後登録修正削除画面へ遷移する
+     * ログインした教員のクラスコードから取得した日誌のリストを取得した後登録修正削除画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryManipulationSelectServlet"); //test
+        System.out.println("CommentManipulationSelectServlet"); //test
 
         HttpSession session = request.getSession();
-        String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
+        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
         DiaryDao diary_dao = new StudentDiaryDao();
-        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, "insert_date", "DESC");
+        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, "insert_date", "DESC");
 
         session.setAttribute("diary-list", diary_list);
-        request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/commentManipulationSelect.jsp").forward(request, response);
     }
 }

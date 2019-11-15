@@ -2,6 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.dao.DiaryDao;
+import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +30,7 @@ public class DiaryInsertServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
-        DiaryDao diary_dao = new DiaryDao();
+        DiaryDao diary_dao = new StudentDiaryDao();
         boolean is_success = diary_dao.insertDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");

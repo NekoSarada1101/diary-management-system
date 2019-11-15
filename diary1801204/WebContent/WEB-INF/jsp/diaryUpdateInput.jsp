@@ -3,6 +3,12 @@
          pageEncoding="UTF-8" %>
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+    String good_point = diary_beans.getGood_point();
+    String bad_point = diary_beans.getBad_point();
+    String comment = diary_beans.getStudent_comment();
+    if (diary_beans.getGood_point() == null) good_point = "";
+    if (diary_beans.getBad_point() == null) bad_point = "";
+    if (diary_beans.getStudent_comment() == null) comment = "";
 %>
 
 <!DOCTYPE html>
@@ -19,7 +25,7 @@
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌修正入力</h1>
 
@@ -28,7 +34,7 @@
             <div class="md-form">
                 <i class="fas fa-thumbs-up prefix"></i>
                 <textarea id="form1" class="md-textarea form-control" maxlength="30"
-                          name="good-point"><%=diary_beans.getGood_point()%></textarea>
+                          name="good-point"><%=good_point%></textarea>
                 <label for="form1">良い点</label>
             </div>
 
@@ -36,7 +42,7 @@
             <div class="md-form mt-5">
                 <i class="fas fa-thumbs-down prefix"></i>
                 <textarea id="form2" class="md-textarea form-control" maxlength="30"
-                          name="bad-point"><%=diary_beans.getBad_point()%></textarea>
+                          name="bad-point"><%=bad_point%></textarea>
                 <label for="form2">悪い点</label>
             </div>
 
@@ -44,13 +50,13 @@
             <div class="md-form mt-5">
                 <i class="fas fa-comment prefix"></i>
                 <textarea id="form3" class="md-textarea form-control" maxlength="30"
-                          name="student-comment"><%=diary_beans.getStudent_comment()%></textarea>
+                          name="student-comment"><%=comment%></textarea>
                 <label for="form3">コメント</label>
             </div>
 
             <%--日誌修正確認画面へ--%>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg">修正する</button>
+                <button type="submit" class="btn btn-warning btn-lg">修正する</button>
             </div>
         </form>
 
