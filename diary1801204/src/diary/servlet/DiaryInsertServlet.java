@@ -31,17 +31,11 @@ public class DiaryInsertServlet extends HttpServlet {
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
         DiaryDao diary_dao = new StudentDiaryDao();
-        boolean is_success = diary_dao.insertDiaryToDb(diary_beans);
+        diary_dao.insertDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");
 
-        if (is_success) {
-            response.sendRedirect("diaryinsertcomplete");
-
-        } else {
-            session.setAttribute("error-message", "今日はすでに日誌を登録しています。");
-            response.sendRedirect("select");
-        }
+        response.sendRedirect("diaryinsertcomplete");
 
     }
 }

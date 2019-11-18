@@ -4,6 +4,7 @@ package diary.dao;
 import diary.bean.DiaryBeans;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -12,6 +13,43 @@ import java.sql.SQLException;
  * @author ryouta
  */
 public class StudentDiaryDao extends DiaryDao {
+
+    public boolean checkTodayDiaryRegistered(String class_code, String today) {
+        //test
+        System.out.println("StudentDiaryDao : checkTodayDiaryRegistered");
+        System.out.println("param : class_code = " + class_code);
+        System.out.println("param : today = " + today);
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            this.dbConnect();
+            stmt = con.prepareStatement("SELECT * FROM diary WHERE class_code = ? AND insert_date = ?");
+            stmt.setString(1, class_code);
+            stmt.setString(2, today);
+            rs = stmt.executeQuery();
+
+            if (!rs.next()){
+                System.out.println("return : iis_registering = false"); //test
+
+                return /* is_registering = */ false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            try {
+                this.dbClose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("return : iis_registering = true"); //test
+
+        return /* is_registering = */ true;
+    }
 
     //INSERT
     @Override

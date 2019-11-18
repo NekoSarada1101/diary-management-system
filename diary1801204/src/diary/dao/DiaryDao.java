@@ -21,7 +21,7 @@ public abstract class DiaryDao extends DaoBase {
      * @param diary_beans データベースに登録する日誌の情報
      * @return 登録に成功したらtrue
      */
-    public boolean insertDiaryToDb(DiaryBeans diary_beans) {
+    public void insertDiaryToDb(DiaryBeans diary_beans) {
         //test
         System.out.println("DiaryDao : insertDiaryToDb");
         System.out.println("param : diary_beans = " + diary_beans);
@@ -43,9 +43,6 @@ public abstract class DiaryDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("return : is_success = false"); //test
-
-            return /* is_success = */ false;
 
         } finally {
             try {
@@ -54,9 +51,6 @@ public abstract class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        System.out.println("return : is_success = true"); //test
-
-        return /* is_success = */ true;
     }
 
     /**

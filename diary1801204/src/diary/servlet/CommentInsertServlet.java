@@ -31,7 +31,7 @@ public class CommentInsertServlet extends HttpServlet {
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
         DiaryDao diary_dao = new TeacherDiaryDao();
-        boolean is_success = diary_dao.insertDiaryToDb(diary_beans);
+        diary_dao.insertDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");
 
