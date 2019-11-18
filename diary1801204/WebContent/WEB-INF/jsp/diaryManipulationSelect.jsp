@@ -34,7 +34,7 @@
 
         <%--日誌登録入力画面へ--%>
         <form action="diaryinsertinput" method="get" class="text-right">
-            <button type="submit" class="btn btn-info btn-lg register">新規登録</button>
+            <button type="submit" class="btn btn-info btn-lg col-5">新規登録</button>
         </form>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">

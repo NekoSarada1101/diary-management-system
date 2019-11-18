@@ -29,9 +29,10 @@ public class DiaryUpdateInputServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
-        String position_in_diaryList = request.getParameter("select-diary");
+        int i = Integer.parseInt(request.getParameter("select-diary"));
+        DiaryBeans diary_beans = diary_list.get(i);
 
-        session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
+        session.setAttribute("diary-beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
     }
 }

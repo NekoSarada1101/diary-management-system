@@ -17,24 +17,24 @@ import java.io.IOException;
  *
  * @author ryouta
  */
-@WebServlet("/commentinsert")
-public class CommentInsertServlet extends HttpServlet {
+@WebServlet("/commentupdate")
+public class CommentUpdateServlet extends HttpServlet {
 
     /**
      * コメント情報をデータベースに登録する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentInsertServlet"); //test
+        System.out.println("CommentUpdateServlet"); //test
 
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
         DiaryDao diary_dao = new TeacherDiaryDao();
-        diary_dao.insertDiaryToDb(diary_beans);
+        diary_dao.updateDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");
 
-        response.sendRedirect("commentinsertcomplete");
+        response.sendRedirect("commentupdatecomplete");
     }
 }

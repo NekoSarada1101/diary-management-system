@@ -13,16 +13,16 @@ import java.io.IOException;
  * @author ryouta
  *
  */
-@WebServlet("/commentinsertcomplete")
-public class CommentInsertCompleteServlet extends HttpServlet {
+@WebServlet("/commentupdatecomplete")
+public class CommentUpdateCompleteServlet extends HttpServlet {
 
     /**
      * コメント登録完了画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentInsertCompleteServlet"); //test
+        System.out.println("CommentUpdateCompleteServlet"); //test
 
-        request.getRequestDispatcher("WEB-INF/jsp/commentInsertComplete.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/commentUpdateComplete.jsp").forward(request, response);
     }
 }

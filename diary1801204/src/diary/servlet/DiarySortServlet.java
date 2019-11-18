@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -43,7 +42,7 @@ public class DiarySortServlet extends HttpServlet {
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
 
         } else if (from_jsp_name.equals("commentManipulationSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
             DiaryDao diary_dao = new TeacherDiaryDao();
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, sort_column, sort_order);
@@ -54,9 +53,10 @@ public class DiarySortServlet extends HttpServlet {
         }
 
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
+        System.out.println(url);
 
         session.setAttribute("diary-list", sorted_diary_list);
+        request.setAttribute("from-jsp-name", from_jsp_name);
         request.getRequestDispatcher(url).forward(request, response);
     }
-
 }

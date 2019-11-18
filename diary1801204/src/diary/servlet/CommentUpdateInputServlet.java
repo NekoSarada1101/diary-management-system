@@ -16,15 +16,15 @@ import java.util.List;
  *
  * @author ryouta
  */
-@WebServlet("/commentinsertinput")
-public class CommentInsertInputServlet extends HttpServlet {
+@WebServlet("/commentupdateinput")
+public class CommentUpdateInputServlet extends HttpServlet {
 
     /**
      * コメント登録画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentInsertInputServlet"); //test
+        System.out.println("CommentUpdateInputServlet"); //test
 
         HttpSession session = request.getSession();
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
@@ -33,6 +33,6 @@ public class CommentInsertInputServlet extends HttpServlet {
         DiaryBeans diary_beans = diary_list.get(i);
 
         session.setAttribute("diary-beans", diary_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/commentInsertInput.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/commentUpdateInput.jsp").forward(request, response);
     }
 }

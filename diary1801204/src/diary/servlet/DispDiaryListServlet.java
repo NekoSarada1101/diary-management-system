@@ -29,7 +29,7 @@ public class DispDiaryListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DispDiaryListServlet"); //test
 
-        String from_jsp_name = request.getParameter("from-jsp-name");
+        String menu_name = request.getParameter("menu-name");
 
         HttpSession session = request.getSession();
 
@@ -37,7 +37,7 @@ public class DispDiaryListServlet extends HttpServlet {
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb("", "insert_date", "DESC");
 
         session.setAttribute("diary-list", diary_list);
-        request.setAttribute("from-jsp-name", from_jsp_name);
+        session.setAttribute("menu-name", menu_name);
         request.getRequestDispatcher("WEB-INF/jsp/dispDiaryList.jsp").forward(request, response);
     }
 }

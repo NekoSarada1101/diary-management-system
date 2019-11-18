@@ -4,7 +4,7 @@
          pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
-    String from_jsp_name = (String) request.getAttribute("from-jsp-name");
+    String menu_name = (String) session.getAttribute("menu-name");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
 </head>
 <body class="p-0">
 <%
-    if (from_jsp_name.equals("menu")) {
+    if (menu_name.equals("menu")) {
 %>
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 <%
@@ -113,7 +113,7 @@
             </div>
         </form>
 
-        <form action="<%=from_jsp_name%>" method="get" class="text-right">
+        <form action="<%=menu_name%>" method="get" class="text-right">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

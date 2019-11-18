@@ -76,16 +76,10 @@
                         </div>
                     </td>
                     <td class="col-3">
-                        <%--コメント登録入力画面へ--%>
-                        <form action="commentinsertinput" method="get" class="text-center">
+                        <%--コメント登録・修正入力画面へ--%>
+                        <form action="commentupdateinput" method="get" class="text-center">
                             <input type="hidden" name="select-diary" id="insert" value="<%=i%>">
-                            <button type="submit" class="btn btn-info">登録</button>
-                        </form>
-
-                        <%--コメント修正入力画面へ--%>
-                        <form action="commentupdateinput" method="post" class="text-center">
-                            <input type="hidden" name="select-diary" id="update" value="<%=i%>">
-                            <button type="submit" class="btn btn-warning">修正</button>
+                            <button type="submit" class="btn btn-info">登録・修正</button>
                         </form>
 
                         <%--コメント削除確認画面へ--%>

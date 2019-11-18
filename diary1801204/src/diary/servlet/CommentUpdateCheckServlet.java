@@ -15,15 +15,15 @@ import java.io.IOException;
  *
  * @author ryouta
  */
-@WebServlet("/commentinsertcheck")
-public class CommentInsertCheckServlet extends HttpServlet {
+@WebServlet("/commentupdatecheck")
+public class CommentUpdateCheckServlet extends HttpServlet {
 
     /**
      * コメント登録画面で入力した値、ログインしている学生の学籍番号を取得しBeansに格納した後日誌登録確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentInsertCheckServlet"); //test
+        System.out.println("CommentUpdateCheckServlet"); //test
 
         String teacher_comment = request.getParameter("teacher-comment");
 
@@ -34,6 +34,6 @@ public class CommentInsertCheckServlet extends HttpServlet {
         diary_beans.setTeacher_comment(teacher_comment);
 
         session.setAttribute("diary-beans", diary_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/commentInsertCheck.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/commentUpdateCheck.jsp").forward(request, response);
     }
 }

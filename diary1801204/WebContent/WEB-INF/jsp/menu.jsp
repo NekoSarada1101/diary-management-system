@@ -26,7 +26,7 @@
 
             <%--日誌閲覧画面へ--%>
             <form action="list" method="get" class="col-5 p-0 mr-auto">
-                <input type="hidden" value="menu" name="from-jsp-name">
+                <input type="hidden" value="menu" name="menu-name">
                 <button type="submit" class="image2 w-100 animated fadeInRight delay-1s"><div class="link text-white">日誌閲覧</div></button>
             </form>
         </div>

@@ -41,7 +41,7 @@ public class DiarySearchServlet extends HttpServlet {
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
 
         } else if (from_jsp_name.equals("commentManipulationSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
             DiaryDao diary_dao = new TeacherDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(class_code, search_word);
@@ -54,6 +54,7 @@ public class DiarySearchServlet extends HttpServlet {
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
 
         session.setAttribute("diary-list", searched_diary_list);
+        request.setAttribute("from-jsp-name", from_jsp_name);
         request.getRequestDispatcher(url).forward(request, response);
     }
 }
