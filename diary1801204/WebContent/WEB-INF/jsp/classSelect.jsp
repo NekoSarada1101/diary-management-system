@@ -11,11 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <title>クラス選択画面</title>
+
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
-    <%--Original--%>
-    <link rel="stylesheet" href="css/dispDiaryList.css">
 </head>
 <body class="p-0">
 <header>
@@ -39,7 +37,7 @@
             <input type="hidden" value="<%=i%>" name="select-class">
             <div class="text-center">
                 <button type="submit"
-                        class="btn btn-link mt-3"><%=teacher_list.get(i).getCourse_name() + teacher_list.get(i).getGrade() + teacher_list.get(i).getClass_name()%>
+                        class="btn btn-link mt-3"><h3><%=teacher_list.get(i).getCourse_name() + teacher_list.get(i).getGrade() + teacher_list.get(i).getClass_name()%></h3>
                 </button>
             </div>
             <% } %>

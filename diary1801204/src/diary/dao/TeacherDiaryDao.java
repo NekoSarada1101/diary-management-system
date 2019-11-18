@@ -104,9 +104,9 @@ public class TeacherDiaryDao extends DiaryDao {
 
         //許可されたカラムかつ予約語が妥当なもの(ASC,DESC)なら
         if (is_sort_allowed) {
-            sql += " " + sort_column + " " + sort_order;
+            sql += sort_column + " " + sort_order;
         }
-
+System.out.println(sql);
         return sql;
     }
 

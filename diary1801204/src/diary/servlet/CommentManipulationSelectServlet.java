@@ -4,7 +4,7 @@ package diary.servlet;
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
 import diary.dao.DiaryDao;
-import diary.dao.StudentDiaryDao;
+import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +33,7 @@ public class CommentManipulationSelectServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
-        DiaryDao diary_dao = new StudentDiaryDao();
+        DiaryDao diary_dao = new TeacherDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, "insert_date", "DESC");
 
         session.setAttribute("diary-list", diary_list);

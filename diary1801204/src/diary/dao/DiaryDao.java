@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * データベース操作のメソッドを記述する抽象クラス
+ *
+ * @author ryouta
+ */
 public abstract class DiaryDao extends DaoBase {
 
     /**

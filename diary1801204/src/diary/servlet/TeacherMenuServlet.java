@@ -28,8 +28,14 @@ public class TeacherMenuServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
 
-        int i = Integer.parseInt(request.getParameter("select-class"));
-        TeacherBeans teacher_beans = teacher_list.get(i);
+        TeacherBeans teacher_beans = null;
+        try {
+            int i = Integer.parseInt(request.getParameter("select-class"));
+            teacher_beans = teacher_list.get(i);
+
+        }catch (Exception e){
+            teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        }
 
         session.setAttribute("teacher-beans", teacher_beans);
         request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);

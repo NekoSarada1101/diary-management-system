@@ -136,5 +136,12 @@
 
 <%@include file="/WEB-INF/jsp/script.jsp" %>
 
+<script>
+    // Treeview Initialization
+    $(document).ready(function () {
+        $('.treeview-animated').mdbTreeview();
+    });
+</script>
+
 </body>
 </html>

@@ -19,13 +19,13 @@
 </head>
 <body class="p-0">
 <header>
-    <div class="image position-absolute"></div>
+    <div class="image position-absolute animated fadeIn"></div>
     <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar z-depth-1" id="teacher-nav">
         <a class="navbar-brand" href="#"><strong class="text-dark">DiaryManagementSystem</strong></a>
     </nav>
 </header>
 
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 animated bounceInUp">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">教員ログイン</h1>
 

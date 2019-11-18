@@ -3,6 +3,11 @@ package diary.bean;
 
 import java.io.Serializable;
 
+/**
+ * ログインした人の情報を格納するBeansクラス
+ *
+ * @author ryouta
+ */
 public class TeacherBeans implements Serializable {
     private String teacher_code = null;
     private String teacher_name = null;
