@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import javax.servlet.ServletException;
@@ -9,20 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * ログイン画面へ遷移するServletクラス
+ * コメント登録完了画面へ遷移するServletクラス
  *
  * @author ryouta
+ *
  */
-@WebServlet("/teacherlogin")
-public class TeacherLoginServlet extends HttpServlet {
+@WebServlet("/commentinsertcomplete")
+public class CommentInsertCompleteServlet extends HttpServlet {
 
     /**
-     * ログイン画面へ遷移する
+     * コメント登録完了画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("TeacherLoginServlet"); //test
+        System.out.println("CommentInsertCompleteServlet"); //test
 
-        request.getRequestDispatcher("WEB-INF/jsp/teacherLogin.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/commentInsertComplete.jsp").forward(request, response);
     }
 }

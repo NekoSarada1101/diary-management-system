@@ -51,11 +51,6 @@ public class CommonDiaryDao extends DiaryDao {
 
     @Override
     protected PreparedStatement configureValueInPlaceholderOfSortSqlSentence(PreparedStatement stmt, String condition) {
-        try {
-            stmt.setString(1, condition);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return stmt;
     }
 

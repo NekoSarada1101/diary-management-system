@@ -31,10 +31,7 @@
 
         <p class="text-center text-danger"><%=error_message%></p>
 
-        <%--コメント登録入力画面へ--%>
-        <form action="diaryinsertinput" method="get" class="text-right">
-            <button type="submit" class="btn btn-info btn-lg register">新規登録</button>
-        </form>
+
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
 
@@ -79,14 +76,20 @@
                         </div>
                     </td>
                     <td class="col-3">
+                        <%--コメント登録入力画面へ--%>
+                        <form action="commentinsertinput" method="get" class="text-center">
+                            <input type="hidden" name="select-diary" id="insert" value="<%=i%>">
+                            <button type="submit" class="btn btn-info">登録</button>
+                        </form>
+
                         <%--コメント修正入力画面へ--%>
-                        <form action="diaryupdateinput" method="post" class="text-center">
+                        <form action="commentupdateinput" method="post" class="text-center">
                             <input type="hidden" name="select-diary" id="update" value="<%=i%>">
                             <button type="submit" class="btn btn-warning">修正</button>
                         </form>
 
                         <%--コメント削除確認画面へ--%>
-                        <form action="diarydeletecheck" method="post" class=text-center>
+                        <form action="commentdeletecheck" method="post" class=text-center>
                             <input type="hidden" name="select-diary" id="delete" value="<%=i%>">
                             <button type="submit" class="btn btn-danger">削除</button>
                         </form>

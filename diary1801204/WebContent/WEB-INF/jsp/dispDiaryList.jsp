@@ -4,6 +4,7 @@
          pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+    String from_jsp_name = (String) request.getAttribute("from-jsp-name");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,18 @@
     <link rel="stylesheet" href="css/dispDiaryList.css">
 </head>
 <body class="p-0">
+<%
+    if (from_jsp_name.equals("menu")) {
+%>
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
+<%
+    } else {
+%>
+<%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
+<%
+    }
+%>
+
 
 <div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
@@ -101,7 +113,7 @@
             </div>
         </form>
 
-        <form action="menu" method="get" class="text-right">
+        <form action="<%=from_jsp_name%>" method="get" class="text-right">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

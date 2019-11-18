@@ -16,7 +16,7 @@ public class TeacherDiaryDao extends DiaryDao {
     //INSERT
     @Override
     protected String createInsertSqlSentence() {
-        String sql = "INSERT INTO diary (teacher_comment) VALUES (?)";
+        String sql = "UPDATE diary SET teacher_comment = ? WHERE class_code = ? AND insert_date = ?";
         return sql;
     }
 
@@ -24,6 +24,8 @@ public class TeacherDiaryDao extends DiaryDao {
     protected PreparedStatement configureValueInPlaceholderOfInsertSqlSentence(PreparedStatement stmt, DiaryBeans diary_beans) {
         try {
             stmt.setString(1, diary_beans.getTeacher_comment());
+            stmt.setString(2, diary_beans.getClass_code());
+            stmt.setString(3, diary_beans.getInsert_date());
         } catch (SQLException e) {
             e.printStackTrace();
         }
