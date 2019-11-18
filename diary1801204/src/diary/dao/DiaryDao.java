@@ -63,7 +63,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * INSERT文のプレースホルダーに値を埋め込む
      *
-     * @param stmt プレースホルダーに値を埋め込む前のINSERT文
+     * @param stmt        プレースホルダーに値を埋め込む前のINSERT文
      * @param diary_beans プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだINSERT文
      */
@@ -117,7 +117,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * DELETE文のプレースホルダーに値を埋め込む
      *
-     * @param stmt プレースホルダーに値を埋め込む前のDELETE文
+     * @param stmt        プレースホルダーに値を埋め込む前のDELETE文
      * @param diary_beans プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだDELETE文
      */
@@ -171,7 +171,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * UPDATE文のプレースホルダーに値を埋め込む
      *
-     * @param stmt プレースホルダーに値を埋め込む前のUPDATE文
+     * @param stmt        プレースホルダーに値を埋め込む前のUPDATE文
      * @param diary_beans プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだUPDATE文
      */
@@ -181,7 +181,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * 指定されたカラムを指定された順番にソートした日誌の情報をすべて取得(SELECT)する
      *
-     * @param condition  SQL文のWERHE句に指定する条件
+     * @param condition   SQL文のWERHE句に指定する条件
      * @param sort_column ソート対象のカラム名
      * @param sort_order  ソートの順番
      * @return 取得した日誌の情報を格納したリスト
@@ -218,6 +218,7 @@ public abstract class DiaryDao extends DaoBase {
                 diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
                 list.add(diary_beans);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -237,7 +238,7 @@ public abstract class DiaryDao extends DaoBase {
      * 日誌の情報をソートするSELECT文を作成する
      *
      * @param sort_column ソート対象のカラム名
-     * @param sort_order ソートの順番
+     * @param sort_order  ソートの順番
      * @return 作成したSELECT文
      */
     abstract String createSortSqlSentence(String sort_column, String sort_order);
@@ -245,7 +246,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * ソートするSELECT文のプレースホルダーに値を埋め込む
      *
-     * @param stmt プレースホルダーに値を埋め込む前のUPDATE文
+     * @param stmt      プレースホルダーに値を埋め込む前のUPDATE文
      * @param condition プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだSELECT文
      */
@@ -255,7 +256,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * 指定された単語をで曖昧検索を行って抽出された日誌の情報をすべて取得(SELECT)する
      *
-     * @param condition  SQL文のWHERE句に指定する条件
+     * @param condition   SQL文のWHERE句に指定する条件
      * @param search_word 曖昧検索を行う単語
      * @return 取得した日誌の情報を格納したリスト
      */
@@ -316,9 +317,9 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * 曖昧検索するSELECT文のプレースホルダーに値を埋め込む
      *
-     * @param stmt プレースホルダーに値を埋め込む前のUPDATE文
+     * @param stmt        プレースホルダーに値を埋め込む前のUPDATE文
      * @param search_word プレースホルダーに埋め込む曖昧検索のための単語
-     * @param condition プレースホルダーに埋め込む値
+     * @param condition   プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだSELECT文
      */
     abstract PreparedStatement configureValueInPlaceholderOfSearchSqlSentence(PreparedStatement stmt, String condition, String search_word);

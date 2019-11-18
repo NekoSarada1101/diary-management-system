@@ -30,9 +30,10 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
-        String position_in_diaryList = request.getParameter("select-diary");
+        int i = Integer.parseInt(request.getParameter("select-diary"));
+        DiaryBeans diary_beans = diary_list.get(i);
 
-        session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
-        request.getRequestDispatcher("WEB-INF/jsp/commentDeleteCheck.jsp").forward(request, response);
+        session.setAttribute("diary-beans", diary_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);
     }
 }

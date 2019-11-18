@@ -3,7 +3,6 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.LoginInfoBeans;
-import diary.dao.DiaryDao;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -33,7 +32,7 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-        DiaryDao diary_dao = new StudentDiaryDao();
+        StudentDiaryDao diary_dao = new StudentDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, "insert_date", "DESC");
 
         session.setAttribute("diary-list", diary_list);

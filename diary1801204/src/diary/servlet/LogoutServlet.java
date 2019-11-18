@@ -10,6 +10,7 @@ import java.io.IOException;
 
 /**
  * ログアウト処理を行った後ログイン画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/logout")
@@ -25,9 +26,9 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.invalidate();
 
-        if(request.getParameter("from").equals("student")){
+        if (request.getParameter("from").equals("student")) {
             request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("WEB-INF/jsp/teacherLogin.jsp").forward(request, response);
         }
     }

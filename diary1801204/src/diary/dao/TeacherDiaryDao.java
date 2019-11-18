@@ -24,6 +24,7 @@ public class TeacherDiaryDao extends DiaryDao {
         return null;
     }
 
+
     //DELETE
     @Override
     protected String createDeleteSqlSentence() {
@@ -41,6 +42,7 @@ public class TeacherDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     //UPDATE
     @Override
@@ -60,6 +62,7 @@ public class TeacherDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     //SORT
     @Override
@@ -100,7 +103,6 @@ public class TeacherDiaryDao extends DiaryDao {
         if (is_sort_allowed) {
             sql += sort_column + " " + sort_order;
         }
-System.out.println(sql);
         return sql;
     }
 
@@ -113,6 +115,7 @@ System.out.println(sql);
         }
         return stmt;
     }
+
 
     //SEARCH
     @Override

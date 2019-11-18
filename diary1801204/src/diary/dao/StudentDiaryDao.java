@@ -14,6 +14,13 @@ import java.sql.SQLException;
  */
 public class StudentDiaryDao extends DiaryDao {
 
+    /**
+     * データベースに今日の日付と同じ日誌の情報が登録されているか確認する
+     *
+     * @param class_code ログインしている学生のクラスコード
+     * @param today      今日の日付
+     * @return 登録済みならtrue
+     */
     public boolean checkTodayDiaryRegistered(String class_code, String today) {
         //test
         System.out.println("StudentDiaryDao : checkTodayDiaryRegistered");
@@ -30,8 +37,9 @@ public class StudentDiaryDao extends DiaryDao {
             stmt.setString(2, today);
             rs = stmt.executeQuery();
 
-            if (!rs.next()){
-                System.out.println("return : iis_registering = false"); //test
+            //もし登録されてなければ
+            if (!rs.next()) {
+                System.out.println("return : is_registering = false"); //test
 
                 return /* is_registering = */ false;
             }
@@ -46,10 +54,11 @@ public class StudentDiaryDao extends DiaryDao {
                 e.printStackTrace();
             }
         }
-        System.out.println("return : iis_registering = true"); //test
+        System.out.println("return : is_registering = true"); //test
 
         return /* is_registering = */ true;
     }
+
 
     //INSERT
     @Override
@@ -73,6 +82,7 @@ public class StudentDiaryDao extends DiaryDao {
         return stmt;
     }
 
+
     //DELETE
     @Override
     protected String createDeleteSqlSentence() {
@@ -90,6 +100,7 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     //UPDATE
     @Override
@@ -111,6 +122,7 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     //SORT
     @Override
@@ -157,6 +169,7 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     //SEARCH
     @Override

@@ -1,4 +1,3 @@
-
 package diary.bean;
 
 import java.io.Serializable;

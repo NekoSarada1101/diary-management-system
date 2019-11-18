@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * コメント操作選択画面で指定した日誌の情報を取得した後コメント削除確認画面へ遷移するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
 @WebServlet("/commentdeletecheck")
 public class CommentDeleteCheckServlet extends HttpServlet {
@@ -30,9 +30,10 @@ public class CommentDeleteCheckServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
-        String position_in_diaryList = request.getParameter("select-diary");
+        int i = Integer.parseInt(request.getParameter("select-diary"));
+        DiaryBeans diary_beans = diary_list.get(i);
 
-        session.setAttribute("diary-beans", diary_list.get(Integer.parseInt(position_in_diaryList)));
+        session.setAttribute("diary-beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/commentDeleteCheck.jsp").forward(request, response);
     }
 }

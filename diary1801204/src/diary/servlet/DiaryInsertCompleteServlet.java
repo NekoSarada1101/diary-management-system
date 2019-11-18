@@ -11,7 +11,6 @@ import java.io.IOException;
  * 日誌登録完了画面へ遷移するServletクラス
  *
  * @author ryouta
- *
  */
 @WebServlet("/diaryinsertcomplete")
 public class DiaryInsertCompleteServlet extends HttpServlet {

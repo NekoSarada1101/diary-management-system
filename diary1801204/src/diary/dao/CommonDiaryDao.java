@@ -5,6 +5,11 @@ import diary.bean.DiaryBeans;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * データベースから日誌の情報を取得を行うクラス
+ *
+ * @author ryouta
+ */
 public class CommonDiaryDao extends DiaryDao {
 
     //SORT
@@ -54,6 +59,7 @@ public class CommonDiaryDao extends DiaryDao {
         return stmt;
     }
 
+
     //SEARCH
     @Override
     protected String createSearchSqlSentence() {
@@ -75,6 +81,7 @@ public class CommonDiaryDao extends DiaryDao {
         }
         return stmt;
     }
+
 
     @Override
     protected String createInsertSqlSentence() {

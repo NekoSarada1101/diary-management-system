@@ -4,7 +4,6 @@ import diary.bean.DiaryBeans;
 import diary.bean.LoginInfoBeans;
 import diary.bean.TeacherBeans;
 import diary.dao.CommonDiaryDao;
-import diary.dao.DiaryDao;
 import diary.dao.StudentDiaryDao;
 import diary.dao.TeacherDiaryDao;
 
@@ -35,25 +34,26 @@ public class DiarySortServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         List<DiaryBeans> sorted_diary_list = null;
+
+        //ソートを実行した画面ごとに処理を分岐
         if (from_jsp_name.equals("diaryManipulationSelect")) {
             String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-            DiaryDao diary_dao = new StudentDiaryDao();
+            StudentDiaryDao diary_dao = new StudentDiaryDao();
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
 
         } else if (from_jsp_name.equals("commentManipulationSelect")) {
             String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
-            DiaryDao diary_dao = new TeacherDiaryDao();
+            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, sort_column, sort_order);
 
         } else if (from_jsp_name.equals("dispDiaryList")) {
-            DiaryDao diary_dao = new CommonDiaryDao();
+            CommonDiaryDao diary_dao = new CommonDiaryDao();
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb("", sort_column, sort_order);
         }
 
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
-        System.out.println(url);
 
         session.setAttribute("diary-list", sorted_diary_list);
         request.setAttribute("from-jsp-name", from_jsp_name);

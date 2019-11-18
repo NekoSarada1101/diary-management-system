@@ -2,7 +2,6 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.dao.DiaryDao;
 import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
@@ -16,7 +15,7 @@ import java.io.IOException;
 /**
  * 指定されたコメント情報をデータベースから削除するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
 @WebServlet("/commentdelete")
 public class CommentDeleteServlet extends HttpServlet {
@@ -31,7 +30,7 @@ public class CommentDeleteServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
-        DiaryDao diary_dao = new TeacherDiaryDao();
+        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
         diary_dao.deleteDiaryFromDb(diary_beans);
 
         session.removeAttribute("diary-beans");

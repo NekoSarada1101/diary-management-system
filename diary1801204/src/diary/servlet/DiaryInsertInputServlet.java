@@ -22,12 +22,13 @@ import java.util.Calendar;
 public class DiaryInsertInputServlet extends HttpServlet {
 
     /**
-     * 日誌登録画面へ遷移する
+     * 今日の日誌が登録済みかを確認してから日誌登録画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiaryInsertInputServlet"); //test
 
+        //今日の日付を取得
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String today = sdf.format(cal.getTime());

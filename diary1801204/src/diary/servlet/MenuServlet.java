@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * メニュー画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/menu")

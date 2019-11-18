@@ -24,21 +24,20 @@ public class TeacherDao extends DaoBase {
      */
     public List<TeacherBeans> getLoginInfo(String teacher_code, String password) {
         //test
-        System.out.println("DiaryDao : getLoginInfo");
+        System.out.println("TeacherDao : getLoginInfo");
         System.out.println("param : teacher_code = " + teacher_code);
         System.out.println("param : password = " + password);
 
         TeacherBeans teacher_beans = null;
+        List<TeacherBeans> list = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<TeacherBeans> list = null;
 
         try {
             this.dbConnect();
             stmt = con.prepareStatement("SELECT * FROM (teacher t INNER JOIN class c ON t.teacher_code = c.teacher_code) INNER JOIN course co ON c.course_code = co.course_code WHERE t.teacher_code = ? AND t.teacher_password = ?;");
             stmt.setString(1, teacher_code);
             stmt.setString(2, password);
-
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -70,12 +69,13 @@ public class TeacherDao extends DaoBase {
             System.out.println("return : list = " + list);
             System.out.println("                   : teacher_code = " + teacher_beans.getTeacher_code());
             System.out.println("                   : teacher_name = " + teacher_beans.getTeacher_name());
-            System.out.println("                   : class_code = " + teacher_beans.getClass_code());
-            System.out.println("                   : course_name = " + teacher_beans.getCourse_name());
-            System.out.println("                   : grade = " + teacher_beans.getGrade());
-            System.out.println("                   : class_name = " + teacher_beans.getClass_name());
+            System.out.println("                   : class_code = "   + teacher_beans.getClass_code());
+            System.out.println("                   : course_name = "  + teacher_beans.getCourse_name());
+            System.out.println("                   : grade = "        + teacher_beans.getGrade());
+            System.out.println("                   : class_name = "   + teacher_beans.getClass_name());
 
             return list;
+
         }else {
             return null;
         }

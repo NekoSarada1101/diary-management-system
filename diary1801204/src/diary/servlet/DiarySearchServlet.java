@@ -4,7 +4,6 @@ import diary.bean.DiaryBeans;
 import diary.bean.LoginInfoBeans;
 import diary.bean.TeacherBeans;
 import diary.dao.CommonDiaryDao;
-import diary.dao.DiaryDao;
 import diary.dao.StudentDiaryDao;
 import diary.dao.TeacherDiaryDao;
 
@@ -34,20 +33,22 @@ public class DiarySearchServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         List<DiaryBeans> searched_diary_list = null;
+
+        //検索を実行した画面ごとに処理を分岐
         if (from_jsp_name.equals("diaryManipulationSelect")) {
             String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
 
-            DiaryDao diary_dao = new StudentDiaryDao();
+            StudentDiaryDao diary_dao = new StudentDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
 
         } else if (from_jsp_name.equals("commentManipulationSelect")) {
             String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
-            DiaryDao diary_dao = new TeacherDiaryDao();
+            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(class_code, search_word);
 
         } else if (from_jsp_name.equals("dispDiaryList")) {
-            DiaryDao diary_dao = new CommonDiaryDao();
+            CommonDiaryDao diary_dao = new CommonDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb("", search_word);
         }
 

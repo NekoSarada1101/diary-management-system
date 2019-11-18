@@ -1,4 +1,3 @@
-
 package diary.dao;
 
 import java.sql.Connection;

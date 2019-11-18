@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * コメント登録完了画面へ遷移するServletクラス
+ * コメント更新完了画面へ遷移するServletクラス
  *
  * @author ryouta
- *
  */
 @WebServlet("/commentupdatecomplete")
 public class CommentUpdateCompleteServlet extends HttpServlet {
 
     /**
-     * コメント登録完了画面へ遷移する
+     * コメント更新完了画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

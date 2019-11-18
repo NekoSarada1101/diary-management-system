@@ -36,6 +36,7 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         if (bad_point.equals(""))       bad_point = null;
         if (student_comment.equals("")) student_comment = null;
 
+        //今日の日付を取得
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String today = sdf.format(cal.getTime());

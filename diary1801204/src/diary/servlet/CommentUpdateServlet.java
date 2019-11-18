@@ -1,7 +1,6 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.dao.DiaryDao;
 import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
@@ -30,11 +29,10 @@ public class CommentUpdateServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
-        DiaryDao diary_dao = new TeacherDiaryDao();
+        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
         diary_dao.updateDiaryToDb(diary_beans);
 
         session.removeAttribute("diary-beans");
-
         response.sendRedirect("commentupdatecomplete");
     }
 }
