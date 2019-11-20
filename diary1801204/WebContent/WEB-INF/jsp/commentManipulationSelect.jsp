@@ -77,7 +77,7 @@
                     </td>
                     <td class="col-3">
                         <%--コメント登録・修正入力画面へ--%>
-                        <form action="commentupdateinput" method="get" class="text-center">
+                        <form action="commentupdateinput" method="post" class="text-center">
                             <input type="hidden" name="select-diary" id="insert" value="<%=i%>">
                             <button type="submit" class="btn btn-info">登録・修正</button>
                         </form>

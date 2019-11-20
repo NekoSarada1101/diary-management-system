@@ -23,7 +23,7 @@ public class CommentUpdateInputServlet extends HttpServlet {
      * コメント入力画面へ遷移する
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("CommentUpdateInputServlet"); //test
 
         HttpSession session = request.getSession();

@@ -19,7 +19,6 @@ public abstract class DiaryDao extends DaoBase {
      * データベースに日誌の情報を登録(INSERT)する
      *
      * @param diary_beans データベースに登録する日誌の情報
-     * @return 登録に成功したらtrue
      */
     public void insertDiaryToDb(DiaryBeans diary_beans) {
         //test
@@ -194,10 +193,9 @@ public abstract class DiaryDao extends DaoBase {
         System.out.println("param : sort_order = "  + sort_order);
 
         DiaryBeans diary_beans = null;
+        List<DiaryBeans> list = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
-        List<DiaryBeans> list = null;
 
         try {
             this.dbConnect();
@@ -267,10 +265,9 @@ public abstract class DiaryDao extends DaoBase {
         System.out.println("param : search_word = " + search_word);
 
         DiaryBeans diary_beans = null;
+        List<DiaryBeans> list = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
-        List<DiaryBeans> list = null;
 
         try {
             this.dbConnect();
