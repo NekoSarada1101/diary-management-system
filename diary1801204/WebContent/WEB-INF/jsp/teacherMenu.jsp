@@ -45,12 +45,12 @@
         </div>
         <div class="row mt-1">
             <%--日誌当番指名画面へ--%>
-            <form action="duty" method="get" class="col-5 p-0 ml-auto mr-1">
+            <form action="dutyselect" method="get" class="col-5 p-0 ml-auto mr-1">
                 <button type="submit" class="image3 w-100 animated fadeInUp delay-1s"><div class="link text-white">日誌当番登録</div></button>
             </form>
 
             <%--日誌当番変更画面へ--%>
-            <form action="change" method="get" class="col-6 p-0 mr-auto">
+            <form action="dutyupdateselect" method="get" class="col-6 p-0 mr-auto">
                 <button type="submit" class="image4 w-100 animated fadeInRight delay-1s"><div class="link text-white">日誌当番変更</div></button>
             </form>
         </div>

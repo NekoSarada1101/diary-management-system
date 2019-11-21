@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-@WebServlet("/duty")
+@WebServlet("/dutyselect")
 public class DutySelectServlet extends HttpServlet {
 
     @Override
