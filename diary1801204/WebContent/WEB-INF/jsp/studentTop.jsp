@@ -1,8 +1,8 @@
-<%@ page import="diary.bean.LoginInfoBeans" %>
+<%@ page import="diary.bean.StudentBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
-    String student_name = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_name();
+    String student_name = ((StudentBeans) session.getAttribute("login-info")).getStudent_name();
 %>
 <!DOCTYPE html>
 <html>
