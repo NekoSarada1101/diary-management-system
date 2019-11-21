@@ -1,6 +1,6 @@
 package diary.servlet;
 
-import diary.bean.LoginInfoBeans;
+import diary.bean.StudentBeans;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -34,7 +34,7 @@ public class DiaryInsertInputServlet extends HttpServlet {
         String today = sdf.format(cal.getTime());
 
         HttpSession session = request.getSession();
-        String class_code = ((LoginInfoBeans) session.getAttribute("login-info")).getClass_code();
+        String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
 
         StudentDiaryDao diary_dao = new StudentDiaryDao();
         boolean is_registering = diary_dao.checkTodayDiaryRegistered(class_code, today);

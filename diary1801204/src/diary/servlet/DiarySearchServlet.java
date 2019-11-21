@@ -1,9 +1,12 @@
+
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.bean.LoginInfoBeans;
+import diary.bean.DutyBeans;
+import diary.bean.StudentBeans;
 import diary.bean.TeacherBeans;
 import diary.dao.CommonDiaryDao;
+import diary.dao.StudentListDao;
 import diary.dao.StudentDiaryDao;
 import diary.dao.TeacherDiaryDao;
 
@@ -33,10 +36,11 @@ public class DiarySearchServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         List<DiaryBeans> searched_diary_list = null;
+        List<DutyBeans> searched_duty_list = null;
 
         //検索を実行した画面ごとに処理を分岐
         if (from_jsp_name.equals("diaryManipulationSelect")) {
-            String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
+            String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
 
             StudentDiaryDao diary_dao = new StudentDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
@@ -50,11 +54,18 @@ public class DiarySearchServlet extends HttpServlet {
         } else if (from_jsp_name.equals("dispDiaryList")) {
             CommonDiaryDao diary_dao = new CommonDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb("", search_word);
+
+        } else if (from_jsp_name.equals("dutySelect")) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+            StudentListDao duty_dao = new StudentListDao();
+            searched_duty_list = duty_dao.fetchSearchedStudentListFromDb(class_code, search_word);
         }
 
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
 
         session.setAttribute("diary-list", searched_diary_list);
+        session.setAttribute("duty-list", searched_duty_list);
         request.setAttribute("from-jsp-name", from_jsp_name);
         request.getRequestDispatcher(url).forward(request, response);
     }

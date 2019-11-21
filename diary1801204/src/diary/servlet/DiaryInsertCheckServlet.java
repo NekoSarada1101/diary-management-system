@@ -1,7 +1,7 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.bean.LoginInfoBeans;
+import diary.bean.StudentBeans;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,8 +42,8 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         String today = sdf.format(cal.getTime());
 
         HttpSession session = request.getSession();
-        String class_code = ((LoginInfoBeans) session.getAttribute("login-info")).getClass_code();
-        String student_id = ((LoginInfoBeans) session.getAttribute("login-info")).getStudent_id();
+        String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
+        String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
 
         DiaryBeans diary_beans = new DiaryBeans();
         diary_beans.setClass_code     (class_code);

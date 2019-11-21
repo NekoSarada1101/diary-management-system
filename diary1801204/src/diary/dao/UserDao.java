@@ -1,6 +1,6 @@
 package diary.dao;
 
-import diary.bean.LoginInfoBeans;
+import diary.bean.StudentBeans;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,13 +20,13 @@ public class UserDao extends DaoBase {
      * @param password   ログイン画面で入力されたパスワード
      * @return ログインに成功したらログインした学生の情報 失敗したらnull
      */
-    public LoginInfoBeans getLoginInfo(String student_id, String password) {
+    public StudentBeans getLoginInfo(String student_id, String password) {
         //test
         System.out.println("UserDao : getLoginInfo");
         System.out.println("param : student_id = " + student_id);
         System.out.println("param : password = "   + password);
 
-        LoginInfoBeans login_info = null;
+        StudentBeans login_info = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -39,7 +39,7 @@ public class UserDao extends DaoBase {
             rs = stmt.executeQuery();
             rs.next();
 
-            login_info = new LoginInfoBeans();
+            login_info = new StudentBeans();
             login_info.setStudent_id  (rs.getString("student_id"));
             login_info.setClass_code  (rs.getString("class_code"));
             login_info.setStudent_name(rs.getString("student_name"));

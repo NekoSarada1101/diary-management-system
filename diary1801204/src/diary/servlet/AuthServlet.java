@@ -1,6 +1,6 @@
 package diary.servlet;
 
-import diary.bean.LoginInfoBeans;
+import diary.bean.StudentBeans;
 import diary.dao.UserDao;
 
 import javax.servlet.ServletException;
@@ -31,7 +31,7 @@ public class AuthServlet extends HttpServlet {
         String student_password = request.getParameter("student-password");
 
         UserDao user_dao = new UserDao();
-        LoginInfoBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
+        StudentBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
 
         HttpSession session = request.getSession();
         if (login_info_beans != null) {
