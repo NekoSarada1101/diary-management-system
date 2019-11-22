@@ -4,10 +4,7 @@ import diary.bean.DiaryBeans;
 import diary.bean.DutyBeans;
 import diary.bean.StudentBeans;
 import diary.bean.TeacherBeans;
-import diary.dao.CommonDiaryDao;
-import diary.dao.StudentDiaryDao;
-import diary.dao.StudentListDao;
-import diary.dao.TeacherDiaryDao;
+import diary.dao.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -56,6 +53,16 @@ public class DiarySortServlet extends HttpServlet {
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb("", sort_column, sort_order);
 
         } else if (from_jsp_name.equals("dutySelect")) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+            StudentListDao duty_dao = new StudentListDao();
+            searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
+        } else if (from_jsp_name.equals("dutyUpdateSelect")) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+            DutyDao duty_dao = new DutyDao();
+            searched_duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, sort_column, sort_order);
+        } else if (from_jsp_name.equals("dutyUpdateInsert")) {
             String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
             StudentListDao duty_dao = new StudentListDao();

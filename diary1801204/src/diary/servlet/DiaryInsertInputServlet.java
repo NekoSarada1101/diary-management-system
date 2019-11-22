@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * 日誌登録画面へ遷移するServletクラス
@@ -28,12 +26,9 @@ public class DiaryInsertInputServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiaryInsertInputServlet"); //test
 
-        //今日の日付を取得
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String today = sdf.format(cal.getTime());
-
         HttpSession session = request.getSession();
+
+        String today = (String) session.getAttribute("today");
         String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
 
         StudentDiaryDao diary_dao = new StudentDiaryDao();

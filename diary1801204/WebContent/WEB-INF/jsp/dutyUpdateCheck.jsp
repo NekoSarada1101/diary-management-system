@@ -3,6 +3,11 @@
          pageEncoding="UTF-8" %>
 <%
     DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
+    String error_message = (String) session.getAttribute("error-message");
+    if (error_message == null) {
+        error_message = "";
+    }
+    session.removeAttribute("error-message");
 %>
 
 <!DOCTYPE html>
@@ -21,7 +26,10 @@
 
 <div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
-        <h1 class="text-center border-bottom border-dark">日誌当番登録確認</h1>
+        <h1 class="text-center border-bottom border-dark">日誌当番変更確認</h1>
+
+        <p class="text-center text-danger"><%=error_message%>
+        </p>
 
         <table class="table table-striped table-borderless mr-auto ml-auto mb-0 col-12 mt-5">
             <tr class="row animated bounceInLeft faster">
@@ -37,9 +45,9 @@
         </table>
 
         <%--日誌当番登録完了画面へ--%>
-        <form action="dutyinsert" method="get">
+        <form action="dutyupdate" method="get">
             <div class="text-center mt-5">
-                <button type="submit" class="btn btn-info btn-lg">登録</button>
+                <button type="submit" class="btn btn-warning btn-lg">変更</button>
             </div>
         </form>
 

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * 入力された日誌情報をデータベースに登録するServletクラス
@@ -32,16 +30,14 @@ public class DutyInsertServlet extends HttpServlet {
         DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
 
         //今日の日付を取得
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String today = sdf.format(cal.getTime());
+        String today = (String) session.getAttribute("today");
 
         duty_beans.setInsert_date(today);
 
         DutyDao duty_dao = new DutyDao();
         duty_dao.insertDutyToDb(duty_beans);
 
-        session.removeAttribute("diary-beans");
+        session.removeAttribute("duty-beans");
         response.sendRedirect("dutyinsertcomplete");
 
     }

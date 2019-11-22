@@ -1,10 +1,17 @@
 <%@ page import="diary.bean.StudentBeans" %>
 <%@ page import="java.util.List" %>
 <%@ page import="diary.bean.DutyBeans" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
-    List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+    List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("duty-list");
+
+    //今日の日付を取得
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String today = sdf.format(cal.getTime());
 %>
 
 <!DOCTYPE html>
@@ -23,29 +30,34 @@
 
 <div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
-        <h1 class="text-center border-bottom border-dark">日誌当番選択</h1>
+        <h1 class="text-center border-bottom border-dark">日誌当番一覧・変更</h1>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
 
             <table class="table table-hover border-top mr-auto ml-auto mb-0">
                 <thead>
                 <tr class="row">
+                    <th class="col-3 border-right" scope="col">担当日</th>
                     <th class="col-3 border-right" scope="col">学籍番号</th>
-                    <th class="col-5 border-right" scope="col">名前</th>
-                    <th class="col-4" scope="col">操作</th>
+                    <th class="col-3 border-right" scope="col">名前</th>
+                    <th class="col-3" scope="col">操作</th>
                 </tr>
 
                 <tbody>
-                <% for (int i = 0; i < student_list.size(); i++) { %>
+                <% for (int i = 0; i < duty_list.size(); i++) { %>
                 <tr class="row animated bounceInUp">
-                    <th class="col-3 border-right" scope="row"><%=student_list.get(i).getStudent_id()%></th>
-                    <td class="col-5 border-right"><%=student_list.get(i).getStudent_name()%></td>
-                    <td class="col-4">
+                    <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%></th>
+                    <th class="col-3 border-right" ><%=duty_list.get(i).getStudent_id()%></th>
+                    <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%></td>
+                    <td class="col-3">
+                        <% if(duty_list.get(i).getInsert_date().equals(today)){ %>
                         <%--日誌当番登録確認画面へ--%>
-                        <form action="dutyinsertcheck" method="post" class="text-center">
+                        <form action="dutyupdateinsert" method="post" class="text-center">
                             <input type="hidden" name="select-student" value="<%=i%>">
-                            <button type="submit" class="btn btn-info">登録</button>
+                            <button type="submit" class="btn btn-warning">変更</button>
                         </form>
+                        <% } %>
+
                     </td>
                 </tr>
                 <% } %>
@@ -57,7 +69,7 @@
         <form action="search" method="post" class="mt-3">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
-                <input type="hidden" value="dutySelect" name="from-jsp-name">
+                <input type="hidden" value="dutyUpdateSelect" name="from-jsp-name">
                 <button type="submit" class="btn btn-primary">検索</button>
             </div>
         </form>
@@ -74,7 +86,7 @@
                     <option value="ASC">昇順</option>
                     <option value="DESC">降順</option>
                 </select>
-                <input type="hidden" value="dutySelect" name="from-jsp-name">
+                <input type="hidden" value="dutyUpdateSelect" name="from-jsp-name">
                 <button type="submit" class="btn btn-primary">ソート</button>
             </div>
         </form>

@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>日誌当番選択画面</title>
+    <title>日誌当番変更選択画面</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 
@@ -42,9 +42,9 @@
                     <td class="col-5 border-right"><%=student_list.get(i).getStudent_name()%></td>
                     <td class="col-4">
                         <%--日誌当番登録確認画面へ--%>
-                        <form action="dutyinsertcheck" method="post" class="text-center">
+                        <form action="dutyupdatecheck" method="post" class="text-center">
                             <input type="hidden" name="select-student" value="<%=i%>">
-                            <button type="submit" class="btn btn-info">登録</button>
+                            <button type="submit" class="btn btn-warning">変更</button>
                         </form>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
         <form action="search" method="post" class="mt-3">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
-                <input type="hidden" value="dutySelect" name="from-jsp-name">
+                <input type="hidden" value="dutyUpdateInsert" name="from-jsp-name">
                 <button type="submit" class="btn btn-primary">検索</button>
             </div>
         </form>
@@ -74,7 +74,7 @@
                     <option value="ASC">昇順</option>
                     <option value="DESC">降順</option>
                 </select>
-                <input type="hidden" value="dutySelect" name="from-jsp-name">
+                <input type="hidden" value="dutyUpdateInsert" name="from-jsp-name">
                 <button type="submit" class="btn btn-primary">ソート</button>
             </div>
         </form>

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -37,6 +39,12 @@ public class TeacherMenuServlet extends HttpServlet {
             teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
         }
 
+        //今日の日付を取得
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sdf.format(cal.getTime());
+
+        session.setAttribute("today", today);
         session.setAttribute("teacher-beans", teacher_beans);
         request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);
     }

@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author ryouta
  */
-public class LoginInfoBeans implements Serializable {
+public class StudentBeans implements Serializable {
     private String student_id   = null;
     private String class_code   = null;
     private String student_name = null;
