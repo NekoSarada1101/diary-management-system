@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DutyBeans;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌当番選択画面で指定した学生の情報を取得した後日誌当番確認画面へ遷移するServletクラス
+ * 日誌当番選択画面で指定した学生の情報を取得した後、日誌当番確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -21,7 +20,7 @@ import java.util.List;
 public class DutyInsertCheckServlet extends HttpServlet {
 
     /**
-     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後日誌削除確認画面へ遷移する
+     * 日誌当番選択画面で指定された学生のリスト内の位置を取得し学生の情報を取得した後、日誌当番確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

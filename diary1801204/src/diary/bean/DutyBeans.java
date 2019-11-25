@@ -1,15 +1,16 @@
-
 package diary.bean;
+
+import java.io.Serializable;
 
 /**
  * 日誌当番の情報を格納するBeansクラス
  *
  * @author ryouta
  */
-public class DutyBeans {
-    private String class_code = null;
-    private String insert_date = null;
-    private String student_id = null;
+public class DutyBeans implements Serializable {
+    private String class_code   = null;
+    private String insert_date  = null;
+    private String student_id   = null;
     private String student_name = null;
 
     /**

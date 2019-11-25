@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import javax.servlet.ServletException;

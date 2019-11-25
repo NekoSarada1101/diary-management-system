@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * データベースに接続して学生のログイン処理を行うクラス
+ * データベースに接続して学生のログイン処理を行うDaoクラス
  *
  * @author ryouta
  */
@@ -58,8 +58,8 @@ public class UserDao extends DaoBase {
         }
         //test
         System.out.println("return : loginInfo = " + login_info);
-        System.out.println("                   : student_id = " + login_info.getStudent_id());
-        System.out.println("                   : class_code = " + login_info.getClass_code());
+        System.out.println("                   : student_id = "   + login_info.getStudent_id());
+        System.out.println("                   : class_code = "   + login_info.getClass_code());
         System.out.println("                   : student_name = " + login_info.getStudent_name());
 
         return login_info;

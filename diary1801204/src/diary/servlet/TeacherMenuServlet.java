@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * メニュー画面へ遷移するServletクラス
+ *
  * @author ryouta
  */
 @WebServlet("/teachermenu")
@@ -35,7 +36,7 @@ public class TeacherMenuServlet extends HttpServlet {
             int i = Integer.parseInt(request.getParameter("select-class"));
             teacher_beans = teacher_list.get(i);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
         }
 

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * コメント入力画面で入力した値を取得した後コメント更新確認画面へ遷移するServletクラス
+ * コメント入力画面で入力した値を取得した後、コメント更新確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -19,7 +19,7 @@ import java.io.IOException;
 public class CommentUpdateCheckServlet extends HttpServlet {
 
     /**
-     * コメント入力画面で入力した値を取得しBeansに格納した後コメント更新確認画面へ遷移する
+     * コメント入力画面で入力した値を取得しBeansに格納した後、コメント更新確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * データベースから日誌の情報を取得を行うクラス
+ * データベースから日誌の情報の取得を行うクラス
  *
  * @author ryouta
  */

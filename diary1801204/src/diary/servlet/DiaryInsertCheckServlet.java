@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 日誌登録画面で入力した値を取得した後日誌登録確認画面へ遷移するServletクラス
+ * 日誌登録画面で入力した値を取得した後、日誌登録確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -20,7 +20,7 @@ import java.io.IOException;
 public class DiaryInsertCheckServlet extends HttpServlet {
 
     /**
-     * 日誌登録画面で入力した値、本日の日付、ログインしている学生の学籍番号を取得しBeansに格納した後日誌登録確認画面へ遷移する
+     * 日誌登録画面で入力した値、本日の日付、ログインしている学生の学籍番号を取得しBeansに格納した後、日誌登録確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -32,7 +32,6 @@ public class DiaryInsertCheckServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        //今日の日付を取得
         String today = (String) session.getAttribute("today");
 
         String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();

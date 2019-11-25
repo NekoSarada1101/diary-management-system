@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌のリストを取得した後日誌閲覧画面へ遷移するServletクラス
+ * 日誌のリストを取得した後、日誌閲覧画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -22,7 +21,7 @@ import java.util.List;
 public class DispDiaryListServlet extends HttpServlet {
 
     /**
-     * 日誌のリストを取得した後日誌閲覧画面へ遷移する
+     * 日誌のリストを取得した後、日誌閲覧画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

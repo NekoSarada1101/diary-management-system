@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -17,13 +16,16 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 指定された単語で曖昧検索した後登録修正削除選択画面へ遷移するServletクラス
+ * 指定された単語で曖昧検索した後、画面遷移するServletクラス
  *
  * @author ryouta
  */
 @WebServlet("/search")
 public class DiarySearchServlet extends HttpServlet {
 
+    /**
+     * 指定された単語で曖昧検索した後、画面遷移する
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiarySearchServlet"); //text

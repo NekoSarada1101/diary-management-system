@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import javax.servlet.ServletException;
@@ -11,7 +10,7 @@ import java.io.IOException;
 /**
  * 日誌削除完了画面へ遷移するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
 @WebServlet("/diarydeletecomplete")
 public class DiaryDeleteCompleteServlet extends HttpServlet {

@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -15,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 学生の日誌のリストを取得した後登録修正削除選択画面へ遷移するServletクラス
+ * 学生の日誌のリストを取得した後、登録修正削除選択画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -23,7 +22,7 @@ import java.util.List;
 public class CommentManipulationSelectServlet extends HttpServlet {
 
     /**
-     * ログインした教員のクラスコードから取得した日誌のリストを取得した後登録修正削除画面へ遷移する
+     * ログインした教員のクラスコードから取得した日誌のリストを取得した後、登録修正削除画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

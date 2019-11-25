@@ -1,4 +1,3 @@
-
 package diary.dao;
 
 import diary.bean.DiaryBeans;
@@ -8,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * データベースから日誌の情報を取得、更新、削除を行うクラス
+ * データベースから日誌の情報の取得、挿入、,更新、削除を行うクラス
  *
  * @author ryouta
  */
@@ -25,7 +24,7 @@ public class StudentDiaryDao extends DiaryDao {
         //test
         System.out.println("StudentDiaryDao : checkTodayDiaryRegistered");
         System.out.println("param : class_code = " + class_code);
-        System.out.println("param : today = " + today);
+        System.out.println("param : today = "      + today);
 
         PreparedStatement stmt = null;
         ResultSet rs = null;

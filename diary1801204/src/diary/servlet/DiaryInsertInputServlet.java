@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 日誌登録画面へ遷移するServletクラス
+ * 今日の日誌が登録済みかを確認してから日誌登録画面へ遷移するServletクラス
  *
  * @author ryouta
  */

@@ -64,7 +64,7 @@ public class StudentListDao extends DaoBase {
     /**
      * 指定されたカラムを指定された順番にソートした学生の情報をすべて取得(SELECT)する
      *
-     * @param condition   SQL文のWERHE句に指定する条件
+     * @param condition   SQL文のWHERE句に指定する条件
      * @param sort_column ソート対象のカラム名
      * @param sort_order  ソートの順番
      * @return 取得した日誌の情報を格納したリスト

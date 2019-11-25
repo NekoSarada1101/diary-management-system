@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * ログイン認証を行った後画面遷移を行うServletクラス
+ * ログイン認証を行った後、画面遷移を行うServletクラス
  *
  * @author ryouta
  */

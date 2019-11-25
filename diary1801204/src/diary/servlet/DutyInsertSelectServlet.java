@@ -16,9 +16,12 @@ import java.util.List;
 /**
  * 今日の日誌当番が登録済みか確認してから日誌当番を選択する画面に遷移するServletクラス
  */
-@WebServlet("/dutyselect")
-public class DutySelectServlet extends HttpServlet {
+@WebServlet("/dutyinsertselect")
+public class DutyInsertSelectServlet extends HttpServlet {
 
+    /**
+     * 今日の日誌当番が登録済みか確認してから日誌当番を選択する画面に遷移する
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DutySelectServlet");
@@ -38,7 +41,7 @@ public class DutySelectServlet extends HttpServlet {
             List<DutyBeans> student_list = duty_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
 
             session.setAttribute("student-list", student_list);
-            request.getRequestDispatcher("WEB-INF/jsp/dutySelect.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/dutyInsertSelect.jsp").forward(request, response);
         }
     }
 }

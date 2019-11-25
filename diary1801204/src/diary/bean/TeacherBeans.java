@@ -10,10 +10,10 @@ import java.io.Serializable;
 public class TeacherBeans implements Serializable {
     private String teacher_code = null;
     private String teacher_name = null;
-    private String class_code = null;
-    private String course_name = null;
-    private String grade = null;
-    private String class_name = null;
+    private String class_code   = null;
+    private String course_name  = null;
+    private String grade        = null;
+    private String class_name   = null;
 
     /**
      * @return このクラスのteacher_codeの値

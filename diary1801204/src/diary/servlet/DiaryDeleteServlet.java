@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -15,7 +14,7 @@ import java.io.IOException;
 /**
  * 指定された日誌情報をデータベースから削除するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
 @WebServlet("/diarydelete")
 public class DiaryDeleteServlet extends HttpServlet {

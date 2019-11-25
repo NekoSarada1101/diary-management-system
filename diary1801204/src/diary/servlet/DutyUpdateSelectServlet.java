@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DutyBeans;
@@ -15,11 +14,14 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌当番のリストを取得した後日誌当番更新選択画面に遷移するServletクラス
+ * 日誌当番のリストを取得した後、日誌当番更新選択画面に遷移するServletクラス
  */
 @WebServlet("/dutyupdateselect")
 public class DutyUpdateSelectServlet extends HttpServlet {
 
+    /**
+     * 日誌当番のリストを取得した後、日誌当番更新選択画面に遷移する
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DutyUpdateSelectServlet");

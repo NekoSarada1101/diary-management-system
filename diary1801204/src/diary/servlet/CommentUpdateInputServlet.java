@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * コメント入力画面へ遷移するServletクラス
+ * コメント操作選択画面で指定した日誌の情報を取得した後、コメント入力画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -20,7 +20,7 @@ import java.util.List;
 public class CommentUpdateInputServlet extends HttpServlet {
 
     /**
-     * コメント入力画面へ遷移する
+     * コメント操作選択画面で指定した日誌の情報を取得した後、コメント入力画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

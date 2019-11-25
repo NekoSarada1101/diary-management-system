@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DutyBeans;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌当番入力画面で指定した学生の情報を取得した後日誌当番更新確認画面へ遷移するServletクラス
+ * 日誌当番入力画面で指定した学生の情報を取得した後、日誌当番更新確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -22,7 +21,7 @@ import java.util.List;
 public class DutyUpdateCheckServlet extends HttpServlet {
 
     /**
-     * 日誌当番入力画面で指定された学生のリスト内の位置を取得し学生の情報を取得した後日誌当番更新確認画面へ遷移する
+     * 日誌当番入力画面で指定された学生のリスト内の位置を取得し学生の情報を取得した後、日誌当番更新確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -34,7 +33,6 @@ public class DutyUpdateCheckServlet extends HttpServlet {
         int i = Integer.parseInt(request.getParameter("select-student"));
         DutyBeans duty_beans = student_list.get(i);
 
-        //今日の日付を取得
         String today = (String) session.getAttribute("today");
 
         duty_beans.setInsert_date(today);

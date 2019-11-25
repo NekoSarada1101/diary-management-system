@@ -14,11 +14,14 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 学生のリストを取得した後日誌当番入力画面に遷移するServletクラス
+ * 学生のリストを取得した後、日誌当番入力画面に遷移するServletクラス
  */
 @WebServlet("/dutyupdateinsert")
 public class DutyUpdateInsertServlet extends HttpServlet {
 
+    /**
+     * 学生のリストを取得した後、日誌当番入力画面に遷移する
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DutyUpdateInsertServlet");

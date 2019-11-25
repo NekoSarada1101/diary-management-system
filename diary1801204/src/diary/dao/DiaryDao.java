@@ -180,7 +180,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * 指定されたカラムを指定された順番にソートした日誌の情報をすべて取得(SELECT)する
      *
-     * @param condition   SQL文のWERHE句に指定する条件
+     * @param condition   SQL文のWHERE句に指定する条件
      * @param sort_column ソート対象のカラム名
      * @param sort_order  ソートの順番
      * @return 取得した日誌の情報を格納したリスト
@@ -244,7 +244,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * ソートするSELECT文のプレースホルダーに値を埋め込む
      *
-     * @param stmt      プレースホルダーに値を埋め込む前のUPDATE文
+     * @param stmt      プレースホルダーに値を埋め込む前のSELECT文
      * @param condition プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだSELECT文
      */
@@ -314,7 +314,7 @@ public abstract class DiaryDao extends DaoBase {
     /**
      * 曖昧検索するSELECT文のプレースホルダーに値を埋め込む
      *
-     * @param stmt        プレースホルダーに値を埋め込む前のUPDATE文
+     * @param stmt        プレースホルダーに値を埋め込む前のSELECT文
      * @param search_word プレースホルダーに埋め込む曖昧検索のための単語
      * @param condition   プレースホルダーに埋め込む値
      * @return プレースホルダーに値を埋め込んだSELECT文

@@ -20,7 +20,7 @@ import java.io.IOException;
 public class DutyInsertServlet extends HttpServlet {
 
     /**
-     * 日誌情報をデータベースに登録する
+     * 日誌当番情報をデータベースに登録する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -29,7 +29,6 @@ public class DutyInsertServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
 
-        //今日の日付を取得
         String today = (String) session.getAttribute("today");
 
         duty_beans.setInsert_date(today);

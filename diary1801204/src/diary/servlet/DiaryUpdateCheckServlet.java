@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 日誌修正画面で入力した値を取得した後日誌修正確認画面へ遷移するServletクラス
+ * 日誌修正画面で入力した値を取得した後、日誌修正確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -19,7 +19,7 @@ import java.io.IOException;
 public class DiaryUpdateCheckServlet extends HttpServlet {
 
     /**
-     * 日誌修正画面で入力した値をBeansに格納した後日誌修正確認画面へ遷移する
+     * 日誌修正画面で入力した値をBeansに格納した後、日誌修正確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

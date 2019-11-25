@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * コメント操作選択画面で指定した日誌の情報を取得した後コメント削除確認画面へ遷移するServletクラス
+ * コメント操作選択画面で指定した日誌の情報を取得した後、コメント削除確認画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -21,7 +20,7 @@ import java.util.List;
 public class CommentDeleteCheckServlet extends HttpServlet {
 
     /**
-     * コメント操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後コメント削除確認画面へ遷移する
+     * コメント操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後、コメント削除確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

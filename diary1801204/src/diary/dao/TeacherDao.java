@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * データベースに接続して教員のログイン処理を行うクラス
+ * データベースに接続して教員のログイン処理を行うDaoクラス
  *
  * @author ryouta
  */
@@ -26,7 +26,7 @@ public class TeacherDao extends DaoBase {
         //test
         System.out.println("TeacherDao : getLoginInfo");
         System.out.println("param : teacher_code = " + teacher_code);
-        System.out.println("param : password = " + password);
+        System.out.println("param : password = "     + password);
 
         TeacherBeans teacher_beans = null;
         List<TeacherBeans> list = null;
@@ -42,17 +42,16 @@ public class TeacherDao extends DaoBase {
 
             list = new ArrayList<>();
 
-            while(rs.next()){
+            while (rs.next()) {
                 teacher_beans = new TeacherBeans();
                 teacher_beans.setTeacher_code(rs.getString("teacher_code"));
                 teacher_beans.setTeacher_name(rs.getString("teacher_name"));
-                teacher_beans.setClass_code(rs.getString("class_code"));
-                teacher_beans.setCourse_name(rs.getString("course_name"));
-                teacher_beans.setGrade(rs.getString("grade"));
-                teacher_beans.setClass_name(rs.getString("class_name"));
+                teacher_beans.setClass_code  (rs.getString("class_code"));
+                teacher_beans.setCourse_name (rs.getString("course_name"));
+                teacher_beans.setGrade       (rs.getString("grade"));
+                teacher_beans.setClass_name  (rs.getString("class_name"));
                 list.add(teacher_beans);
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,7 +64,7 @@ public class TeacherDao extends DaoBase {
             }
         }
         //test
-        if(list.size() != 0){
+        if (list.size() != 0) {
             System.out.println("return : list = " + list);
             System.out.println("                   : teacher_code = " + teacher_beans.getTeacher_code());
             System.out.println("                   : teacher_name = " + teacher_beans.getTeacher_name());
@@ -76,7 +75,7 @@ public class TeacherDao extends DaoBase {
 
             return list;
 
-        }else {
+        } else {
             return null;
         }
     }

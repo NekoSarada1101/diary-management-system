@@ -1,4 +1,3 @@
-
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
@@ -13,15 +12,15 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌操作選択画面で指定した日誌の情報を取得した後日誌削除確認画面へ遷移するServletクラス
+ * 日誌操作選択画面で指定した日誌の情報を取得した後、日誌削除確認画面へ遷移するServletクラス
  *
- * @author ryo
+ * @author ryouta
  */
 @WebServlet("/diarydeletecheck")
 public class DiaryDeleteCheckServlet extends HttpServlet {
 
     /**
-     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後日誌削除確認画面へ遷移する
+     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後、日誌削除確認画面へ遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

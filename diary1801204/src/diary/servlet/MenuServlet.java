@@ -37,7 +37,7 @@ public class MenuServlet extends HttpServlet {
         session.setAttribute("today", today);
 
         DutyDao duty_dao = new DutyDao();
-        boolean is_registering = duty_dao.checkTodayDutyRegistered(((StudentBeans)session.getAttribute("login-info")).getClass_code(), today);
+        boolean is_registering = duty_dao.checkTodayDutyRegistered(((StudentBeans) session.getAttribute("login-info")).getClass_code(), today);
 
         session.setAttribute("is-registering", is_registering);
         request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);

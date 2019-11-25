@@ -1,4 +1,3 @@
-
 package diary.dao;
 
 import diary.bean.DiaryBeans;
@@ -7,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * データベースから日誌の情報を取得、更新、削除を行うクラス
+ * データベースから日誌の情報の取得、更新、削除を行うDaoクラス
  *
  * @author ryouta
  */

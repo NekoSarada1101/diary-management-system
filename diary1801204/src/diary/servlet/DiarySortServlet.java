@@ -16,13 +16,16 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 指定したカラムを指定した順番にソートした後登録修正削除選択画面へ遷移するServletクラス
+ * 指定したカラムを指定した順番にソートした後、画面遷移するServletクラス
  *
  * @author ryouta
  */
 @WebServlet("/sort")
 public class DiarySortServlet extends HttpServlet {
 
+    /**
+     * 指定したカラムを指定した順番にソートした後、画面遷移する
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("DiarySortServlet"); //text
