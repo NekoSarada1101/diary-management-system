@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * コメント更新完了画面へ遷移するServletクラス
+ * 日誌当番登録完了画面へ遷移するServletクラス
  *
  * @author ryouta
  */
@@ -16,7 +16,7 @@ import java.io.IOException;
 public class DutyInsertCompleteServlet extends HttpServlet {
 
     /**
-     * コメント更新完了画面へ遷移する
+     * 日誌当番登録完了画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

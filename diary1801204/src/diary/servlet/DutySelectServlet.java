@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 今日の日誌当番が登録済みか確認してから日誌当番を選択する画面に遷移するServletクラス
+ */
 @WebServlet("/dutyselect")
 public class DutySelectServlet extends HttpServlet {
 

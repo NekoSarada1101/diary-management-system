@@ -8,12 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * データベースから日誌当番の情報の操作を行うクラス
+ *
+ * @author ryouta
+ */
 public class DutyDao extends DaoBase {
 
     /**
-     * データベースに今日の日付と同じ日誌の情報が登録されているか確認する
+     * データベースに今日の日誌当番の情報が登録されているか確認する
      *
-     * @param class_code ログインしている学生のクラスコード
+     * @param class_code ログインしている教員のクラスコード
      * @param today      今日の日付
      * @return 登録済みならtrue
      */
@@ -21,7 +26,7 @@ public class DutyDao extends DaoBase {
         //test
         System.out.println("DutyDao : checkTodayDutyRegistered");
         System.out.println("param : class_code = " + class_code);
-        System.out.println("param : today = " + today);
+        System.out.println("param : today = "      + today);
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -56,17 +61,17 @@ public class DutyDao extends DaoBase {
     }
 
     /**
-     * データベースに日誌の情報を登録(INSERT)する
+     * データベースに日誌当番の情報を登録(INSERT)する
      *
-     * @param duty_beans データベースに登録する日誌の情報
+     * @param duty_beans データベースに登録する日誌当番の情報
      */
     public void insertDutyToDb(DutyBeans duty_beans) {
         //test
-        System.out.println("DutyDao : insertDiaryToDb");
+        System.out.println("DutyDao : insertDutyToDb");
         System.out.println("param : duty_beans = " + duty_beans);
-        System.out.println("                    : class_code = " + duty_beans.getClass_code());
-        System.out.println("                    : insert_date = " + duty_beans.getInsert_date());
-        System.out.println("                    : student_id = " + duty_beans.getStudent_id());
+        System.out.println("                    : class_code = "   + duty_beans.getClass_code());
+        System.out.println("                    : insert_date = "  + duty_beans.getInsert_date());
+        System.out.println("                    : student_id = "   + duty_beans.getStudent_id());
         System.out.println("                    : student_name = " + duty_beans.getStudent_name());
 
         PreparedStatement stmt = null;
@@ -119,17 +124,17 @@ public class DutyDao extends DaoBase {
 
 
     /**
-     * データベースの日誌の情報を入力した情報に更新(UPDATE)する
+     * データベースの日誌当番の情報を入力した情報に更新(UPDATE)する
      *
-     * @param duty_beans 更新する日誌の情報
+     * @param duty_beans 更新する日誌当番の情報
      */
     public void updateDutyToDb(DutyBeans duty_beans) {
         //test
-        System.out.println("DutyDao : updateDiaryToDb");
+        System.out.println("DutyDao : updateDutyToDb");
         System.out.println("param : duty_beans = " + duty_beans);
-        System.out.println("                    : class_code = " + duty_beans.getClass_code());
-        System.out.println("                    : insert_date = " + duty_beans.getInsert_date());
-        System.out.println("                    : student_id = " + duty_beans.getStudent_id());
+        System.out.println("                    : class_code = "   + duty_beans.getClass_code());
+        System.out.println("                    : insert_date = "  + duty_beans.getInsert_date());
+        System.out.println("                    : student_id = "   + duty_beans.getStudent_id());
         System.out.println("                    : student_name = " + duty_beans.getStudent_name());
 
         PreparedStatement stmt = null;
@@ -184,19 +189,19 @@ public class DutyDao extends DaoBase {
 
 
     /**
-     * 指定されたカラムを指定された順番にソートした日誌の情報をすべて取得(SELECT)する
+     * 指定されたカラムを指定された順番にソートした日誌当番の情報をすべて取得(SELECT)する
      *
      * @param condition   SQL文のWERHE句に指定する条件
      * @param sort_column ソート対象のカラム名
      * @param sort_order  ソートの順番
-     * @return 取得した日誌の情報を格納したリスト
+     * @return 取得した日誌当番の情報を格納したリスト
      */
     public List<DutyBeans> fetchSortedDutyListFromDb(String condition, String sort_column, String sort_order) {
         //test
         System.out.println("DutyDao : fetchSortedDutyListFromDb");
-        System.out.println("param : condition = " + condition);
+        System.out.println("param : condition = "   + condition);
         System.out.println("param : sort_column = " + sort_column);
-        System.out.println("param : sort_order = " + sort_order);
+        System.out.println("param : sort_order = "  + sort_order);
 
         DutyBeans duty_beans = null;
         List<DutyBeans> list = null;
@@ -213,9 +218,9 @@ public class DutyDao extends DaoBase {
 
             while (rs.next()) {
                 duty_beans = new DutyBeans();
-                duty_beans.setClass_code(rs.getString("class_code"));
-                duty_beans.setInsert_date(rs.getString("insert_date"));
-                duty_beans.setStudent_id(rs.getString("student_id"));
+                duty_beans.setClass_code  (rs.getString("class_code"));
+                duty_beans.setInsert_date (rs.getString("insert_date"));
+                duty_beans.setStudent_id  (rs.getString("student_id"));
                 duty_beans.setStudent_name(rs.getString("student_name"));
                 list.add(duty_beans);
             }
@@ -236,7 +241,7 @@ public class DutyDao extends DaoBase {
     }
 
     /**
-     * 日誌の情報をソートするSELECT文を作成する
+     * 日誌当番の情報をソートするSELECT文を作成する
      *
      * @param sort_column ソート対象のカラム名
      * @param sort_order  ソートの順番
@@ -294,11 +299,11 @@ public class DutyDao extends DaoBase {
 
 
     /**
-     * 指定された単語をで曖昧検索を行って抽出された日誌の情報をすべて取得(SELECT)する
+     * 指定された単語をで曖昧検索を行って抽出された日誌当番の情報をすべて取得(SELECT)する
      *
      * @param condition   SQL文のWHERE句に指定する条件
      * @param search_word 曖昧検索を行う単語
-     * @return 取得した日誌の情報を格納したリスト
+     * @return 取得した日誌当番の情報を格納したリスト
      */
     public List<DutyBeans> fetchSearchedDutyListFromDb(String condition, String search_word) {
         //test
@@ -324,7 +329,7 @@ public class DutyDao extends DaoBase {
                 duty_beans.setClass_code     (rs.getString("class_code"));
                 duty_beans.setInsert_date    (rs.getString("insert_date"));
                 duty_beans.setStudent_id     (rs.getString("student_id"));
-                duty_beans.setStudent_name(rs.getString("student_name"));
+                duty_beans.setStudent_name   (rs.getString("student_name"));
                 list.add(duty_beans);
             }
 
@@ -344,7 +349,7 @@ public class DutyDao extends DaoBase {
     }
 
     /**
-     * 日誌の情報を曖昧検索するSELECT文を作成する
+     * 日誌当番の情報を曖昧検索するSELECT文を作成する
      *
      * @return 作成したSELECT文
      */

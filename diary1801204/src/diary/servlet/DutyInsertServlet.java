@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 入力された日誌情報をデータベースに登録するServletクラス
+ * 入力された日誌当番情報をデータベースに登録するServletクラス
  *
  * @author ryouta
  */

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 学生のリストを取得した後日誌当番入力画面に遷移するServletクラス
+ */
 @WebServlet("/dutyupdateinsert")
 public class DutyUpdateInsertServlet extends HttpServlet {
 

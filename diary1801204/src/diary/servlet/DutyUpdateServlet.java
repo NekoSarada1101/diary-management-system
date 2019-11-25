@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 入力された日誌情報でデータベースを更新するServletクラス
+ * 入力された日誌当番情報でデータベースを更新するServletクラス
  *
  * @author ryouta
  */
@@ -23,7 +23,7 @@ import java.io.IOException;
 public class DutyUpdateServlet extends HttpServlet {
 
     /**
-     * 日誌情報でデータベースを更新する
+     * 日誌当番情報でデータベースを更新する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

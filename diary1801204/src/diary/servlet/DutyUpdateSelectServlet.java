@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 日誌当番のリストを取得した後日誌当番更新選択画面に遷移するServletクラス
+ */
 @WebServlet("/dutyupdateselect")
 public class DutyUpdateSelectServlet extends HttpServlet {
 
