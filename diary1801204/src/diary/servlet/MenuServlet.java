@@ -1,5 +1,6 @@
 package diary.servlet;
 
+import diary.bean.StudentBeans;
 import diary.dao.DutyDao;
 
 import javax.servlet.ServletException;
@@ -36,12 +37,9 @@ public class MenuServlet extends HttpServlet {
         session.setAttribute("today", today);
 
         DutyDao duty_dao = new DutyDao();
-        boolean is_registering = duty_dao.checkTodayDutyRegistered((String) session.getAttribute("login-info"), today);
+        boolean is_registering = duty_dao.checkTodayDutyRegistered(((StudentBeans)session.getAttribute("login-info")).getClass_code(), today);
 
-        if(is_registering){
-
-        }
-
+        session.setAttribute("is-registering", is_registering);
         request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
     }
 }

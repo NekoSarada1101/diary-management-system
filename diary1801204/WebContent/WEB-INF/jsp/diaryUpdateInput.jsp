@@ -34,7 +34,7 @@
             <div class="md-form">
                 <i class="fas fa-thumbs-up prefix"></i>
                 <textarea id="form1" class="md-textarea form-control" maxlength="30"
-                          name="good-point"><%=good_point%></textarea>
+                          name="good-point" required><%=good_point%></textarea>
                 <label for="form1">良い点</label>
             </div>
 
@@ -42,7 +42,7 @@
             <div class="md-form mt-5">
                 <i class="fas fa-thumbs-down prefix"></i>
                 <textarea id="form2" class="md-textarea form-control" maxlength="30"
-                          name="bad-point"><%=bad_point%></textarea>
+                          name="bad-point" required><%=bad_point%></textarea>
                 <label for="form2">悪い点</label>
             </div>
 
@@ -50,7 +50,7 @@
             <div class="md-form mt-5">
                 <i class="fas fa-comment prefix"></i>
                 <textarea id="form3" class="md-textarea form-control" maxlength="30"
-                          name="student-comment"><%=comment%></textarea>
+                          name="student-comment" required><%=comment%></textarea>
                 <label for="form3">コメント</label>
             </div>
 

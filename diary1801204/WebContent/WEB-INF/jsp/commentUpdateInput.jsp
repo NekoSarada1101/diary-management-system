@@ -53,7 +53,7 @@
             <!--教員コメント入力フォーム-->
             <div class="md-form">
                 <i class="fas fa-thumbs-up prefix"></i>
-                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="teacher-comment"><%=teacher_comment%></textarea>
+                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="teacher-comment" required><%=teacher_comment%></textarea>
                 <label for="form1">教員コメント</label>
             </div>
 

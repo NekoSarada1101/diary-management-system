@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * 日誌登録画面で入力した値を取得した後日誌登録確認画面へ遷移するServletクラス
@@ -32,16 +30,11 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         String bad_point       = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
-        if (good_point.equals(""))      good_point = null;
-        if (bad_point.equals(""))       bad_point = null;
-        if (student_comment.equals("")) student_comment = null;
+        HttpSession session = request.getSession();
 
         //今日の日付を取得
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String today = sdf.format(cal.getTime());
+        String today = (String) session.getAttribute("today");
 
-        HttpSession session = request.getSession();
         String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
         String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
 

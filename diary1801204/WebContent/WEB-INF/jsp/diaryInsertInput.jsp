@@ -22,21 +22,21 @@
             <!--良い点入力フォーム-->
             <div class="md-form">
                 <i class="fas fa-thumbs-up prefix"></i>
-                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="good-point"></textarea>
+                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="good-point" required></textarea>
                 <label for="form1">良い点</label>
             </div>
 
             <!--悪い点入力フォーム-->
             <div class="md-form mt-5">
                 <i class="fas fa-thumbs-down prefix"></i>
-                <textarea id="form2" class="md-textarea form-control" maxlength="30" name="bad-point"></textarea>
+                <textarea id="form2" class="md-textarea form-control" maxlength="30" name="bad-point" required></textarea>
                 <label for="form2">悪い点</label>
             </div>
 
             <!--学生コメント入力フォーム-->
             <div class="md-form mt-5">
                 <i class="fas fa-comment prefix"></i>
-                <textarea id="form3" class="md-textarea form-control" maxlength="30" name="student-comment"></textarea>
+                <textarea id="form3" class="md-textarea form-control" maxlength="30" name="student-comment" required></textarea>
                 <label for="form3">コメント</label>
             </div>
 
