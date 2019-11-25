@@ -4,7 +4,7 @@
          pageEncoding="UTF-8" %>
 <%
     List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
-    String teacher_name = ((TeacherBeans)((List<TeacherBeans>)session.getAttribute("teacher-list")).get(0)).getTeacher_name();
+    String teacher_name = ((TeacherBeans) ((List<TeacherBeans>) session.getAttribute("teacher-list")).get(0)).getTeacher_name();
 %>
 <!DOCTYPE html>
 <html>
@@ -32,17 +32,19 @@
         <h1 class="text-center border-bottom border-dark">担任クラス選択</h1>
 
 
-        <form action="teachermenu" method="get" class="mt-5">
+        <div class="mt-5">
             <% for (int i = 0; i < teacher_list.size(); i++) { %>
-            <input type="hidden" value="<%=i%>" name="select-class">
-            <div class="text-center">
-                <button type="submit"
-                        class="btn btn-link mt-3"><h3><%=teacher_list.get(i).getCourse_name() + teacher_list.get(i).getGrade() + teacher_list.get(i).getClass_name()%></h3>
-                </button>
-            </div>
+            <form action="teachermenu" method="get" class="mt-2">
+                <input type="hidden" value="<%=i%>" name="select-class">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-link mt-3">
+                        <h3><%=teacher_list.get(i).getCourse_name() + teacher_list.get(i).getGrade() + teacher_list.get(i).getClass_name()%>
+                        </h3>
+                    </button>
+                </div>
+            </form>
             <% } %>
-        </form>
-
+        </div>
 
     </div>
 </div>

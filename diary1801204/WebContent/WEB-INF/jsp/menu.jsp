@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%
     boolean is_registering = (boolean) session.getAttribute("is-registering");
+    String[] today  = ((String) session.getAttribute("today")).split("-");
 %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,7 @@
 
     <%--Original--%>
     <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
@@ -20,6 +22,12 @@
 <div class="container-fluid vh-100 animated bounceInUp">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">メニュー</h1>
+
+        <% if (is_registering){%>
+            <h4 class="text-center">今日の日誌当番は<%=student_name%>さんです</h4>
+        <h4 class="text-center">締め切りまで残り</h4>
+        <h2 class="text-center" id="deadline"></h2>
+        <%}%>
 
         <div class="row mt-5">
             <%--日誌操作選択画面へ--%>
@@ -37,6 +45,43 @@
 </div>
 
 <%@include file="/WEB-INF/jsp/script.jsp" %>
+
+<script>
+    var recalc = function () {
+
+        var nenmatsu = new Date(<%=today[0]%>, <%=today[1]%>, <%=today[2]%>);
+
+        // カウントダウンタイマーファンクション呼び出し(年末の日付を渡す)
+        var counter = countdown(nenmatsu);
+        document.getElementById("deadline").textContent = counter;
+
+        refresh();
+    }
+
+    var countdown = function (endDate) {
+        var today = new Date();
+
+        // 調べたい日 - 今の日付
+        var rest = endDate.getTime() - today.getTime();
+
+        // 日付の差分を時・分・秒を計算
+        var hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+        var minutes = Math.floor(rest / 1000 / 60) % 60;
+        var seconds = Math.floor(rest / 1000) % 60;
+
+        // HTMLに表示する文字列
+        var msg = hours + "：" + minutes + "：" + seconds;
+
+        return msg;
+    }
+
+    var refresh = function () {
+        setTimeout(recalc, 1000);
+    }
+
+    recalc();
+
+</script>
 
 </body>
 </html>

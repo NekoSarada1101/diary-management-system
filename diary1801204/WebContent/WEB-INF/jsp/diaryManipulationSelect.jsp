@@ -4,6 +4,11 @@
          pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+    boolean is_registering = (boolean) session.getAttribute("is-registering");
+    String disabled = "";
+    if (!is_registering){
+        disabled = "disabled";
+    }
     String error_message = (String) session.getAttribute("error-message");
     if (error_message == null) {
         error_message = "";
@@ -34,7 +39,7 @@
 
         <%--日誌登録入力画面へ--%>
         <form action="diaryinsertinput" method="get" class="text-right">
-            <button type="submit" class="btn btn-info btn-lg col-5">新規登録</button>
+            <button type="submit" class="btn btn-info btn-lg col-5" <%=disabled%>>新規登録</button>
         </form>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
