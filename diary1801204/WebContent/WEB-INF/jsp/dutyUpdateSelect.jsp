@@ -1,39 +1,30 @@
-<%@ page import="diary.bean.StudentBeans" %>
-<%@ page import="java.util.List" %>
 <%@ page import="diary.bean.DutyBeans" %>
-<%@ page import="java.util.Calendar" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("duty-list");
-
-    //今日の日付を取得
-    Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    String today = sdf.format(cal.getTime());
+    String today = (String) session.getAttribute("today");
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>日誌当番選択画面</title>
+    <title>日誌当番一覧・修正画面</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryManipulationSelect.css">
+    <link rel="stylesheet" href="manipulationSelect.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 
 <div class="container-fluid vh-100 animated bounceInUp faster">
     <div class="col-12 col-md-10 ml-auto mr-auto mt-5 mb-auto p-5 bg-white z-depth-1">
-        <h1 class="text-center border-bottom border-dark">日誌当番一覧・変更</h1>
+        <h1 class="text-center border-bottom border-dark">日誌当番一覧・修正</h1>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
-
             <table class="table table-hover border-top mr-auto ml-auto mb-0">
                 <thead>
                 <tr class="row">
@@ -47,14 +38,14 @@
                 <% for (int i = 0; i < duty_list.size(); i++) { %>
                 <tr class="row animated bounceInUp">
                     <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%></th>
-                    <th class="col-3 border-right" ><%=duty_list.get(i).getStudent_id()%></th>
+                    <th class="col-3 border-right"><%=duty_list.get(i).getStudent_id()%></th>
                     <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%></td>
                     <td class="col-3">
-                        <% if(duty_list.get(i).getInsert_date().equals(today)){ %>
+                        <% if (duty_list.get(i).getInsert_date().equals(today)) { %>
                         <%--日誌当番登録確認画面へ--%>
                         <form action="dutyupdateinsert" method="post" class="text-center">
                             <input type="hidden" name="select-student" value="<%=i%>">
-                            <button type="submit" class="btn btn-warning">変更</button>
+                            <button type="submit" class="btn btn-warning">修正</button>
                         </form>
                         <% } %>
 

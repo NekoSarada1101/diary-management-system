@@ -1,10 +1,8 @@
 <%@ page import="diary.bean.DiaryBeans" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +10,8 @@
     <title>コメント削除確認画面</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryDelete.css">
+    <link rel="stylesheet" href="css/delete.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>

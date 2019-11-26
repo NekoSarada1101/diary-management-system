@@ -1,22 +1,19 @@
 <%@ page import="diary.bean.StudentBeans" %>
 <%@ page import="java.util.List" %>
 <%@ page import="diary.bean.DutyBeans" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>日誌当番変更選択画面</title>
+    <title>日誌当番修正選択画面</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryManipulationSelect.css">
+    <link rel="stylesheet" href="css/update.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
@@ -26,7 +23,6 @@
         <h1 class="text-center border-bottom border-dark">日誌当番選択</h1>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar col-12 mt-3">
-
             <table class="table table-hover border-top mr-auto ml-auto mb-0">
                 <thead>
                 <tr class="row">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     boolean is_registering = (boolean) session.getAttribute("is-registering");
     String[] today  = ((String) session.getAttribute("today")).split("-");
@@ -11,7 +10,6 @@
     <title>学生トップメニュー</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
     <%--Original--%>
     <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
@@ -49,7 +47,7 @@
 <script>
     var recalc = function () {
 
-        var nenmatsu = new Date(<%=today[0]%>, <%=today[1]%>, <%=today[2]%>);
+        var nenmatsu = new Date(<%=today[0]%>, <%=Integer.parseInt(today[1]) - 1%>, <%=Integer.parseInt(today[2] + 1)%>);
 
         // カウントダウンタイマーファンクション呼び出し(年末の日付を渡す)
         var counter = countdown(nenmatsu);

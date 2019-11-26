@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +6,8 @@
     <title>コメント削除完了画面</title>
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
-
     <%--Original--%>
-    <link rel="stylesheet" href="css/diaryDelete.css">
+    <link rel="stylesheet" href="css/delete.css">
 </head>
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>

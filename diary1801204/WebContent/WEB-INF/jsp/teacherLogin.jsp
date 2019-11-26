@@ -1,19 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <%
     String error_message = (String) session.getAttribute("error-message");
-    if (error_message == null) {
-        error_message = "";
-    }
+    if (error_message == null) error_message = "";
     session.removeAttribute("error-message");
 %>
-
 <html>
 <head>
     <meta charset="UTF-8">
     <title>教員ログイン</title>
-
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 </head>
