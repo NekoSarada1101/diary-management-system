@@ -161,7 +161,7 @@ public class StudentListDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement(createSearchSqlSentence());
+            stmt = con.prepareStatement("SELECT * FROM student WHERE (student_id LIKE ? OR student_name LIKE ?) AND class_code = ?");
             stmt.setString(1, "%" + search_word + "%");
             stmt.setString(2, "%" + search_word + "%");
             stmt.setString(3, condition);
@@ -190,10 +190,5 @@ public class StudentListDao extends DaoBase {
         System.out.println("return : list = " + list); //test
 
         return list;
-    }
-
-    protected String createSearchSqlSentence() {
-        String sql = "SELECT * FROM student WHERE (student_id LIKE ? OR student_name LIKE ?) AND class_code = ?";
-        return sql;
     }
 }

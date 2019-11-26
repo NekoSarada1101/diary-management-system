@@ -78,8 +78,10 @@ public class DutyDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement(createInsertSqlSentence());
-            stmt = configureValueInPlaceholderOfInsertSqlSentence(stmt, duty_beans);
+            stmt = con.prepareStatement("INSERT INTO diary_duty (class_code, insert_date, student_id) VALUES (?, ?, ?)");
+            stmt.setString(1, duty_beans.getClass_code());
+            stmt.setString(2, duty_beans.getInsert_date());
+            stmt.setString(3, duty_beans.getStudent_id());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -92,34 +94,6 @@ public class DutyDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-    }
-
-    /**
-     * UPDATE文を作成する
-     *
-     * @return 作成したUPDATE文
-     */
-    protected String createInsertSqlSentence() {
-        String sql = "INSERT INTO diary_duty (class_code, insert_date, student_id) VALUES (?, ?, ?)";
-        return sql;
-    }
-
-    /**
-     * UPDATE文のプレースホルダーに値を埋め込む
-     *
-     * @param stmt       プレースホルダーに値を埋め込む前のUPDATE文
-     * @param duty_beans プレースホルダーに埋め込む値
-     * @return プレースホルダーに値を埋め込んだUPDATE文
-     */
-    protected PreparedStatement configureValueInPlaceholderOfInsertSqlSentence(PreparedStatement stmt, DutyBeans duty_beans) {
-        try {
-            stmt.setString(1, duty_beans.getClass_code());
-            stmt.setString(2, duty_beans.getInsert_date());
-            stmt.setString(3, duty_beans.getStudent_id());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return stmt;
     }
 
 
@@ -141,8 +115,12 @@ public class DutyDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement(createUpdateSqlSentence());
-            stmt = configureValueInPlaceholderOfUpdateSqlSentence(stmt, duty_beans);
+            stmt = con.prepareStatement("UPDATE diary_duty SET class_code = ?, insert_date = ?, student_id = ? WHERE class_code = ? AND insert_date = ?");
+            stmt.setString(1, duty_beans.getClass_code());
+            stmt.setString(2, duty_beans.getInsert_date());
+            stmt.setString(3, duty_beans.getStudent_id());
+            stmt.setString(4, duty_beans.getClass_code());
+            stmt.setString(5, duty_beans.getInsert_date());
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -155,36 +133,6 @@ public class DutyDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-    }
-
-    /**
-     * UPDATE文を作成する
-     *
-     * @return 作成したUPDATE文
-     */
-    protected String createUpdateSqlSentence() {
-        String sql = "UPDATE diary_duty SET class_code = ?, insert_date = ?, student_id = ? WHERE class_code = ? AND insert_date = ?";
-        return sql;
-    }
-
-    /**
-     * UPDATE文のプレースホルダーに値を埋め込む
-     *
-     * @param stmt       プレースホルダーに値を埋め込む前のUPDATE文
-     * @param duty_beans プレースホルダーに埋め込む値
-     * @return プレースホルダーに値を埋め込んだUPDATE文
-     */
-    protected PreparedStatement configureValueInPlaceholderOfUpdateSqlSentence(PreparedStatement stmt, DutyBeans duty_beans) {
-        try {
-            stmt.setString(1, duty_beans.getClass_code());
-            stmt.setString(2, duty_beans.getInsert_date());
-            stmt.setString(3, duty_beans.getStudent_id());
-            stmt.setString(4, duty_beans.getClass_code());
-            stmt.setString(5, duty_beans.getInsert_date());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return stmt;
     }
 
 
@@ -211,7 +159,7 @@ public class DutyDao extends DaoBase {
         try {
             this.dbConnect();
             stmt = con.prepareStatement(createSortSqlSentence(sort_column, sort_order));
-            stmt = configureValueInPlaceholderOfSortSqlSentence(stmt, condition);
+            stmt.setString(1, condition);
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -281,22 +229,6 @@ public class DutyDao extends DaoBase {
         return sql;
     }
 
-    /**
-     * ソートするSELECT文のプレースホルダーに値を埋め込む
-     *
-     * @param stmt      プレースホルダーに値を埋め込む前のUPDATE文
-     * @param condition プレースホルダーに埋め込む値
-     * @return プレースホルダーに値を埋め込んだSELECT文
-     */
-    protected PreparedStatement configureValueInPlaceholderOfSortSqlSentence(PreparedStatement stmt, String condition) {
-        try {
-            stmt.setString(1, condition);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return stmt;
-    }
-
 
     /**
      * 指定された単語をで曖昧検索を行って抽出された日誌当番の情報をすべて取得(SELECT)する
@@ -318,8 +250,10 @@ public class DutyDao extends DaoBase {
 
         try {
             this.dbConnect();
-            stmt = con.prepareStatement(createSearchSqlSentence());
-            stmt = configureValueInPlaceholderOfSearchSqlSentence(stmt, condition, search_word);
+            stmt = con.prepareStatement("SELECT * FROM diary_duty d INNER JOIN student s ON d.student_id = s.student_id WHERE (d.insert_date LIKE ? OR d.student_id LIKE ? OR s.student_name LIKE ?) AND d.class_code = ?");
+            stmt.setString(1, "%" + search_word + "%");
+            stmt.setString(2, "%" + search_word + "%");
+            stmt.setString(3, "%" + search_word + "%");
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();
@@ -346,35 +280,5 @@ public class DutyDao extends DaoBase {
         System.out.println("return : list = " + list); //test
 
         return list;
-    }
-
-    /**
-     * 日誌当番の情報を曖昧検索するSELECT文を作成する
-     *
-     * @return 作成したSELECT文
-     */
-    protected String createSearchSqlSentence() {
-        String sql = "SELECT * FROM diary_duty d INNER JOIN student s ON d.student_id = s.student_id WHERE (d.insert_date LIKE ? OR d.student_id LIKE ? OR s.student_name LIKE ?) AND d.class_code = ?";
-        return sql;
-    }
-
-    /**
-     * 曖昧検索するSELECT文のプレースホルダーに値を埋め込む
-     *
-     * @param stmt        プレースホルダーに値を埋め込む前のUPDATE文
-     * @param search_word プレースホルダーに埋め込む曖昧検索のための単語
-     * @param condition   プレースホルダーに埋め込む値
-     * @return プレースホルダーに値を埋め込んだSELECT文
-     */
-    protected PreparedStatement configureValueInPlaceholderOfSearchSqlSentence(PreparedStatement stmt, String condition, String search_word) {
-        try {
-            stmt.setString(1, "%" + search_word + "%");
-            stmt.setString(2, "%" + search_word + "%");
-            stmt.setString(3, "%" + search_word + "%");
-            stmt.setString(4, condition);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return stmt;
     }
 }
