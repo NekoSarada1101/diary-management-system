@@ -15,13 +15,14 @@
   height: 300px;
   background-size: cover;
 }
+
 .image4 {
   background-image: url("../img/pen.jpg");
   height: 300px;
   background-size: cover;
 }
 
-.link{
+.link {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
