@@ -43,7 +43,7 @@
                     <td class="col-3">
                         <% if (duty_list.get(i).getInsert_date().equals(today)) { %>
                         <%--日誌当番登録確認画面へ--%>
-                        <form action="dutyupdateinsert" method="post" class="text-center">
+                        <form action="dutyupdateinput" method="post" class="text-center">
                             <input type="hidden" name="select-student" value="<%=i%>">
                             <button type="submit" class="btn btn-warning">修正</button>
                         </form>

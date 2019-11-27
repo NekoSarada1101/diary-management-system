@@ -15,9 +15,11 @@ import java.util.List;
 
 /**
  * 学生のリストを取得した後、日誌当番入力画面に遷移するServletクラス
+ *
+ * @author ryouta
  */
-@WebServlet("/dutyupdateinsert")
-public class DutyUpdateInsertServlet extends HttpServlet {
+@WebServlet("/dutyupdateinput")
+public class DutyUpdateInputServlet extends HttpServlet {
 
     /**
      * 学生のリストを取得した後、日誌当番入力画面に遷移する
