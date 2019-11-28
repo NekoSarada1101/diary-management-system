@@ -75,8 +75,8 @@
             </div>
         </form>
 
-        <%--メニュー画面へ--%>
-        <form action="teachermenu" method="get" class="text-right">
+        <%--日誌当番更新選択へ--%>
+        <form action="dutyupdateselect" method="get" class="text-right">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

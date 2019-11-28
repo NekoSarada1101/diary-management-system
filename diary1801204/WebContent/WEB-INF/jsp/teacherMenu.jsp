@@ -58,6 +58,10 @@
                 </button>
             </form>
         </div>
+
+        <form action="classselect" method="get" class="mt-1">
+            <button type="submit" class="btn btn-outline-dark btn-block">クラス選択画面へ戻る</button>
+        </form>
     </div>
 </div>
 

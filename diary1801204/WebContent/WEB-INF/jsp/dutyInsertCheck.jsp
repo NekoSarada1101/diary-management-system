@@ -20,6 +20,8 @@
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌当番登録確認</h1>
 
+        <p class="text-center">以下の情報で登録しますか？</p>
+
         <table class="table table-striped table-borderless mr-auto ml-auto mb-0 col-12 mt-5">
             <tr class="row animated bounceInLeft faster">
                 <th class="col-4">学籍番号</th>
@@ -39,7 +41,7 @@
         </form>
 
         <%--日誌当番選択画面へ--%>
-        <form action="teachermenu" method="get" class="text-right back">
+        <form action="dutyinsertselect" method="get" class="text-right back">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

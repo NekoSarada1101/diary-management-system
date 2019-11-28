@@ -20,6 +20,8 @@
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">日誌修正確認</h1>
 
+        <p class="text-center">以下の情報で修正しますか？</p>
+
         <table class="table table-striped table-borderless mr-auto ml-auto mb-0 col-12 mt-5">
             <tr class="row animated bounceInLeft faster">
                 <th class="col-4">日付</th>

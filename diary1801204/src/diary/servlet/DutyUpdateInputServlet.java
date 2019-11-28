@@ -35,6 +35,6 @@ public class DutyUpdateInputServlet extends HttpServlet {
         List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
 
         session.setAttribute("student-list", student_list);
-        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInsert.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
     }
 }
