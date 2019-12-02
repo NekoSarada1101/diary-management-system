@@ -40,7 +40,7 @@ public class TeacherAuthServlet extends HttpServlet {
             response.sendRedirect("class");
 
         } else {
-            session.setAttribute("error-message", "教員番号またはパスワードが間違っています");
+            session.setAttribute("error-message", "ログインに失敗しました。教員番号又はパスワードを確認してください。");
             response.sendRedirect("teacherlogin");
         }
     }

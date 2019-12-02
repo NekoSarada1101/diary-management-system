@@ -30,7 +30,7 @@
             <%--コメント操作選択画面へ--%>
             <form action="commentselect" method="get" class="col-6 p-0 ml-auto mr-1">
                 <button type="submit" class="image1 w-100 animated fadeInLeft delay-1s">
-                    <div class="link text-white">登録・修正・削除</div>
+                    <div class="link text-white">更新・削除</div>
                 </button>
             </form>
 

@@ -28,7 +28,6 @@ public class MenuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("MenuServlet"); //test
 
-        //今日の日付を取得
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String today = sdf.format(cal.getTime());
@@ -36,10 +35,14 @@ public class MenuServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("today", today);
 
-        DutyDao duty_dao = new DutyDao();
-        boolean is_registering = duty_dao.checkTodayDutyRegistered(((StudentBeans) session.getAttribute("login-info")).getClass_code(), today);
+        try {
+            DutyDao duty_dao = new DutyDao();
+            boolean is_registering = duty_dao.checkTodayDutyRegistered(((StudentBeans) session.getAttribute("login-info")).getClass_code(), today);
 
-        session.setAttribute("is-registering", is_registering);
-        request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
+            session.setAttribute("is-registering", is_registering);
+            request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
+        }catch (Exception e){
+            response.sendRedirect("studenterror");
+        }
     }
 }
