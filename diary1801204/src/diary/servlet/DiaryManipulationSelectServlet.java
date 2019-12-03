@@ -2,6 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.StudentBeans;
+import diary.commmon.StudentErrorCheck;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -26,15 +27,27 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryManipulationSelectServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiaryManipulationSelectServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
 
-        StudentDiaryDao diary_dao = new StudentDiaryDao();
-        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, "insert_date", "DESC");
+        StudentErrorCheck error_check = new StudentErrorCheck();
+        boolean is_login = error_check.checkLogin(student_beans);
 
-        session.setAttribute("diary-list", diary_list);
-        request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
+        if (is_login) {
+            String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+
+            StudentDiaryDao diary_dao = new StudentDiaryDao();
+            List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, "insert_date", "DESC");
+
+            session.setAttribute("diary-list", diary_list);
+            request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("studenterror");
+        }
     }
 }

@@ -23,10 +23,11 @@ public class StudentListDao extends DaoBase {
      * @return 登録済みならtrue
      */
     public boolean checkTodayDuty(String class_code, String today) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("StudentListDao : checkTodayDiaryDuty");
         System.out.println("param : class_code = " + class_code);
         System.out.println("param : today = "      + today);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -40,7 +41,9 @@ public class StudentListDao extends DaoBase {
 
             //もし登録されてなければ
             if (!rs.next()) {
+                //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
                 System.out.println("return : is_registering = false"); //test
+                ///////////////////////////////////////////////////////////////////////////////////////////////////
 
                 return /* is_registering = */ false;
             }
@@ -55,7 +58,9 @@ public class StudentListDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : is_registering = true"); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return /* is_registering = */ true;
     }
@@ -70,11 +75,12 @@ public class StudentListDao extends DaoBase {
      * @return 取得した日誌の情報を格納したリスト
      */
     public List<DutyBeans> fetchSortedStudentListFromDb(String condition, String sort_column, String sort_order) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("StudentListDao : fetchSortedStudentListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : sort_column = " + sort_column);
         System.out.println("param : sort_order = "  + sort_order);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DutyBeans duty_beans = null;
         List<DutyBeans> list = null;
@@ -107,7 +113,9 @@ public class StudentListDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : list = " + list); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }
@@ -149,10 +157,11 @@ public class StudentListDao extends DaoBase {
      * @return 取得した日誌の情報を格納したリスト
      */
     public List<DutyBeans> fetchSearchedStudentListFromDb(String condition, String search_word) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("StudentListDao : fetchSearchedStudentListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : search_word = " + search_word);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DutyBeans duty_beans = null;
         List<DutyBeans> list = null;
@@ -187,7 +196,9 @@ public class StudentListDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : list = " + list); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }

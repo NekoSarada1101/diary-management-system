@@ -1,6 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.bean.StudentBeans;
+import diary.commmon.StudentErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,15 +26,37 @@ public class DiaryUpdateInputServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryUpdateInputServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiaryUpdateInputServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
 
-        int i = Integer.parseInt(request.getParameter("select-diary"));
-        DiaryBeans diary_beans = diary_list.get(i);
+        StudentErrorCheck error_check = new StudentErrorCheck();
+        boolean is_login = error_check.checkLogin(student_beans);
 
-        session.setAttribute("diary-beans", diary_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
+        if (is_login) {
+            List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+
+            //日誌操作選択画面で選択した日誌情報をリストから取得する
+            int i = Integer.parseInt(request.getParameter("select-diary"));
+            DiaryBeans diary_beans = diary_list.get(i);
+
+            session.setAttribute("diary-beans", diary_beans);
+            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("studenterror");
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiaryUpdateInputServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("studenterror");
     }
 }

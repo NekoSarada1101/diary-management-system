@@ -19,6 +19,7 @@ public class CommonDiaryDao extends DiaryDao {
 
         boolean is_sort_allowed = false;
 
+        //ソートを許可されたカラムであるかチェックする
         switch (sort_column) {
             case "insert_date":
                 is_sort_allowed = true;
@@ -43,6 +44,7 @@ public class CommonDiaryDao extends DiaryDao {
                 break;
         }
 
+        //予約後がASCまたはDESCであるかチェックする
         if (!(sort_order.equals("ASC") || sort_order.equals("DESC"))) {
             is_sort_allowed = false;
         }

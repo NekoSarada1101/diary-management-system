@@ -24,7 +24,9 @@ public class CommentDeleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentDeleteServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentDeleteServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");

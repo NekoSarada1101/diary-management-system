@@ -20,7 +20,9 @@ public class TeacherLoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("TeacherLoginServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("TeacherLoginServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         request.getRequestDispatcher("WEB-INF/jsp/teacherLogin.jsp").forward(request, response);
     }

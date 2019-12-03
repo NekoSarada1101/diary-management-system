@@ -24,7 +24,9 @@ public class CommentUpdateServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentUpdateServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentUpdateServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");

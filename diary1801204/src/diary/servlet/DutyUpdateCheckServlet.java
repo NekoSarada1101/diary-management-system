@@ -25,11 +25,14 @@ public class DutyUpdateCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DutyUpdateCheckServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DutyUpdateCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
 
+        //日誌当番更新入力画面で選択した学生情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-student"));
         DutyBeans duty_beans = student_list.get(i);
 

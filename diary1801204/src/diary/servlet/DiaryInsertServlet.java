@@ -1,6 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.bean.StudentBeans;
+import diary.commmon.StudentErrorCheck;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -24,16 +26,27 @@ public class DiaryInsertServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiaryInsertServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiaryInsertServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
 
-        StudentDiaryDao diary_dao = new StudentDiaryDao();
-        diary_dao.insertDiaryToDb(diary_beans);
+        StudentErrorCheck error_check = new StudentErrorCheck();
+        boolean is_login = error_check.checkLogin(student_beans);
 
-        session.removeAttribute("diary-beans");
-        response.sendRedirect("diaryinsertcomplete");
+        if (is_login) {
+            DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
 
+            StudentDiaryDao diary_dao = new StudentDiaryDao();
+            diary_dao.insertDiaryToDb(diary_beans);
+
+            session.removeAttribute("diary-beans");
+            response.sendRedirect("diaryinsertcomplete");
+        } else {
+            response.sendRedirect("studenterror");
+        }
     }
 }

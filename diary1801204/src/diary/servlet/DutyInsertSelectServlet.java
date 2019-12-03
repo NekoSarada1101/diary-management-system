@@ -24,7 +24,9 @@ public class DutyInsertSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutySelectServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
@@ -34,6 +36,7 @@ public class DutyInsertSelectServlet extends HttpServlet {
         StudentListDao duty_dao = new StudentListDao();
         boolean is_registering = duty_dao.checkTodayDuty(class_code, today);
 
+        //登録済みなら
         if (is_registering) {
             session.setAttribute("error-message", "今日の日誌当番はすでに登録済みです");
             response.sendRedirect("teachermenu");

@@ -26,7 +26,9 @@ public class TeacherAuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("TeacherAuthServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("TeacherAuthServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String teacher_code = request.getParameter("teacher-code");
         String teacher_password = request.getParameter("teacher-password");
@@ -35,10 +37,12 @@ public class TeacherAuthServlet extends HttpServlet {
         List<TeacherBeans> teacher_list = teacher_dao.getLoginInfo(teacher_code, teacher_password);
 
         HttpSession session = request.getSession();
+        //成功したら
         if (teacher_list != null) {
             session.setAttribute("teacher-list", teacher_list);
             response.sendRedirect("class");
 
+        //失敗したら
         } else {
             session.setAttribute("error-message", "ログインに失敗しました。教員番号又はパスワードを確認してください。");
             response.sendRedirect("teacherlogin");

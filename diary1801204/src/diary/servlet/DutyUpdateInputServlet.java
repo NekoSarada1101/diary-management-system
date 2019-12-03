@@ -26,7 +26,9 @@ public class DutyUpdateInputServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyUpdateInsertServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();

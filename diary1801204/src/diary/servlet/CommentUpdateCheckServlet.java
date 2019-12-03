@@ -23,7 +23,9 @@ public class CommentUpdateCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentUpdateCheckServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentUpdateCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String teacher_comment = request.getParameter("teacher-comment");
 

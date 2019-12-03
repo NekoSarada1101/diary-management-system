@@ -23,10 +23,11 @@ public class TeacherDao extends DaoBase {
      * @return ログインに成功したらログインした教員の情報 失敗したらnull
      */
     public List<TeacherBeans> getLoginInfo(String teacher_code, String password) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("TeacherDao : getLoginInfo");
         System.out.println("param : teacher_code = " + teacher_code);
         System.out.println("param : password = "     + password);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         TeacherBeans teacher_beans = null;
         List<TeacherBeans> list = null;
@@ -63,7 +64,7 @@ public class TeacherDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         if (list.size() != 0) {
             System.out.println("return : list = " + list);
             System.out.println("                   : teacher_code = " + teacher_beans.getTeacher_code());
@@ -72,6 +73,7 @@ public class TeacherDao extends DaoBase {
             System.out.println("                   : course_name = "  + teacher_beans.getCourse_name());
             System.out.println("                   : grade = "        + teacher_beans.getGrade());
             System.out.println("                   : class_name = "   + teacher_beans.getClass_name());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             return list;
 

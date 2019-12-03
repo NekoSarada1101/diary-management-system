@@ -21,7 +21,7 @@ public abstract class DiaryDao extends DaoBase {
      * @param diary_beans データベースに登録する日誌の情報
      */
     public void insertDiaryToDb(DiaryBeans diary_beans) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : insertDiaryToDb");
         System.out.println("param : diary_beans = " + diary_beans);
         System.out.println("                    : class_code = "      + diary_beans.getClass_code());
@@ -31,6 +31,7 @@ public abstract class DiaryDao extends DaoBase {
         System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
 
@@ -75,7 +76,7 @@ public abstract class DiaryDao extends DaoBase {
      * @param diary_beans データベースから削除する日誌の情報
      */
     public void deleteDiaryFromDb(DiaryBeans diary_beans) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : deleteDiaryFromDb");
         System.out.println("param : diary_beans = " + diary_beans);
         System.out.println("                    : class_code = "      + diary_beans.getClass_code());
@@ -85,6 +86,7 @@ public abstract class DiaryDao extends DaoBase {
         System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
 
@@ -129,7 +131,7 @@ public abstract class DiaryDao extends DaoBase {
      * @param diary_beans 更新する日誌の情報
      */
     public void updateDiaryToDb(DiaryBeans diary_beans) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : updateDiaryToDb");
         System.out.println("param : diary_beans = " + diary_beans);
         System.out.println("                    : class_code = "      + diary_beans.getClass_code());
@@ -139,6 +141,7 @@ public abstract class DiaryDao extends DaoBase {
         System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
 
@@ -186,11 +189,12 @@ public abstract class DiaryDao extends DaoBase {
      * @return 取得した日誌の情報を格納したリスト
      */
     public List<DiaryBeans> fetchSortedDiaryListFromDb(String condition, String sort_column, String sort_order) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : fetchSortedDiaryListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : sort_column = " + sort_column);
         System.out.println("param : sort_order = "  + sort_order);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DiaryBeans diary_beans = null;
         List<DiaryBeans> list = null;
@@ -227,7 +231,9 @@ public abstract class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : list = " + list); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }
@@ -259,10 +265,11 @@ public abstract class DiaryDao extends DaoBase {
      * @return 取得した日誌の情報を格納したリスト
      */
     public List<DiaryBeans> fetchSearchedDiaryListFromDb(String condition, String search_word) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : fetchSearchedDiaryListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : search_word = " + search_word);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DiaryBeans diary_beans = null;
         List<DiaryBeans> list = null;
@@ -299,7 +306,9 @@ public abstract class DiaryDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        System.out.println("return : list = " + list); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("return : list = " + list);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }

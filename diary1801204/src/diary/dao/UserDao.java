@@ -21,10 +21,11 @@ public class UserDao extends DaoBase {
      * @return ログインに成功したらログインした学生の情報 失敗したらnull
      */
     public StudentBeans getLoginInfo(String student_id, String password) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("UserDao : getLoginInfo");
         System.out.println("param : student_id = " + student_id);
         System.out.println("param : password = "   + password);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         StudentBeans login_info = null;
         PreparedStatement stmt = null;
@@ -46,7 +47,10 @@ public class UserDao extends DaoBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
             System.out.println("return : null"); //test
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             return null;
 
         } finally {
@@ -56,11 +60,12 @@ public class UserDao extends DaoBase {
                 e.printStackTrace();
             }
         }
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : loginInfo = " + login_info);
         System.out.println("                   : student_id = "   + login_info.getStudent_id());
         System.out.println("                   : class_code = "   + login_info.getClass_code());
         System.out.println("                   : student_name = " + login_info.getStudent_name());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return login_info;
     }

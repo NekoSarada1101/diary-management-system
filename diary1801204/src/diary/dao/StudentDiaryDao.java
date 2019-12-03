@@ -21,10 +21,11 @@ public class StudentDiaryDao extends DiaryDao {
      * @return 登録済みならtrue
      */
     public boolean checkTodayDiaryRegistered(String class_code, String today) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("StudentDiaryDao : checkTodayDiaryRegistered");
         System.out.println("param : class_code = " + class_code);
         System.out.println("param : today = "      + today);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -38,7 +39,9 @@ public class StudentDiaryDao extends DiaryDao {
 
             //もし登録されてなければ
             if (!rs.next()) {
+                //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
                 System.out.println("return : is_registering = false"); //test
+                ///////////////////////////////////////////////////////////////////////////////////////////////////
 
                 return /* is_registering = */ false;
             }
@@ -53,7 +56,9 @@ public class StudentDiaryDao extends DiaryDao {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : is_registering = true"); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return /* is_registering = */ true;
     }

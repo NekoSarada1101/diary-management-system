@@ -23,10 +23,11 @@ public class DutyDao extends DaoBase {
      * @return 登録済みならtrue
      */
     public boolean checkTodayDutyRegistered(String class_code, String today) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyDao : checkTodayDutyRegistered");
         System.out.println("param : class_code = " + class_code);
         System.out.println("param : today = "      + today);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -40,7 +41,9 @@ public class DutyDao extends DaoBase {
 
             //もし登録されてなければ
             if (!rs.next()) {
+                //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
                 System.out.println("return : is_registering = false"); //test
+                ///////////////////////////////////////////////////////////////////////////////////////////////////
 
                 return /* is_registering = */ false;
             }
@@ -55,7 +58,9 @@ public class DutyDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : is_registering = true"); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return /* is_registering = */ true;
     }
@@ -66,13 +71,14 @@ public class DutyDao extends DaoBase {
      * @param duty_beans データベースに登録する日誌当番の情報
      */
     public void insertDutyToDb(DutyBeans duty_beans) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyDao : insertDutyToDb");
         System.out.println("param : duty_beans = " + duty_beans);
         System.out.println("                    : class_code = "   + duty_beans.getClass_code());
         System.out.println("                    : insert_date = "  + duty_beans.getInsert_date());
         System.out.println("                    : student_id = "   + duty_beans.getStudent_id());
         System.out.println("                    : student_name = " + duty_beans.getStudent_name());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
 
@@ -103,13 +109,14 @@ public class DutyDao extends DaoBase {
      * @param duty_beans 更新する日誌当番の情報
      */
     public void updateDutyToDb(DutyBeans duty_beans) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyDao : updateDutyToDb");
         System.out.println("param : duty_beans = " + duty_beans);
         System.out.println("                    : class_code = "   + duty_beans.getClass_code());
         System.out.println("                    : insert_date = "  + duty_beans.getInsert_date());
         System.out.println("                    : student_id = "   + duty_beans.getStudent_id());
         System.out.println("                    : student_name = " + duty_beans.getStudent_name());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
 
@@ -145,11 +152,12 @@ public class DutyDao extends DaoBase {
      * @return 取得した日誌当番の情報を格納したリスト
      */
     public List<DutyBeans> fetchSortedDutyListFromDb(String condition, String sort_column, String sort_order) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyDao : fetchSortedDutyListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : sort_column = " + sort_column);
         System.out.println("param : sort_order = "  + sort_order);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DutyBeans duty_beans = null;
         List<DutyBeans> list = null;
@@ -183,7 +191,9 @@ public class DutyDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : list = " + list); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }
@@ -238,10 +248,11 @@ public class DutyDao extends DaoBase {
      * @return 取得した日誌当番の情報を格納したリスト
      */
     public List<DutyBeans> fetchSearchedDutyListFromDb(String condition, String search_word) {
-        //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyDao : fetchSearchedDutyListFromDb");
         System.out.println("param : condition = "   + condition);
         System.out.println("param : search_word = " + search_word);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DutyBeans duty_beans = null;
         List<DutyBeans> list = null;
@@ -277,7 +288,9 @@ public class DutyDao extends DaoBase {
                 e.printStackTrace();
             }
         }
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("return : list = " + list); //test
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         return list;
     }

@@ -4,6 +4,7 @@ import diary.bean.DiaryBeans;
 import diary.bean.DutyBeans;
 import diary.bean.StudentBeans;
 import diary.bean.TeacherBeans;
+import diary.commmon.StudentErrorCheck;
 import diary.dao.*;
 
 import javax.servlet.ServletException;
@@ -28,55 +29,77 @@ public class DiarySortServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DiarySortServlet"); //text
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiarySortServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String sort_column = request.getParameter("sort-column");
-        String sort_order = request.getParameter("sort-order");
-        String from_jsp_name = request.getParameter("from-jsp-name");
-
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        List<DiaryBeans> sorted_diary_list = null;
-        List<DutyBeans> searched_duty_list = null;
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
 
-        //ソートを実行した画面ごとに処理を分岐
-        if (from_jsp_name.equals("diaryManipulationSelect")) {
-            String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+        StudentErrorCheck error_check = new StudentErrorCheck();
+        boolean is_login = error_check.checkLogin(student_beans);
 
-            StudentDiaryDao diary_dao = new StudentDiaryDao();
-            sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
+        if (is_login) {
+            String sort_column = request.getParameter("sort-column");
+            String sort_order = request.getParameter("sort-order");
+            String from_jsp_name = request.getParameter("from-jsp-name");
 
-        } else if (from_jsp_name.equals("commentManipulationSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+            List<DiaryBeans> sorted_diary_list = null;
+            List<DutyBeans> searched_duty_list = null;
 
-            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
-            sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, sort_column, sort_order);
+            //ソートを実行した画面ごとに処理を分岐
+            if (from_jsp_name.equals("diaryManipulationSelect")) {
+                String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
 
-        } else if (from_jsp_name.equals("dispDiaryList")) {
-            CommonDiaryDao diary_dao = new CommonDiaryDao();
-            sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb("", sort_column, sort_order);
+                StudentDiaryDao diary_dao = new StudentDiaryDao();
+                sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, sort_column, sort_order);
 
-        } else if (from_jsp_name.equals("dutySelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+            } else if (from_jsp_name.equals("commentManipulationSelect")) {
+                String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
-            StudentListDao duty_dao = new StudentListDao();
-            searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
-        } else if (from_jsp_name.equals("dutyUpdateSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+                TeacherDiaryDao diary_dao = new TeacherDiaryDao();
+                sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, sort_column, sort_order);
 
-            DutyDao duty_dao = new DutyDao();
-            searched_duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, sort_column, sort_order);
-        } else if (from_jsp_name.equals("dutyUpdateInsert")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+            } else if (from_jsp_name.equals("dispDiaryList")) {
+                CommonDiaryDao diary_dao = new CommonDiaryDao();
+                sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb("", sort_column, sort_order);
 
-            StudentListDao duty_dao = new StudentListDao();
-            searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
+            } else if (from_jsp_name.equals("dutySelect")) {
+                String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+                StudentListDao duty_dao = new StudentListDao();
+                searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
+            } else if (from_jsp_name.equals("dutyUpdateSelect")) {
+                String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+                DutyDao duty_dao = new DutyDao();
+                searched_duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, sort_column, sort_order);
+            } else if (from_jsp_name.equals("dutyUpdateInsert")) {
+                String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+                StudentListDao duty_dao = new StudentListDao();
+                searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
+            }
+
+            //遷移先のURL生成
+            String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
+
+            session.setAttribute("diary-list", sorted_diary_list);
+            session.setAttribute("duty-list", searched_duty_list);
+            request.setAttribute("from-jsp-name", from_jsp_name);
+            request.getRequestDispatcher(url).forward(request, response);
+        } else {
+            response.sendRedirect("studenterror");
         }
+    }
 
-        String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiarySortServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        session.setAttribute("diary-list", sorted_diary_list);
-        session.setAttribute("duty-list", searched_duty_list);
-        request.setAttribute("from-jsp-name", from_jsp_name);
-        request.getRequestDispatcher(url).forward(request, response);
+        response.sendRedirect("studenterror");
     }
 }

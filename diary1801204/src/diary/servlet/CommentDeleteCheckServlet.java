@@ -24,11 +24,14 @@ public class CommentDeleteCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentDeleteCheckServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentDeleteCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
 
+        //コメント操作選択画面で選択した日誌情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-diary"));
         DiaryBeans diary_beans = diary_list.get(i);
 

@@ -25,7 +25,9 @@ public class DispDiaryListServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DispDiaryListServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DispDiaryListServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String menu_name = request.getParameter("menu-name");
 

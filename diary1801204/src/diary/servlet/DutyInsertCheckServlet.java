@@ -24,15 +24,27 @@ public class DutyInsertCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DutyInsertCheckServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DutyInsertCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
 
+        //日誌当番登録選択画面で選択した学生情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-student"));
         DutyBeans duty_beans = student_list.get(i);
 
         session.setAttribute("duty-beans", duty_beans);
         request.getRequestDispatcher("WEB-INF/jsp/dutyInsertCheck.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DutyInsertCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("studenterror");
     }
 }

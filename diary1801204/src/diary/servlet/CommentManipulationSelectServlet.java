@@ -26,7 +26,9 @@ public class CommentManipulationSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentManipulationSelectServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentManipulationSelectServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();

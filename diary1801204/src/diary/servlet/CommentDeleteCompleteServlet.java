@@ -20,7 +20,9 @@ public class CommentDeleteCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("CommentDeleteCompleteServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentDeleteCompleteServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         request.getRequestDispatcher("WEB-INF/jsp/commentDeleteComplete.jsp").forward(request, response);
     }

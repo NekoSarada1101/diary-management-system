@@ -26,7 +26,9 @@ public class TeacherMenuServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("TeacherMenuServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("TeacherMenuServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");

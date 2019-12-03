@@ -25,7 +25,9 @@ public class AuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("AuthServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("AuthServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String student_id       = request.getParameter("student-id");
         String student_password = request.getParameter("student-password");
@@ -34,10 +36,12 @@ public class AuthServlet extends HttpServlet {
         StudentBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
 
         HttpSession session = request.getSession();
+        //成功したら
         if (login_info_beans != null) {
             session.setAttribute("login-info", login_info_beans);
             response.sendRedirect("menu");
 
+        //失敗したら
         } else {
             session.setAttribute("error-message", "ログインに失敗しました。学籍番号又はパスワードを確認してください。");
             response.sendRedirect("login");

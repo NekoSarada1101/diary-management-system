@@ -20,7 +20,9 @@ public class DutyInsertCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("DutyInsertCompleteServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DutyInsertCompleteServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         request.getRequestDispatcher("WEB-INF/jsp/dutyInsertComplete.jsp").forward(request, response);
     }

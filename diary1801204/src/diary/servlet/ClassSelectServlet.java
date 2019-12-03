@@ -20,7 +20,9 @@ public class ClassSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("ClassSelectServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("ClassSelectServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         request.getRequestDispatcher("WEB-INF/jsp/classSelect.jsp").forward(request, response);
     }

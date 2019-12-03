@@ -21,11 +21,14 @@ public class LogoutServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        System.out.println("LogoutServlet"); //test
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("LogoutServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         HttpSession session = request.getSession();
         session.invalidate();
 
+        //ログアウトを実行した画面ごとに遷移先を決める
         if (request.getParameter("from").equals("student")) {
             request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
         } else {
