@@ -2,6 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
@@ -30,13 +31,23 @@ public class CommentManipulationSelectServlet extends HttpServlet {
         System.out.println("CommentManipulationSelectServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
 
-        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
-        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, "insert_date", "DESC");
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_beans);
 
-        session.setAttribute("diary-list", diary_list);
-        request.getRequestDispatcher("WEB-INF/jsp/commentManipulationSelect.jsp").forward(request, response);
+        if (is_login) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
+            List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, "insert_date", "DESC");
+
+            session.setAttribute("diary-list", diary_list);
+            request.getRequestDispatcher("WEB-INF/jsp/commentManipulationSelect.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("tachererror");
+        }
     }
 }

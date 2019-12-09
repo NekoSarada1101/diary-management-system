@@ -1,6 +1,7 @@
 package diary.servlet;
 
 import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,25 +31,33 @@ public class TeacherMenuServlet extends HttpServlet {
         System.out.println("TeacherMenuServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
         List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
 
-        TeacherBeans teacher_beans = null;
-        try {
-            int i = Integer.parseInt(request.getParameter("select-class"));
-            teacher_beans = teacher_list.get(i);
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_list.get(0));
 
-        } catch (Exception e) {
-            teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        if (is_login) {
+            TeacherBeans teacher_beans = null;
+            try {
+                int i = Integer.parseInt(request.getParameter("select-class"));
+                teacher_beans = teacher_list.get(i);
+
+            } catch (Exception e) {
+                teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+            }
+
+            //今日の日付を取得
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String today = sdf.format(cal.getTime());
+
+            session.setAttribute("today", today);
+            session.setAttribute("teacher-beans", teacher_beans);
+            request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("teachererror");
         }
-
-        //今日の日付を取得
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String today = sdf.format(cal.getTime());
-
-        session.setAttribute("today", today);
-        session.setAttribute("teacher-beans", teacher_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);
     }
 }

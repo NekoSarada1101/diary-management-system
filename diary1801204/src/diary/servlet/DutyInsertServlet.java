@@ -1,6 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DutyBeans;
+import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 import diary.dao.DutyDao;
 
 import javax.servlet.ServletException;
@@ -27,19 +29,27 @@ public class DutyInsertServlet extends HttpServlet {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DutyInsertServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+//ログイン済みかチェックする
         HttpSession session = request.getSession();
-        DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
 
-        String today = (String) session.getAttribute("today");
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_beans);
 
-        duty_beans.setInsert_date(today);
+        if (is_login) {
+            DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
 
-        DutyDao duty_dao = new DutyDao();
-        duty_dao.insertDutyToDb(duty_beans);
+            String today = (String) session.getAttribute("today");
 
-        session.removeAttribute("duty-beans");
-        response.sendRedirect("dutyinsertcomplete");
+            duty_beans.setInsert_date(today);
 
+            DutyDao duty_dao = new DutyDao();
+            duty_dao.insertDutyToDb(duty_beans);
+
+            session.removeAttribute("duty-beans");
+            response.sendRedirect("dutyinsertcomplete");
+        } else {
+            response.sendRedirect("teachererror");
+        }
     }
 }

@@ -24,22 +24,22 @@
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">学生ログイン</h1>
 
+        <p class="text-center text-danger"><%=error_message%></p>
+
         <form action="auth" method="post" class="mt-5 col-lg-6 col-md-8 col-sm-10 col-12 mr-auto ml-auto">
             <!-- 学籍番号入力フォーム -->
             <div class="md-form">
                 <i class="fas fa-user prefix"></i>
-                <input type="text" id="inputIconEx1" class="form-control" name="student-id" required>
+                <input type="text" id="inputIconEx1" class="form-control" name="student-id" maxlength="7" required>
                 <label for="inputIconEx1">学籍番号</label>
             </div>
 
             <!-- パスワード入力フォーム -->
             <div class="md-form mt-5">
                 <i class="fas fa-lock prefix"></i>
-                <input type="password" id="inputIconEx2" class="form-control" name="student-password" required>
+                <input type="password" id="inputIconEx2" class="form-control" name="student-password" maxlength="128" required>
                 <label for="inputIconEx2">パスワード</label>
             </div>
-
-            <p class="text-center text-danger"><%=error_message%></p>
 
             <div class="text-center mt-5">
                 <button type="submit" class="btn btn-primary">ログイン</button>

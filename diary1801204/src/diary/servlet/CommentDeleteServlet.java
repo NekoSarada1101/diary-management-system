@@ -1,6 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
@@ -28,13 +30,23 @@ public class CommentDeleteServlet extends HttpServlet {
         System.out.println("CommentDeleteServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
 
-        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
-        diary_dao.deleteDiaryFromDb(diary_beans);
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_beans);
 
-        session.removeAttribute("diary-beans");
-        response.sendRedirect("commentdeletecomplete");
+        if (is_login) {
+            DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+
+            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
+            diary_dao.deleteDiaryFromDb(diary_beans);
+
+            session.removeAttribute("diary-beans");
+            response.sendRedirect("commentdeletecomplete");
+        } else {
+            response.sendRedirect("teachererror");
+        }
     }
 }

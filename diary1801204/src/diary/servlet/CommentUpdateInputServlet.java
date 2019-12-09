@@ -1,6 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,14 +30,33 @@ public class CommentUpdateInputServlet extends HttpServlet {
         System.out.println("CommentUpdateInputServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
 
-        //コメント操作選択画面で選択した日誌情報をリストから取得する
-        int i = Integer.parseInt(request.getParameter("select-diary"));
-        DiaryBeans diary_beans = diary_list.get(i);
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_beans);
 
-        session.setAttribute("diary-beans", diary_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/commentUpdateInput.jsp").forward(request, response);
+        if (is_login) {
+            List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+
+            //コメント操作選択画面で選択した日誌情報をリストから取得する
+            int i = Integer.parseInt(request.getParameter("select-diary"));
+            DiaryBeans diary_beans = diary_list.get(i);
+
+            session.setAttribute("diary-beans", diary_beans);
+            request.getRequestDispatcher("WEB-INF/jsp/commentUpdateInput.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("teachererror");
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentUpdateInputServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("teachererror");
     }
 }

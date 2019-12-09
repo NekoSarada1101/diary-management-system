@@ -2,6 +2,7 @@ package diary.servlet;
 
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
+import diary.commmon.TeacherErrorCheck;
 import diary.dao.StudentListDao;
 
 import javax.servlet.ServletException;
@@ -30,13 +31,32 @@ public class DutyUpdateInputServlet extends HttpServlet {
         System.out.println("DutyUpdateInsertServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする
         HttpSession session = request.getSession();
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
 
-        StudentListDao student_list_dao = new StudentListDao();
-        List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
+        TeacherErrorCheck error_check = new TeacherErrorCheck();
+        boolean is_login = error_check.checkLogin(teacher_beans);
 
-        session.setAttribute("student-list", student_list);
-        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
+        if (is_login) {
+            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+            StudentListDao student_list_dao = new StudentListDao();
+            List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
+
+            session.setAttribute("student-list", student_list);
+            request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("teachererror");
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DutyUpdateInsertServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("teachererror");
     }
 }

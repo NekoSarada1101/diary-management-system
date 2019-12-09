@@ -32,10 +32,11 @@ public class AuthServlet extends HttpServlet {
         String student_id       = request.getParameter("student-id");
         String student_password = request.getParameter("student-password");
 
+        HttpSession session = request.getSession();
+
         UserDao user_dao = new UserDao();
         StudentBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
 
-        HttpSession session = request.getSession();
         //成功したら
         if (login_info_beans != null) {
             session.setAttribute("login-info", login_info_beans);
