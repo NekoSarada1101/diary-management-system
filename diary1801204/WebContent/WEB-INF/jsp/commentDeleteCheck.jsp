@@ -1,7 +1,13 @@
 <%@ page import="diary.bean.DiaryBeans" %>
+<%@ page import="diary.commmon.StudentErrorCheck" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+    StudentErrorCheck error_check = new StudentErrorCheck();
+    String good_point = error_check.inputEscape(diary_beans.getGood_point());
+    String bad_point = error_check.inputEscape(diary_beans.getBad_point());
+    String student_comment = error_check.inputEscape(diary_beans.getStudent_comment());
+    String teacher_comment = error_check.inputEscape(diary_beans.getTeacher_comment());
 %>
 <!DOCTYPE html>
 <html>
@@ -29,19 +35,19 @@
             </tr>
             <tr class="row animated bounceInLeft fast">
                 <th class="col-4">良い点</th>
-                <td class="col-8"><%=diary_beans.getGood_point()%></td>
+                <td class="col-8"><%=good_point%></td>
             </tr>
             <tr class="row animated bounceInLeft">
                 <th class="col-4">悪い点</th>
-                <td class="col-8"><%=diary_beans.getBad_point()%></td>
+                <td class="col-8"><%=bad_point%></td>
             </tr>
             <tr class="row animated bounceInLeft slow">
                 <th class="col-4">学生コメント</th>
-                <td class="col-8"><%=diary_beans.getStudent_comment()%></td>
+                <td class="col-8"><%=student_comment%></td>
             </tr>
             <tr class="row animated bounceInLeft slower">
                 <th class="col-4">教員コメント</th>
-                <td class="col-8"><%=diary_beans.getTeacher_comment()%></td>
+                <td class="col-8"><%=teacher_comment%></td>
             </tr>
         </table>
 

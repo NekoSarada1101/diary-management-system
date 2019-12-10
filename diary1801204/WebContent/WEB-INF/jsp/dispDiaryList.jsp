@@ -1,9 +1,12 @@
 <%@ page import="diary.bean.DiaryBeans" %>
+<%@ page import="diary.commmon.StudentErrorCheck" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
     String menu_name = (String) session.getAttribute("menu-name");
+
+    StudentErrorCheck error_check = new StudentErrorCheck();
 %>
 <!DOCTYPE html>
 <html>
@@ -37,7 +40,13 @@
                 </thead>
 
                 <tbody>
-                <% for (int i = 0; i < diary_list.size(); i++) { %>
+                <% for (int i = 0; i < diary_list.size(); i++) {
+                    String good_point = error_check.inputEscape(diary_list.get(i).getGood_point());
+                    String bad_point = error_check.inputEscape(diary_list.get(i).getBad_point());
+                    String student_comment = error_check.inputEscape(diary_list.get(i).getStudent_comment());
+                    if (diary_list.get(i).getTeacher_comment() == null)diary_list.get(i).setTeacher_comment("");
+                    String teacher_comment = error_check.inputEscape(diary_list.get(i).getTeacher_comment());
+                %>
                 <tr class="row animated bounceInUp">
                     <td class="col-3 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%></td>
                     <td class="col-3 border-right"><%=diary_list.get(i).getStudent_id()%></td>
@@ -52,10 +61,10 @@
                                         <li>
                                             <div class="treeview-animated-element">
                                                 <span>
-                                                    <p><strong>良い点</strong><br><%=diary_list.get(i).getGood_point()%></p>
-                                                    <p><strong>悪い点</strong><br><%=diary_list.get(i).getBad_point()%></p>
-                                                    <p><strong>学生コメント</strong><br><%=diary_list.get(i).getStudent_comment()%></p>
-                                                    <p><strong>教員コメント</strong><br><%=diary_list.get(i).getTeacher_comment()%></p>
+                                                    <p><strong>良い点</strong><br><%=good_point%></p>
+                                                    <p><strong>悪い点</strong><br><%=bad_point%></p>
+                                                    <p><strong>学生コメント</strong><br><%=student_comment%></p>
+                                                    <p><strong>教員コメント</strong><br><%=teacher_comment%></p>
                                                 </span>
                                             </div>
                                         </li>

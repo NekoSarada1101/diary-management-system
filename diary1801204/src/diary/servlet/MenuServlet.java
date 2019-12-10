@@ -1,7 +1,6 @@
 package diary.servlet;
 
 import diary.bean.StudentBeans;
-import diary.commmon.StudentErrorCheck;
 import diary.dao.DutyDao;
 
 import javax.servlet.ServletException;
@@ -31,28 +30,26 @@ public class MenuServlet extends HttpServlet {
         System.out.println("MenuServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
-
-        //ログイン済みかチェックする
-        StudentErrorCheck student_error_servlet = new StudentErrorCheck();
-        boolean is_login = student_error_servlet.checkLogin(student_beans);
-
-        if (is_login) {
-            //今日の日付を取得
-            Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String today = sdf.format(cal.getTime());
-
-            session.setAttribute("today", today);
-
-            DutyDao duty_dao = new DutyDao();
-            boolean is_registering = duty_dao.checkTodayDutyRegistered(student_beans.getClass_code(), today);
-
-            session.setAttribute("is-registering", is_registering);
-            request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
-        }else{
+        if (student_beans == null) {
             response.sendRedirect("studenterror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //今日の日付を取得
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sdf.format(cal.getTime());
+
+        session.setAttribute("today", today);
+
+        DutyDao duty_dao = new DutyDao();
+        boolean is_registering = duty_dao.checkTodayDutyRegistered(student_beans.getClass_code(), today);
+
+        session.setAttribute("is-registering", is_registering);
+        request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
     }
 }
