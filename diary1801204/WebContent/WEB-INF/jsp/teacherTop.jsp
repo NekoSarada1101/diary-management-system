@@ -13,7 +13,7 @@
 <body>
 <header>
     <div class="image position-absolute animated fadeIn"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar z-depth-1" id="teacher-nav">
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar z-depth-1" id="teacher-nav">
         <a class="navbar-brand" href="teachermenu"><strong class="text-dark">DiaryManagementSystem</strong></a>
         <span class="text-dark"><%=teacher_name%>先生</span>
         <form action="logout" method="get" class="ml-auto mr-0">

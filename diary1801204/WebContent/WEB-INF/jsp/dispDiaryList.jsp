@@ -71,7 +71,7 @@
         </div>
 
         <%--検索機能--%>
-        <form action="search" method="post" class="mt-3">
+        <form action="studentsearch" method="post" class="mt-3">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
                 <input type="hidden" value="dispDiaryList" name="from-jsp-name">
@@ -80,7 +80,7 @@
         </form>
 
         <%--ソート機能--%>
-        <form action="sort" method="post">
+        <form action="studentsort" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select mt-2" name="sort-column">
                     <option value="insert_date">日付</option>

@@ -1,8 +1,8 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
-import diary.bean.TeacherBeans;
-import diary.dao.TeacherDiaryDao;
+import diary.bean.StudentBeans;
+import diary.dao.CommonDiaryDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,39 +11,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
- * 指定されたコメント情報をデータベースから削除するServletクラス
+ * 日誌のリストを取得した後、日誌閲覧画面へ遷移するServletクラス
  *
  * @author ryouta
  */
-@WebServlet("/commentdelete")
-public class CommentDeleteServlet extends HttpServlet {
+@WebServlet("/studentlist")
+public class StudentDiaryListServlet extends HttpServlet {
 
     /**
-     * コメント情報をデータベースから削除する
+     * 日誌のリストを取得した後、日誌閲覧画面へ遷移する
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("CommentDeleteServlet");
+        System.out.println("StudentDiaryListServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-        if (teacher_beans == null) {
-            response.sendRedirect("teachererror");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        if (student_beans == null) {
+            response.sendRedirect("studenterror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        String menu_name = request.getParameter("menu-name");
 
-        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
-        diary_dao.deleteDiaryFromDb(diary_beans);
+        CommonDiaryDao diary_dao = new CommonDiaryDao();
+        List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb("", "insert_date", "DESC");
 
-        session.removeAttribute("diary-beans");
-        response.sendRedirect("commentdeletecomplete");
+        session.setAttribute("diary-list", diary_list);
+        session.setAttribute("menu-name", menu_name);
+        request.getRequestDispatcher("WEB-INF/jsp/dispDiaryList.jsp").forward(request, response);
     }
 }

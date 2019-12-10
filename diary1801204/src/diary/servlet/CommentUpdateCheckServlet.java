@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,26 +28,24 @@ public class CommentUpdateCheckServlet extends HttpServlet {
         System.out.println("CommentUpdateCheckServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            String teacher_comment = request.getParameter("teacher-comment");
-
-            if (teacher_comment.equals("")) teacher_comment = null;
-
-            DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
-            diary_beans.setTeacher_comment(teacher_comment);
-
-            session.setAttribute("diary-beans", diary_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/commentUpdateCheck.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        String teacher_comment = request.getParameter("teacher-comment");
+
+        if (teacher_comment.equals("")) teacher_comment = null;
+
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        diary_beans.setTeacher_comment(teacher_comment);
+
+        session.setAttribute("diary-beans", diary_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/commentUpdateCheck.jsp").forward(request, response);
     }
 
     @Override

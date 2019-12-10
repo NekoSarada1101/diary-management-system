@@ -1,6 +1,7 @@
 package diary.servlet;
 
 import diary.bean.DiaryBeans;
+import diary.bean.TeacherBeans;
 import diary.dao.CommonDiaryDao;
 
 import javax.servlet.ServletException;
@@ -17,8 +18,8 @@ import java.util.List;
  *
  * @author ryouta
  */
-@WebServlet("/list")
-public class DispDiaryListServlet extends HttpServlet {
+@WebServlet("/teacherlist")
+public class TeacherDiaryListServlet extends HttpServlet {
 
     /**
      * 日誌のリストを取得した後、日誌閲覧画面へ遷移する
@@ -26,7 +27,16 @@ public class DispDiaryListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DispDiaryListServlet");
+        System.out.println("TeacherDiaryListServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
+        HttpSession session = request.getSession();
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        if (teacher_beans == null) {
+            response.sendRedirect("teachererror");
+            return;
+        }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String menu_name = request.getParameter("menu-name");
@@ -34,7 +44,6 @@ public class DispDiaryListServlet extends HttpServlet {
         CommonDiaryDao diary_dao = new CommonDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb("", "insert_date", "DESC");
 
-        HttpSession session = request.getSession();
         session.setAttribute("diary-list", diary_list);
         session.setAttribute("menu-name", menu_name);
         request.getRequestDispatcher("WEB-INF/jsp/dispDiaryList.jsp").forward(request, response);

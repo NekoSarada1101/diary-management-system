@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,25 +29,23 @@ public class DutyInsertCheckServlet extends HttpServlet {
         System.out.println("DutyInsertCheckServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
-
-            //日誌当番登録選択画面で選択した学生情報をリストから取得する
-            int i = Integer.parseInt(request.getParameter("select-student"));
-            DutyBeans duty_beans = student_list.get(i);
-
-            session.setAttribute("duty-beans", duty_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/dutyInsertCheck.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+
+        //日誌当番登録選択画面で選択した学生情報をリストから取得する
+        int i = Integer.parseInt(request.getParameter("select-student"));
+        DutyBeans duty_beans = student_list.get(i);
+
+        session.setAttribute("duty-beans", duty_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/dutyInsertCheck.jsp").forward(request, response);
     }
 
     @Override

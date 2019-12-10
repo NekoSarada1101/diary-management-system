@@ -2,6 +2,8 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.StudentBeans;
+import diary.dao.CommonDiaryDao;
+import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,20 +15,20 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 日誌操作選択画面で指定した日誌の情報を取得した後、日誌削除確認画面へ遷移するServletクラス
+ * 指定された単語で曖昧検索した後、画面遷移するServletクラス
  *
  * @author ryouta
  */
-@WebServlet("/diarydeletecheck")
-public class DiaryDeleteCheckServlet extends HttpServlet {
+@WebServlet("/studentsearch")
+public class StudentSearchServlet extends HttpServlet {
 
     /**
-     * 日誌操作選択画面で指定された日誌のリスト内の位置を取得し日誌の情報を取得した後、日誌削除確認画面へ遷移する
+     * 指定された単語で曖昧検索した後、画面遷移する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryDeleteCheckServlet");
+        System.out.println("StudentSearchServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
@@ -38,20 +40,34 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+        String search_word = request.getParameter("search-word");
+        String from_jsp_name = request.getParameter("from-jsp-name");
 
-        //日誌操作選択画面で選択した日誌情報をリストから取得する
-        int i = Integer.parseInt(request.getParameter("select-diary"));
-        DiaryBeans diary_beans = diary_list.get(i);
+        List<DiaryBeans> searched_diary_list = null;
 
-        session.setAttribute("diary-beans", diary_beans);
-        request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);
+        //検索を実行した画面ごとに処理を分岐
+        if (from_jsp_name.equals("diaryManipulationSelect")) {
+            String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+
+            StudentDiaryDao diary_dao = new StudentDiaryDao();
+            searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
+        } else if (from_jsp_name.equals("dispDiaryList")) {
+            CommonDiaryDao diary_dao = new CommonDiaryDao();
+            searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb("", search_word);
+        }
+
+        //遷移先のURL生成
+        String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
+
+        session.setAttribute("diary-list", searched_diary_list);
+        request.setAttribute("from-jsp-name", from_jsp_name);
+        request.getRequestDispatcher(url).forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryDeleteCheckServlet");
+        System.out.println("DiarySearchServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         response.sendRedirect("studenterror");

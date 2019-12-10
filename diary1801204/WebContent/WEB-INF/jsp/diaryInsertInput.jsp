@@ -1,4 +1,15 @@
+<%@ page import="diary.bean.TeacherBeans" %>
+<%@ page import="diary.bean.DiaryBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+    if(diary_beans == null){
+        diary_beans = new DiaryBeans();
+        diary_beans.setGood_point("");
+        diary_beans.setBad_point("");
+        diary_beans.setStudent_comment("");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,21 +31,21 @@
             <!--良い点入力フォーム-->
             <div class="md-form">
                 <i class="fas fa-thumbs-up prefix"></i>
-                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="good-point" required></textarea>
+                <textarea id="form1" class="md-textarea form-control" maxlength="30" name="good-point" required><%=diary_beans.getGood_point()%></textarea>
                 <label for="form1">良い点</label>
             </div>
 
             <!--悪い点入力フォーム-->
             <div class="md-form mt-5">
                 <i class="fas fa-thumbs-down prefix"></i>
-                <textarea id="form2" class="md-textarea form-control" maxlength="30" name="bad-point" required></textarea>
+                <textarea id="form2" class="md-textarea form-control" maxlength="30" name="bad-point" required><%=diary_beans.getBad_point()%></textarea>
                 <label for="form2">悪い点</label>
             </div>
 
             <!--学生コメント入力フォーム-->
             <div class="md-form mt-5">
                 <i class="fas fa-comment prefix"></i>
-                <textarea id="form3" class="md-textarea form-control" maxlength="30" name="student-comment" required></textarea>
+                <textarea id="form3" class="md-textarea form-control" maxlength="30" name="student-comment" required><%=diary_beans.getStudent_comment()%></textarea>
                 <label for="form3">コメント</label>
             </div>
 

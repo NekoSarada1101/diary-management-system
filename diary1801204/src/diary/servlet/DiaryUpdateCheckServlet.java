@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.StudentBeans;
-import diary.commmon.StudentErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,28 +28,26 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
         System.out.println("DiaryUpdateCheckServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
-
-        StudentErrorCheck error_check = new StudentErrorCheck();
-        boolean is_login = error_check.checkLogin(student_beans);
-
-        if (is_login) {
-            String good_point = request.getParameter("good-point");
-            String bad_point = request.getParameter("bad-point");
-            String student_comment = request.getParameter("student-comment");
-
-            DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
-            diary_beans.setGood_point(good_point);
-            diary_beans.setBad_point(bad_point);
-            diary_beans.setStudent_comment(student_comment);
-
-            session.setAttribute("diary-beans", diary_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateCheck.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("studednterror");
+        if (student_beans == null) {
+            response.sendRedirect("studenterror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        String good_point = request.getParameter("good-point");
+        String bad_point = request.getParameter("bad-point");
+        String student_comment = request.getParameter("student-comment");
+
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        diary_beans.setGood_point(good_point);
+        diary_beans.setBad_point(bad_point);
+        diary_beans.setStudent_comment(student_comment);
+
+        session.setAttribute("diary-beans", diary_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateCheck.jsp").forward(request, response);
     }
 
     @Override

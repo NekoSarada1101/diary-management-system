@@ -3,7 +3,6 @@ package diary.servlet;
 import diary.bean.DiaryBeans;
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 import diary.dao.DutyDao;
 import diary.dao.StudentDiaryDao;
 
@@ -32,30 +31,28 @@ public class DutyUpdateServlet extends HttpServlet {
         System.out.println("DutyUpdateServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
-
-            DutyDao duty_dao = new DutyDao();
-            duty_dao.updateDutyToDb(duty_beans);
-
-            DiaryBeans diary_beans = new DiaryBeans();
-            diary_beans.setClass_code(duty_beans.getClass_code());
-            diary_beans.setInsert_date(duty_beans.getInsert_date());
-
-            StudentDiaryDao diary_dao = new StudentDiaryDao();
-            diary_dao.deleteDiaryFromDb(diary_beans);
-
-            session.removeAttribute("duty-beans");
-            response.sendRedirect("dutyupdatecomplete");
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
+
+        DutyDao duty_dao = new DutyDao();
+        duty_dao.updateDutyToDb(duty_beans);
+
+        DiaryBeans diary_beans = new DiaryBeans();
+        diary_beans.setClass_code(duty_beans.getClass_code());
+        diary_beans.setInsert_date(duty_beans.getInsert_date());
+
+        StudentDiaryDao diary_dao = new StudentDiaryDao();
+        diary_dao.deleteDiaryFromDb(diary_beans);
+
+        session.removeAttribute("duty-beans");
+        response.sendRedirect("dutyupdatecomplete");
     }
 }

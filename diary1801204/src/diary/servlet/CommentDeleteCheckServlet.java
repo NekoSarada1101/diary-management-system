@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,25 +29,23 @@ public class CommentDeleteCheckServlet extends HttpServlet {
         System.out.println("CommentDeleteCheckServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
-
-            //コメント操作選択画面で選択した日誌情報をリストから取得する
-            int i = Integer.parseInt(request.getParameter("select-diary"));
-            DiaryBeans diary_beans = diary_list.get(i);
-
-            session.setAttribute("diary-beans", diary_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/commentDeleteCheck.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+
+        //コメント操作選択画面で選択した日誌情報をリストから取得する
+        int i = Integer.parseInt(request.getParameter("select-diary"));
+        DiaryBeans diary_beans = diary_list.get(i);
+
+        session.setAttribute("diary-beans", diary_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/commentDeleteCheck.jsp").forward(request, response);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package diary.servlet;
 
 import diary.bean.StudentBeans;
-import diary.commmon.StudentErrorCheck;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -29,29 +28,27 @@ public class DiaryInsertInputServlet extends HttpServlet {
         System.out.println("DiaryInsertInputServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
-
-        StudentErrorCheck error_check = new StudentErrorCheck();
-        boolean is_login = error_check.checkLogin(student_beans);
-
-        if (is_login) {
-            String today = (String) session.getAttribute("today");
-            String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
-
-            StudentDiaryDao diary_dao = new StudentDiaryDao();
-            boolean is_registering = diary_dao.checkTodayDiaryRegistered(class_code, today);
-
-            //登録済みなら
-            if (is_registering) {
-                session.setAttribute("error-message", "今日はすでに日誌を登録しています。");
-                response.sendRedirect("select");
-            } else {
-                request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);
-            }
-        } else {
+        if (student_beans == null) {
             response.sendRedirect("studenterror");
+            return;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        String today = (String) session.getAttribute("today");
+        String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
+
+        StudentDiaryDao diary_dao = new StudentDiaryDao();
+        boolean is_registering = diary_dao.checkTodayDiaryRegistered(class_code, today);
+
+        //登録済みなら
+        if (is_registering) {
+            session.setAttribute("error-message", "今日はすでに日誌を登録しています。");
+            response.sendRedirect("select");
+        } else {
+            request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);
         }
     }
 }

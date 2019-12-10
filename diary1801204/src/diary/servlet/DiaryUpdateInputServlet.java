@@ -37,18 +37,24 @@ public class DiaryUpdateInputServlet extends HttpServlet {
         StudentErrorCheck error_check = new StudentErrorCheck();
         boolean is_login = error_check.checkLogin(student_beans);
 
-        if (is_login) {
-            List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
-
-            //日誌操作選択画面で選択した日誌情報をリストから取得する
-            int i = Integer.parseInt(request.getParameter("select-diary"));
-            DiaryBeans diary_beans = diary_list.get(i);
-
-            session.setAttribute("diary-beans", diary_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("studenterror");
+        if (!is_login) {
+            response.sendRedirect("studenteror");
+            return;
         }
+
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+
+        //日誌操作選択画面で選択した日誌情報をリストから取得する
+        DiaryBeans diary_beans = null;
+        try {
+            int i = Integer.parseInt(request.getParameter("select-diary"));
+            diary_beans = diary_list.get(i);
+        } catch (NumberFormatException e) {
+            diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        }
+
+        session.setAttribute("diary-beans", diary_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateInput.jsp").forward(request, response);
     }
 
     @Override

@@ -29,23 +29,38 @@ public class AuthServlet extends HttpServlet {
         System.out.println("AuthServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String student_id       = request.getParameter("student-id");
-        String student_password = request.getParameter("student-password");
-
-        HttpSession session = request.getSession();
+        String student_id = null;
+        String student_password = null;
+        try {
+            student_id = request.getParameter("student-id");
+            student_password = request.getParameter("student-password");
+        } catch (Exception e) {
+            response.sendRedirect("studenterror");
+            return;
+        }
 
         UserDao user_dao = new UserDao();
         StudentBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
 
+        HttpSession session = request.getSession();
         //成功したら
         if (login_info_beans != null) {
             session.setAttribute("login-info", login_info_beans);
             response.sendRedirect("menu");
 
-        //失敗したら
+            //失敗したら
         } else {
             session.setAttribute("error-message", "ログインに失敗しました。学籍番号又はパスワードを確認してください。");
             response.sendRedirect("login");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("DiaryUpdateInputServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("studenterror");
     }
 }

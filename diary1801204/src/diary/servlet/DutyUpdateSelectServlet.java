@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 import diary.dao.DutyDao;
 
 import javax.servlet.ServletException;
@@ -29,23 +28,21 @@ public class DutyUpdateSelectServlet extends HttpServlet {
         System.out.println("DutyUpdateSelectServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
-
-            DutyDao duty_dao = new DutyDao();
-            List<DutyBeans> duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, "insert_date", "DESC");
-
-            session.setAttribute("duty-list", duty_list);
-            request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateSelect.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+        DutyDao duty_dao = new DutyDao();
+        List<DutyBeans> duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, "insert_date", "DESC");
+
+        session.setAttribute("student-list", duty_list);
+        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateSelect.jsp").forward(request, response);
     }
 }

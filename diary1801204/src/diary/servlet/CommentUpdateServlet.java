@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 import diary.dao.TeacherDiaryDao;
 
 import javax.servlet.ServletException;
@@ -30,23 +29,21 @@ public class CommentUpdateServlet extends HttpServlet {
         System.out.println("CommentUpdateServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
-
-            TeacherDiaryDao diary_dao = new TeacherDiaryDao();
-            diary_dao.updateDiaryToDb(diary_beans);
-
-            session.removeAttribute("diary-beans");
-            response.sendRedirect("commentupdatecomplete");
-        } else {
-            response.sendRedirect("teachdererror");
+        if (teacher_beans == null) {
+            response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+
+        TeacherDiaryDao diary_dao = new TeacherDiaryDao();
+        diary_dao.updateDiaryToDb(diary_beans);
+
+        session.removeAttribute("diary-beans");
+        response.sendRedirect("commentupdatecomplete");
     }
 }

@@ -1,7 +1,6 @@
 package diary.servlet;
 
 import diary.bean.StudentBeans;
-import diary.commmon.StudentErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,17 +27,15 @@ public class DiaryUpdateCompleteServlet extends HttpServlet {
         System.out.println("DiaryUpdateCompleteServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
-
-        StudentErrorCheck error_check = new StudentErrorCheck();
-        boolean is_login = error_check.checkLogin(student_beans);
-
-        if (is_login) {
-            request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateComplete.jsp").forward(request, response);
-        } else {
+        if (student_beans == null) {
             response.sendRedirect("studenterror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateComplete.jsp").forward(request, response);
     }
 }

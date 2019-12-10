@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 import diary.dao.StudentDiaryDao;
 
 import javax.servlet.ServletException;
@@ -31,37 +30,35 @@ public class DutyUpdateCheckServlet extends HttpServlet {
         System.out.println("DutyUpdateCheckServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-
-            List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
-
-            //日誌当番更新入力画面で選択した学生情報をリストから取得する
-            int i = Integer.parseInt(request.getParameter("select-student"));
-            DutyBeans duty_beans = student_list.get(i);
-
-            String today = (String) session.getAttribute("today");
-
-            duty_beans.setInsert_date(today);
-
-            StudentDiaryDao diary_dao = new StudentDiaryDao();
-            boolean is_registering = diary_dao.checkTodayDiaryRegistered(duty_beans.getClass_code(), today);
-
-            if (is_registering) {
-                session.setAttribute("error-message", "今日の日誌はすでに登録されています。<br>日誌担当を変更した場合、登録済みの日誌は削除されます。");
-            }
-
-            session.setAttribute("duty-beans", duty_beans);
-            request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateCheck.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+
+        //日誌当番更新入力画面で選択した学生情報をリストから取得する
+        int i = Integer.parseInt(request.getParameter("select-student"));
+        DutyBeans duty_beans = student_list.get(i);
+
+        String today = (String) session.getAttribute("today");
+
+        duty_beans.setInsert_date(today);
+
+        StudentDiaryDao diary_dao = new StudentDiaryDao();
+        boolean is_registering = diary_dao.checkTodayDiaryRegistered(duty_beans.getClass_code(), today);
+
+        if (is_registering) {
+            session.setAttribute("error-message", "今日の日誌はすでに登録されています。<br>日誌担当を変更した場合、登録済みの日誌は削除されます。");
+        }
+
+        session.setAttribute("duty-beans", duty_beans);
+        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateCheck.jsp").forward(request, response);
     }
 
     @Override

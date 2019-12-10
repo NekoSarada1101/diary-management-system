@@ -49,7 +49,7 @@
         </form>
 
         <%--日誌操作選択画面へ--%>
-        <form action="select" method="get" class="text-right back">
+        <form action="diaryupdateinput" method="post" class="text-right back">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

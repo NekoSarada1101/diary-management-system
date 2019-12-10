@@ -30,9 +30,9 @@ public class LogoutServlet extends HttpServlet {
 
         //ログアウトを実行した画面ごとに遷移先を決める
         if (request.getParameter("from").equals("student")) {
-            request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
+            response.sendRedirect("login");
         } else {
-            request.getRequestDispatcher("WEB-INF/jsp/teacherLogin.jsp").forward(request, response);
+            response.sendRedirect("teacherlogin");
         }
     }
 }

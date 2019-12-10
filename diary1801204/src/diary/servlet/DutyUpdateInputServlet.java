@@ -2,7 +2,6 @@ package diary.servlet;
 
 import diary.bean.DutyBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 import diary.dao.StudentListDao;
 
 import javax.servlet.ServletException;
@@ -31,24 +30,22 @@ public class DutyUpdateInputServlet extends HttpServlet {
         System.out.println("DutyUpdateInsertServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
-
-            StudentListDao student_list_dao = new StudentListDao();
-            List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
-
-            session.setAttribute("student-list", student_list);
-            request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+
+        StudentListDao student_list_dao = new StudentListDao();
+        List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
+
+        session.setAttribute("student-list", student_list);
+        request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
     }
 
     @Override

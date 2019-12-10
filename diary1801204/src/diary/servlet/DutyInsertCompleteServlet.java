@@ -1,7 +1,6 @@
 package diary.servlet;
 
 import diary.bean.TeacherBeans;
-import diary.commmon.TeacherErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,17 +27,15 @@ public class DutyInsertCompleteServlet extends HttpServlet {
         System.out.println("DutyInsertCompleteServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //ログイン済みかチェックする
+        //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-
-        TeacherErrorCheck error_check = new TeacherErrorCheck();
-        boolean is_login = error_check.checkLogin(teacher_beans);
-
-        if (is_login) {
-            request.getRequestDispatcher("WEB-INF/jsp/dutyInsertComplete.jsp").forward(request, response);
-        } else {
+        if (teacher_beans == null) {
             response.sendRedirect("teachererror");
+            return;
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        request.getRequestDispatcher("WEB-INF/jsp/dutyInsertComplete.jsp").forward(request, response);
     }
 }

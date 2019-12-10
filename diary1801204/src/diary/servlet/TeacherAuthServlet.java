@@ -30,8 +30,15 @@ public class TeacherAuthServlet extends HttpServlet {
         System.out.println("TeacherAuthServlet");
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String teacher_code = request.getParameter("teacher-code");
-        String teacher_password = request.getParameter("teacher-password");
+        String teacher_code = null;
+        String teacher_password = null;
+        try {
+            teacher_code = request.getParameter("teacher-code");
+            teacher_password = request.getParameter("teacher-password");
+        } catch (Exception e) {
+            response.sendRedirect("studenterror");
+            return;
+        }
 
         TeacherDao teacher_dao = new TeacherDao();
         List<TeacherBeans> teacher_list = teacher_dao.getLoginInfo(teacher_code, teacher_password);
@@ -42,10 +49,19 @@ public class TeacherAuthServlet extends HttpServlet {
             session.setAttribute("teacher-list", teacher_list);
             response.sendRedirect("class");
 
-        //失敗したら
+            //失敗したら
         } else {
             session.setAttribute("error-message", "ログインに失敗しました。教員番号又はパスワードを確認してください。");
             response.sendRedirect("teacherlogin");
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("CommentUpdateCheckServlet");
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        response.sendRedirect("teachererror");
     }
 }

@@ -35,7 +35,7 @@
             </form>
 
             <%--日誌閲覧画面へ--%>
-            <form action="list" method="get" class="col-5 p-0 mr-auto">
+            <form action="teacherlist" method="get" class="col-5 p-0 mr-auto">
                 <input type="hidden" value="teachermenu" name="menu-name">
                 <button type="submit" class="image2 w-100 animated fadeInDown delay-1s">
                     <div class="link text-white">日誌閲覧</div>
@@ -59,7 +59,7 @@
             </form>
         </div>
 
-        <form action="classselect" method="get" class="mt-1">
+        <form action="class" method="get" class="mt-1">
             <button type="submit" class="btn btn-outline-dark btn-block">クラス選択画面へ戻る</button>
         </form>
     </div>

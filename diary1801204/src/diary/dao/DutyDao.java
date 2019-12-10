@@ -265,6 +265,7 @@ public class DutyDao extends DaoBase {
             stmt.setString(1, "%" + search_word + "%");
             stmt.setString(2, "%" + search_word + "%");
             stmt.setString(3, "%" + search_word + "%");
+            stmt.setString(4, condition);
             rs = stmt.executeQuery();
 
             list = new ArrayList<>();

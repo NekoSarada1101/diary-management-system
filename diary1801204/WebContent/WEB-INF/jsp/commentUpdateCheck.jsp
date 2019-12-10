@@ -53,7 +53,7 @@
         </form>
 
         <%--コメント操作選択画面へ--%>
-        <form action="commentselect" method="get" class="text-right back">
+        <form action="commentupdateinput" method="post" class="text-right back">
             <button type="submit" class="btn btn-outline-dark">戻る</button>
         </form>
     </div>

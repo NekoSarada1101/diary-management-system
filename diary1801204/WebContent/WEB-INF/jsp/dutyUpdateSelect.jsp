@@ -1,10 +1,8 @@
 <%@ page import="diary.bean.DutyBeans" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("duty-list");
+    List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("student-list");
     String today = (String) session.getAttribute("today");
 %>
 <!DOCTYPE html>
@@ -37,9 +35,12 @@
                 <tbody>
                 <% for (int i = 0; i < duty_list.size(); i++) { %>
                 <tr class="row animated bounceInUp">
-                    <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%></th>
-                    <th class="col-3 border-right"><%=duty_list.get(i).getStudent_id()%></th>
-                    <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%></td>
+                    <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%>
+                    </th>
+                    <th class="col-3 border-right"><%=duty_list.get(i).getStudent_id()%>
+                    </th>
+                    <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%>
+                    </td>
                     <td class="col-3">
                         <% if (duty_list.get(i).getInsert_date().equals(today)) { %>
                         <%--日誌当番登録確認画面へ--%>
@@ -57,7 +58,7 @@
         </div>
 
         <%--検索機能--%>
-        <form action="search" method="post" class="mt-3">
+        <form action="teachersearch" method="post" class="mt-3">
             <div class="input-group">
                 <input class="form-control mt-2" type="text" name="search-word">
                 <input type="hidden" value="dutyUpdateSelect" name="from-jsp-name">
@@ -66,9 +67,10 @@
         </form>
 
         <%--ソート機能--%>
-        <form action="sort" method="post">
+        <form action="teachersort" method="post">
             <div class="input-group mb-3">
                 <select class="custom-select mt-2" name="sort-column">
+                    <option value="insert_date">日付</option>
                     <option value="student_id">学籍番号</option>
                     <option value="student_name">名前</option>
                 </select>
