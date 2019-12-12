@@ -37,6 +37,11 @@ public class ClassSelectServlet extends HttpServlet {
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        request.getRequestDispatcher("WEB-INF/jsp/classSelect.jsp").forward(request, response);
+        if (teacher_list.size() == 1) {
+            session.setAttribute("teacher_beans", teacher_list.get(0));
+            response.sendRedirect("teachermenu");
+        } else {
+            request.getRequestDispatcher("WEB-INF/jsp/classSelect.jsp").forward(request, response);
+        }
     }
 }

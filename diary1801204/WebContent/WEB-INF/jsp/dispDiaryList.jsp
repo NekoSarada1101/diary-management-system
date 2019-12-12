@@ -82,7 +82,7 @@
         <%--検索機能--%>
         <form action="studentsearch" method="post" class="mt-3">
             <div class="input-group">
-                <input class="form-control mt-2" type="text" name="search-word">
+                <input class="form-control mt-2" type="text" name="search-word" maxlength="30">
                 <input type="hidden" value="dispDiaryList" name="from-jsp-name">
                 <button type="submit" class="btn btn-primary">検索</button>
             </div>
