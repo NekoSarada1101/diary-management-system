@@ -30,19 +30,19 @@ public class DutyUpdateSelectServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
 
         DutyDao duty_dao = new DutyDao();
         List<DutyBeans> duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, "insert_date", "DESC");
 
-        session.setAttribute("student-list", duty_list);
+        session.setAttribute("student_list", duty_list);
         request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateSelect.jsp").forward(request, response);
     }
 }

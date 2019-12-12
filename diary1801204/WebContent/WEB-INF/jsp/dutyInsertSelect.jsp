@@ -3,7 +3,7 @@
 <%@ page import="diary.bean.DutyBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+    List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student_list");
 %>
 <!DOCTYPE html>
 <html>

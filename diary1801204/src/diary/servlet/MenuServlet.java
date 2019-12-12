@@ -32,7 +32,7 @@ public class MenuServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -49,7 +49,7 @@ public class MenuServlet extends HttpServlet {
         DutyDao duty_dao = new DutyDao();
         boolean is_registering = duty_dao.checkTodayDutyRegistered(student_beans.getClass_code(), today);
 
-        session.setAttribute("is-registering", is_registering);
+        session.setAttribute("is_registering", is_registering);
         request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);
     }
 }

@@ -1,10 +1,10 @@
 <%@ page import="diary.bean.DutyBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
-    String error_message = (String) session.getAttribute("error-message");
+    DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty_beans");
+    String error_message = (String) session.getAttribute("error_message");
     if (error_message == null) error_message = "";
-    session.removeAttribute("error-message");
+    session.removeAttribute("error_message");
 %>
 <!DOCTYPE html>
 <html>

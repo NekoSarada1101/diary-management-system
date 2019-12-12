@@ -35,7 +35,7 @@ public class TeacherSortServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
@@ -49,25 +49,22 @@ public class TeacherSortServlet extends HttpServlet {
         List<DiaryBeans> sorted_diary_list = null;
         List<DutyBeans> searched_duty_list = null;
 
+        String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
+
         //ソートを実行した画面ごとに処理を分岐
         if (from_jsp_name.equals("commentManipulationSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
-
             TeacherDiaryDao diary_dao = new TeacherDiaryDao();
             sorted_diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, sort_column, sort_order);
-        } else if (from_jsp_name.equals("dutyInsertSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
+        } else if (from_jsp_name.equals("dutyInsertSelect")) {
             StudentListDao duty_dao = new StudentListDao();
             searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
-        } else if (from_jsp_name.equals("dutyUpdateSelect")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
+        } else if (from_jsp_name.equals("dutyUpdateSelect")) {
             DutyDao duty_dao = new DutyDao();
             searched_duty_list = duty_dao.fetchSortedDutyListFromDb(class_code, sort_column, sort_order);
-        } else if (from_jsp_name.equals("dutyUpdateInput")) {
-            String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
 
+        } else if (from_jsp_name.equals("dutyUpdateInput")) {
             StudentListDao duty_dao = new StudentListDao();
             searched_duty_list = duty_dao.fetchSortedStudentListFromDb(class_code, sort_column, sort_order);
         }
@@ -75,9 +72,9 @@ public class TeacherSortServlet extends HttpServlet {
         //遷移先のURL生成
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
 
-        session.setAttribute("diary-list", sorted_diary_list);
-        session.setAttribute("student-list", searched_duty_list);
-        request.setAttribute("from-jsp-name", from_jsp_name);
+        session.setAttribute("diary_list", sorted_diary_list);
+        session.setAttribute("student_list", searched_duty_list);
+        request.setAttribute("from_jsp_name", from_jsp_name);
         request.getRequestDispatcher(url).forward(request, response);
     }
 

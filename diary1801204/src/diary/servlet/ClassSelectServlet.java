@@ -30,7 +30,7 @@ public class ClassSelectServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
+        List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher_list");
         if (teacher_list == null) {
             response.sendRedirect("teachererror");
             return;

@@ -32,7 +32,7 @@ public class TeacherMenuServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
+        List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher_list");
         if (teacher_list == null) {
             response.sendRedirect("teachererror");
             return;
@@ -45,7 +45,7 @@ public class TeacherMenuServlet extends HttpServlet {
             teacher_beans = teacher_list.get(i);
 
         } catch (Exception e) {
-            teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+            teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         }
 
         //今日の日付を取得
@@ -54,7 +54,7 @@ public class TeacherMenuServlet extends HttpServlet {
         String today = sdf.format(cal.getTime());
 
         session.setAttribute("today", today);
-        session.setAttribute("teacher-beans", teacher_beans);
+        session.setAttribute("teacher_beans", teacher_beans);
         request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);
     }
 }

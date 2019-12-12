@@ -32,21 +32,21 @@ public class DiaryManipulationSelectServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        session.removeAttribute("diary-beans");
+        session.removeAttribute("diary_beans");
 
-        String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+        String student_id = ((StudentBeans) session.getAttribute("login_info")).getStudent_id();
 
         StudentDiaryDao diary_dao = new StudentDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(student_id, "insert_date", "DESC");
 
-        session.setAttribute("diary-list", diary_list);
+        session.setAttribute("diary_list", diary_list);
         request.getRequestDispatcher("WEB-INF/jsp/diaryManipulationSelect.jsp").forward(request, response);
     }
 }

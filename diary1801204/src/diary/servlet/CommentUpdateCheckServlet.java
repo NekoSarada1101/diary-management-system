@@ -30,7 +30,7 @@ public class CommentUpdateCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
@@ -41,10 +41,10 @@ public class CommentUpdateCheckServlet extends HttpServlet {
 
         if (teacher_comment.equals("")) teacher_comment = null;
 
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
         diary_beans.setTeacher_comment(teacher_comment);
 
-        session.setAttribute("diary-beans", diary_beans);
+        session.setAttribute("diary_beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/commentUpdateCheck.jsp").forward(request, response);
     }
 

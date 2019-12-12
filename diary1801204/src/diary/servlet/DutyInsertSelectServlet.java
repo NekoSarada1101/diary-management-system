@@ -30,14 +30,14 @@ public class DutyInsertSelectServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
 
         String today = (String) session.getAttribute("today");
 
@@ -46,12 +46,12 @@ public class DutyInsertSelectServlet extends HttpServlet {
 
         //登録済みなら
         if (is_registering) {
-            session.setAttribute("error-message", "今日の日誌当番はすでに登録済みです");
+            session.setAttribute("error_message", "今日の日誌当番はすでに登録済みです");
             response.sendRedirect("teachermenu");
         } else {
             List<DutyBeans> student_list = duty_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
 
-            session.setAttribute("student-list", student_list);
+            session.setAttribute("student_list", student_list);
             request.getRequestDispatcher("WEB-INF/jsp/dutyInsertSelect.jsp").forward(request, response);
         }
     }

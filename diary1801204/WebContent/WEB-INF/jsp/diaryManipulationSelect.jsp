@@ -3,15 +3,15 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
-    boolean is_registering = (boolean) session.getAttribute("is-registering");
+    List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary_list");
+    boolean is_registering = (boolean) session.getAttribute("is_registering");
     //自分が日誌当番でないならdisable属性をつける
     String disabled = "";
     if (!is_registering) disabled = "disabled";
 
-    String error_message = (String) session.getAttribute("error-message");
+    String error_message = (String) session.getAttribute("error_message");
     if (error_message == null) error_message = "";
-    session.removeAttribute("error-message");
+    session.removeAttribute("error_message");
 
     StudentErrorCheck error_check = new StudentErrorCheck();
 %>

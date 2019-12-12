@@ -31,20 +31,20 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary_list");
 
         //日誌操作選択画面で選択した日誌情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-diary"));
         DiaryBeans diary_beans = diary_list.get(i);
 
-        session.setAttribute("diary-beans", diary_beans);
+        session.setAttribute("diary_beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryDeleteCheck.jsp").forward(request, response);
     }
 

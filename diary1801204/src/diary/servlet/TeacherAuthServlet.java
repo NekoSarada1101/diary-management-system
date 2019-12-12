@@ -46,7 +46,7 @@ public class TeacherAuthServlet extends HttpServlet {
         HttpSession session = request.getSession();
         //成功したら
         if (teacher_list != null) {
-            session.setAttribute("teacher-list", teacher_list);
+            session.setAttribute("teacher_list", teacher_list);
             response.sendRedirect("class");
 
             //失敗したら

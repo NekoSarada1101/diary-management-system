@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    boolean is_registering = (boolean) session.getAttribute("is-registering");
+    boolean is_registering = (boolean) session.getAttribute("is_registering");
     String[] today  = ((String) session.getAttribute("today")).split("-");
 %>
 <!DOCTYPE html>

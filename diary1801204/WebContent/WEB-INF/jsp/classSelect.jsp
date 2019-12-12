@@ -2,8 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher-list");
-    String teacher_name = ((TeacherBeans) ((List<TeacherBeans>) session.getAttribute("teacher-list")).get(0)).getTeacher_name();
+    List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher_list");
+    String teacher_name = teacher_list.get(0).getTeacher_name();
 %>
 <!DOCTYPE html>
 <html>

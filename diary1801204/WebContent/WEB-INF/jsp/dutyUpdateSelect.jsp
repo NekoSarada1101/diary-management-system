@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("student-list");
+    List<DutyBeans> duty_list = (List<DutyBeans>) session.getAttribute("student_list");
     String today = (String) session.getAttribute("today");
 %>
 <!DOCTYPE html>

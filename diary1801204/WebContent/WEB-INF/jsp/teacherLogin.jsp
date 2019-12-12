@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <%
-    String error_message = (String) session.getAttribute("error-message");
+    String error_message = (String) session.getAttribute("error_message");
     if (error_message == null) error_message = "";
-    session.removeAttribute("error-message");
+    session.removeAttribute("error_message");
 %>
 <html>
 <head>

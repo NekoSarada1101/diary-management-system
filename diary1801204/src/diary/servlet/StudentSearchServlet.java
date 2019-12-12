@@ -33,7 +33,7 @@ public class StudentSearchServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -47,7 +47,7 @@ public class StudentSearchServlet extends HttpServlet {
 
         //検索を実行した画面ごとに処理を分岐
         if (from_jsp_name.equals("diaryManipulationSelect")) {
-            String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+            String student_id = ((StudentBeans) session.getAttribute("login_info")).getStudent_id();
 
             StudentDiaryDao diary_dao = new StudentDiaryDao();
             searched_diary_list = diary_dao.fetchSearchedDiaryListFromDb(student_id, search_word);
@@ -59,8 +59,8 @@ public class StudentSearchServlet extends HttpServlet {
         //遷移先のURL生成
         String url = "WEB-INF/jsp/" + from_jsp_name + ".jsp";
 
-        session.setAttribute("diary-list", searched_diary_list);
-        request.setAttribute("from-jsp-name", from_jsp_name);
+        session.setAttribute("diary_list", searched_diary_list);
+        request.setAttribute("from_jsp_name", from_jsp_name);
         request.getRequestDispatcher(url).forward(request, response);
     }
 

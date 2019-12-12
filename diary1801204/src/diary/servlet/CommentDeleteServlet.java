@@ -31,19 +31,19 @@ public class CommentDeleteServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
 
         TeacherDiaryDao diary_dao = new TeacherDiaryDao();
         diary_dao.deleteDiaryFromDb(diary_beans);
 
-        session.removeAttribute("diary-beans");
+        session.removeAttribute("diary_beans");
         response.sendRedirect("commentdeletecomplete");
     }
 }

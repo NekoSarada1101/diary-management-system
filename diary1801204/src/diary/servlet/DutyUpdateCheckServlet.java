@@ -32,7 +32,7 @@ public class DutyUpdateCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
@@ -40,7 +40,7 @@ public class DutyUpdateCheckServlet extends HttpServlet {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student_list");
 
         //日誌当番更新入力画面で選択した学生情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-student"));
@@ -54,10 +54,10 @@ public class DutyUpdateCheckServlet extends HttpServlet {
         boolean is_registering = diary_dao.checkTodayDiaryRegistered(duty_beans.getClass_code(), today);
 
         if (is_registering) {
-            session.setAttribute("error-message", "今日の日誌はすでに登録されています。<br>日誌担当を変更した場合、登録済みの日誌は削除されます。");
+            session.setAttribute("error_message", "今日の日誌はすでに登録されています。<br>日誌担当を変更した場合、登録済みの日誌は削除されます。");
         }
 
-        session.setAttribute("duty-beans", duty_beans);
+        session.setAttribute("duty_beans", duty_beans);
         request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateCheck.jsp").forward(request, response);
     }
 

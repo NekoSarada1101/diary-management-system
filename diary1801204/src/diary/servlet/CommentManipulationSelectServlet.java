@@ -32,21 +32,21 @@ public class CommentManipulationSelectServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        session.removeAttribute("diary-beans");
+        session.removeAttribute("diary_beans");
 
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
 
         TeacherDiaryDao diary_dao = new TeacherDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb(class_code, "insert_date", "DESC");
 
-        session.setAttribute("diary-list", diary_list);
+        session.setAttribute("diary_list", diary_list);
         request.getRequestDispatcher("WEB-INF/jsp/commentManipulationSelect.jsp").forward(request, response);
     }
 }

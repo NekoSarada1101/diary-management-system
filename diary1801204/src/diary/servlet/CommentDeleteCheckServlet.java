@@ -31,20 +31,20 @@ public class CommentDeleteCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary-list");
+        List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary_list");
 
         //コメント操作選択画面で選択した日誌情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-diary"));
         DiaryBeans diary_beans = diary_list.get(i);
 
-        session.setAttribute("diary-beans", diary_beans);
+        session.setAttribute("diary_beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/commentDeleteCheck.jsp").forward(request, response);
     }
 

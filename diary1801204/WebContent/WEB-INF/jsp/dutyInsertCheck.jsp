@@ -1,7 +1,7 @@
 <%@ page import="diary.bean.DutyBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
+    DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty_beans");
 %>
 <!DOCTYPE html>
 <html>

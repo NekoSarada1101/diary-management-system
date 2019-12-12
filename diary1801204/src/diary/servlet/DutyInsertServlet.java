@@ -31,14 +31,14 @@ public class DutyInsertServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty-beans");
+        DutyBeans duty_beans = (DutyBeans) session.getAttribute("duty_beans");
 
         String today = (String) session.getAttribute("today");
 
@@ -47,7 +47,7 @@ public class DutyInsertServlet extends HttpServlet {
         DutyDao duty_dao = new DutyDao();
         duty_dao.insertDutyToDb(duty_beans);
 
-        session.removeAttribute("duty-beans");
+        session.removeAttribute("duty_beans");
         response.sendRedirect("dutyinsertcomplete");
     }
 }

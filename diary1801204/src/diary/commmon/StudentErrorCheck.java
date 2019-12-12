@@ -9,7 +9,6 @@ public class StudentErrorCheck {
         str = str.replace("\"", "&quot");
         str = str.replace("\'", "&#39");
         str = str.replace(" ", "&nbsp");
-        System.out.println(str);
         return str;
     }
 }

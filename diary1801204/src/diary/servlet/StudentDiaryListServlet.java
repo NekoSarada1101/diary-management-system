@@ -32,7 +32,7 @@ public class StudentDiaryListServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -44,8 +44,8 @@ public class StudentDiaryListServlet extends HttpServlet {
         CommonDiaryDao diary_dao = new CommonDiaryDao();
         List<DiaryBeans> diary_list = diary_dao.fetchSortedDiaryListFromDb("", "insert_date", "DESC");
 
-        session.setAttribute("diary-list", diary_list);
-        session.setAttribute("menu-name", menu_name);
+        session.setAttribute("diary_list", diary_list);
+        session.setAttribute("menu_name", menu_name);
         request.getRequestDispatcher("WEB-INF/jsp/dispDiaryList.jsp").forward(request, response);
     }
 }

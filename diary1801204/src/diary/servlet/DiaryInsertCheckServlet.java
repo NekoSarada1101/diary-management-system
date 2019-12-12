@@ -30,7 +30,7 @@ public class DiaryInsertCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -43,8 +43,8 @@ public class DiaryInsertCheckServlet extends HttpServlet {
 
         String today = (String) session.getAttribute("today");
 
-        String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
-        String student_id = ((StudentBeans) session.getAttribute("login-info")).getStudent_id();
+        String class_code = ((StudentBeans) session.getAttribute("login_info")).getClass_code();
+        String student_id = ((StudentBeans) session.getAttribute("login_info")).getStudent_id();
 
         DiaryBeans diary_beans = new DiaryBeans();
         diary_beans.setClass_code(class_code);
@@ -54,7 +54,7 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         diary_beans.setBad_point(bad_point);
         diary_beans.setStudent_comment(student_comment);
 
-        session.setAttribute("diary-beans", diary_beans);
+        session.setAttribute("diary_beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryInsertCheck.jsp").forward(request, response);
     }
 

@@ -2,7 +2,7 @@
 <%@ page import="diary.commmon.StudentErrorCheck" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+    DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
     if(diary_beans.getTeacher_comment() == null){
         diary_beans.setTeacher_comment("");
     }

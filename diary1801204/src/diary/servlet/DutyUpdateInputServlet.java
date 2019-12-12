@@ -32,19 +32,19 @@ public class DutyUpdateInputServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        String class_code = ((TeacherBeans) session.getAttribute("teacher-beans")).getClass_code();
+        String class_code = ((TeacherBeans) session.getAttribute("teacher_beans")).getClass_code();
 
         StudentListDao student_list_dao = new StudentListDao();
         List<DutyBeans> student_list = student_list_dao.fetchSortedStudentListFromDb(class_code, "student_id", "ASC");
 
-        session.setAttribute("student-list", student_list);
+        session.setAttribute("student_list", student_list);
         request.getRequestDispatcher("WEB-INF/jsp/dutyUpdateInput.jsp").forward(request, response);
     }
 

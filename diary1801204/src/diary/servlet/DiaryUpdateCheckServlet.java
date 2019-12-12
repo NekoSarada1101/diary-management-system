@@ -30,7 +30,7 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -41,12 +41,12 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
         String bad_point = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
         diary_beans.setGood_point(good_point);
         diary_beans.setBad_point(bad_point);
         diary_beans.setStudent_comment(student_comment);
 
-        session.setAttribute("diary-beans", diary_beans);
+        session.setAttribute("diary_beans", diary_beans);
         request.getRequestDispatcher("WEB-INF/jsp/diaryUpdateCheck.jsp").forward(request, response);
     }
 

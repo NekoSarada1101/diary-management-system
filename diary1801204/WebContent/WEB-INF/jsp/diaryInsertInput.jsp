@@ -2,7 +2,7 @@
 <%@ page import="diary.bean.DiaryBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+    DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
     if(diary_beans == null){
         diary_beans = new DiaryBeans();
         diary_beans.setGood_point("");

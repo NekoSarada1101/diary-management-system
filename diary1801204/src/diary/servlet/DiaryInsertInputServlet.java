@@ -30,7 +30,7 @@ public class DiaryInsertInputServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
@@ -38,14 +38,14 @@ public class DiaryInsertInputServlet extends HttpServlet {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         String today = (String) session.getAttribute("today");
-        String class_code = ((StudentBeans) session.getAttribute("login-info")).getClass_code();
+        String class_code = ((StudentBeans) session.getAttribute("login_info")).getClass_code();
 
         StudentDiaryDao diary_dao = new StudentDiaryDao();
         boolean is_registering = diary_dao.checkTodayDiaryRegistered(class_code, today);
 
         //登録済みなら
         if (is_registering) {
-            session.setAttribute("error-message", "今日はすでに日誌を登録しています。");
+            session.setAttribute("error_message", "今日はすでに日誌を登録しています。");
             response.sendRedirect("select");
         } else {
             request.getRequestDispatcher("WEB-INF/jsp/diaryInsertInput.jsp").forward(request, response);

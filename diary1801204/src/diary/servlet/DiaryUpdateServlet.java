@@ -31,19 +31,19 @@ public class DiaryUpdateServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        StudentBeans student_beans = (StudentBeans) session.getAttribute("login-info");
+        StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
         if (student_beans == null) {
             response.sendRedirect("studenterror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary-beans");
+        DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
 
         StudentDiaryDao diary_dao = new StudentDiaryDao();
         diary_dao.updateDiaryToDb(diary_beans);
 
-        session.removeAttribute("diary-beans");
+        session.removeAttribute("diary_beans");
         response.sendRedirect("diaryupdatecomplete");
     }
 }

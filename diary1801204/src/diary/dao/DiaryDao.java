@@ -211,7 +211,7 @@ public abstract class DiaryDao extends DaoBase {
 
             while (rs.next()) {
                 diary_beans = new DiaryBeans();
-                diary_beans.setClass_code     (rs.getString("class_code"));
+                diary_beans.setClass_code(rs.getString("class_code"));
                 diary_beans.setInsert_date    (rs.getString("insert_date"));
                 diary_beans.setStudent_id     (rs.getString("student_id"));
                 diary_beans.setGood_point     (rs.getString("good_point"));
@@ -286,7 +286,7 @@ public abstract class DiaryDao extends DaoBase {
 
             while (rs.next()) {
                 diary_beans = new DiaryBeans();
-                diary_beans.setClass_code     (rs.getString("class_code"));
+                diary_beans.setClass_code(rs.getString("class_code"));
                 diary_beans.setInsert_date    (rs.getString("insert_date"));
                 diary_beans.setStudent_id     (rs.getString("student_id"));
                 diary_beans.setGood_point     (rs.getString("good_point"));

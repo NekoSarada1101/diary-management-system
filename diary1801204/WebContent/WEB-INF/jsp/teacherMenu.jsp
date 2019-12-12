@@ -1,10 +1,10 @@
 <%@ page import="diary.bean.TeacherBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
-    String error_message = (String) session.getAttribute("error-message");
+    TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
+    String error_message = (String) session.getAttribute("error_message");
     if (error_message == null) error_message = "";
-    session.removeAttribute("error-message");
+    session.removeAttribute("error_message");
 %>
 <!DOCTYPE html>
 <html>

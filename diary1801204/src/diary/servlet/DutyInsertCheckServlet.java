@@ -31,20 +31,20 @@ public class DutyInsertCheckServlet extends HttpServlet {
 
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
-        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher-beans");
+        TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
         if (teacher_beans == null) {
             response.sendRedirect("teachererror");
             return;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student-list");
+        List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student_list");
 
         //日誌当番登録選択画面で選択した学生情報をリストから取得する
         int i = Integer.parseInt(request.getParameter("select-student"));
         DutyBeans duty_beans = student_list.get(i);
 
-        session.setAttribute("duty-beans", duty_beans);
+        session.setAttribute("duty_beans", duty_beans);
         request.getRequestDispatcher("WEB-INF/jsp/dutyInsertCheck.jsp").forward(request, response);
     }
 

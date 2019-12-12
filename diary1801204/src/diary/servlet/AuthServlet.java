@@ -45,12 +45,12 @@ public class AuthServlet extends HttpServlet {
         HttpSession session = request.getSession();
         //成功したら
         if (login_info_beans != null) {
-            session.setAttribute("login-info", login_info_beans);
+            session.setAttribute("login_info", login_info_beans);
             response.sendRedirect("menu");
 
             //失敗したら
         } else {
-            session.setAttribute("error-message", "ログインに失敗しました。学籍番号又はパスワードを確認してください。");
+            session.setAttribute("error_message", "ログインに失敗しました。学籍番号又はパスワードを確認してください。");
             response.sendRedirect("login");
         }
     }
