@@ -10,7 +10,7 @@
 <body class="p-0">
 <header>
     <div class="image position-absolute animated fadeIn"></div>
-    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar z-depth-1">
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar z-depth-1" id="teacher-nav">
         <a class="navbar-brand" href="#"><strong class="text-white">DiaryManagementSystem</strong></a>
     </nav>
 </header>
