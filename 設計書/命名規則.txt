@@ -1,12 +1,12 @@
-Javaサーブレット　クラス名　UpperCamelCase
-Javaサーブレット　メソッド名　lowerCamelCase
-Javaサーブレット　変数名　snake_case
-Javaサーブレット　スコープ名　kebab-case
-Javaサーブレット　定数名　CONSTANT_CASE
-Javaサーブレット　アノテーション　alllowercase
+Javaサーブレット　クラス名      UpperCamelCase
+Javaサーブレット　メソッド名    lowerCamelCase
+Javaサーブレット　変数名       snake_case
+Javaサーブレット　スコープ名    snake_case
+Javaサーブレット　定数名       CONSTANT_CASE
+Javaサーブレット　アノテーション alllowercase
 
-jspファイル名　lowerCamelCase
-jspファイル　属性　kebab-case
+jspファイル  ファイル名  lowerCamelCase
+jspファイル  属性       kebab-case
 
 パッケージ名　alllowercase
 
