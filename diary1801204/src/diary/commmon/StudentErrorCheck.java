@@ -11,4 +11,10 @@ public class StudentErrorCheck {
         str = str.replace(" ", "&nbsp");
         return str;
     }
+
+    public boolean checkMaxLength_30(String input_text) {
+        boolean is_30_length_or_less = false;
+        if (input_text.length() <= 30) is_30_length_or_less = true;
+        return is_30_length_or_less;
+    }
 }
