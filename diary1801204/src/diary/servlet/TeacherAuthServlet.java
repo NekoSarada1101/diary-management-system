@@ -41,7 +41,7 @@ public class TeacherAuthServlet extends HttpServlet {
         }
 
         TeacherDao teacher_dao = new TeacherDao();
-        List<TeacherBeans> teacher_list = teacher_dao.getLoginInfo(teacher_code, teacher_password);
+        List<TeacherBeans> teacher_list = teacher_dao.fetchLoginInfo(teacher_code, teacher_password);
 
         HttpSession session = request.getSession();
         //成功したら

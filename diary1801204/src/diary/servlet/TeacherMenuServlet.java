@@ -55,6 +55,7 @@ public class TeacherMenuServlet extends HttpServlet {
 
         session.setAttribute("today", today);
         session.setAttribute("teacher_beans", teacher_beans);
+        session.setAttribute("teacher_info", teacher_beans.getCourse_name() + teacher_beans.getGrade() + teacher_beans.getClass_name() + " " + teacher_beans.getTeacher_name());
         request.getRequestDispatcher("WEB-INF/jsp/teacherMenu.jsp").forward(request, response);
     }
 }

@@ -40,12 +40,14 @@ public class AuthServlet extends HttpServlet {
         }
 
         UserDao user_dao = new UserDao();
-        StudentBeans login_info_beans = user_dao.getLoginInfo(student_id, student_password);
+        StudentBeans login_info_beans = user_dao.fetchLoginInfo(student_id, student_password);
 
         HttpSession session = request.getSession();
         //成功したら
         if (login_info_beans != null) {
+            String student_info = user_dao.fetchStudentInfo(login_info_beans);
             session.setAttribute("login_info", login_info_beans);
+            session.setAttribute("student_info", student_info);
             response.sendRedirect("menu");
 
             //失敗したら

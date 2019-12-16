@@ -22,7 +22,7 @@ public class TeacherDao extends DaoBase {
      * @param password     ログイン画面で入力されたパスワード
      * @return ログインに成功したらログインした教員の情報 失敗したらnull
      */
-    public List<TeacherBeans> getLoginInfo(String teacher_code, String password) {
+    public List<TeacherBeans> fetchLoginInfo(String teacher_code, String password) {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("TeacherDao : getLoginInfo");
         System.out.println("param : teacher_code = " + teacher_code);
