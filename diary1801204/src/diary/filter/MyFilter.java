@@ -30,7 +30,7 @@ public class MyFilter implements Filter {
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding(encoding);
-        response.setContentType("text/html;charset=" + encoding);
+        //response.setContentType("text/html;charset=" + encoding);
 
         chain.doFilter(request, response);
     }
