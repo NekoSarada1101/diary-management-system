@@ -2,6 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.StudentBeans;
+import diary.commmon.StudentErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +42,14 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         String bad_point = request.getParameter("bad-point");
         String student_comment = request.getParameter("student-comment");
 
+        //入力が30字以下かチェックする/////////////////////////////////////////////////////////////////////
+        boolean is_30_length_or_less = checkLength(good_point, bad_point, student_comment);
+        if (!is_30_length_or_less) {
+            response.sendRedirect("studenterror");
+            return;
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
         String today = (String) session.getAttribute("today");
 
         String class_code = ((StudentBeans) session.getAttribute("login_info")).getClass_code();
@@ -65,5 +74,17 @@ public class DiaryInsertCheckServlet extends HttpServlet {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         response.sendRedirect("studenterror");
+    }
+
+    private boolean checkLength(String good_point, String bad_point, String student_comment) {
+        StudentErrorCheck error_check = new StudentErrorCheck();
+        if (!error_check.checkMaxLength_30(good_point)) {
+            return false;
+        } else if (!error_check.checkMaxLength_30(bad_point)) {
+            return false;
+        } else if (!error_check.checkMaxLength_30(student_comment)) {
+            return false;
+        }
+        return true;
     }
 }
