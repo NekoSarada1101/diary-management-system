@@ -1,7 +1,8 @@
+
 package diary.servlet;
 
-import diary.bean.TeacherBeans;
-import diary.dao.TeacherDao;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.List;
+
+import diary.bean.TeacherBeans;
+import diary.dao.TeacherDao;
 
 /**
  * ログイン認証を行った後画面遷移を行うServletクラス
@@ -51,7 +53,7 @@ public class TeacherAuthServlet extends HttpServlet {
 
             //失敗したら
         } else {
-            session.setAttribute("error-message", "ログインに失敗しました。教員番号又はパスワードを確認してください。");
+            session.setAttribute("error_message", "ログインに失敗しました。教員番号又はパスワードを確認してください。");
             response.sendRedirect("teacherlogin");
         }
     }

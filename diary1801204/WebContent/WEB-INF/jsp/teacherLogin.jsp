@@ -24,6 +24,8 @@
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
         <h1 class="text-center border-bottom border-dark">教員ログイン</h1>
 
+        <p class="text-center text-danger"><%=error_message%></p>
+
         <form action="teacherauth" method="post" class="mt-5 col-lg-6 col-md-8 col-sm-10 col-12 mr-auto ml-auto">
             <!-- 教員番号入力フォーム -->
             <div class="md-form">
@@ -38,8 +40,6 @@
                 <input type="password" id="inputIconEx2" class="form-control" name="teacher-password" required>
                 <label for="inputIconEx2">パスワード</label>
             </div>
-
-            <p class="text-center text-danger"><%=error_message%></p>
 
             <div class="text-center mt-5">
                 <button type="submit" class="btn btn-primary">ログイン</button>
