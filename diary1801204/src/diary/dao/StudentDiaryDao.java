@@ -1,10 +1,11 @@
-package diary.dao;
 
-import diary.bean.DiaryBeans;
+package diary.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import diary.bean.DiaryBeans;
 
 /**
  * データベースから日誌の情報の取得、挿入、,更新、削除を行うクラス
@@ -24,7 +25,7 @@ public class StudentDiaryDao extends DiaryDao {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("StudentDiaryDao : checkTodayDiaryRegistered");
         System.out.println("param : class_code = " + class_code);
-        System.out.println("param : today = "      + today);
+        System.out.println("param : today = " + today);
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         PreparedStatement stmt = null;
@@ -63,7 +64,6 @@ public class StudentDiaryDao extends DiaryDao {
         return /* is_registering = */ true;
     }
 
-
     //INSERT
     @Override
     protected String createInsertSqlSentence() {
@@ -86,7 +86,6 @@ public class StudentDiaryDao extends DiaryDao {
         return stmt;
     }
 
-
     //DELETE
     @Override
     protected String createDeleteSqlSentence() {
@@ -104,7 +103,6 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
-
 
     //UPDATE
     @Override
@@ -126,7 +124,6 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
-
 
     //SORT
     @Override
@@ -173,7 +170,6 @@ public class StudentDiaryDao extends DiaryDao {
         }
         return stmt;
     }
-
 
     //SEARCH
     @Override

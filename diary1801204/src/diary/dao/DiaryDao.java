@@ -1,12 +1,13 @@
-package diary.dao;
 
-import diary.bean.DiaryBeans;
+package diary.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import diary.bean.DiaryBeans;
 
 /**
  * データベース操作のメソッドを記述する抽象クラス
@@ -24,11 +25,11 @@ public abstract class DiaryDao extends DaoBase {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : insertDiaryToDb");
         System.out.println("param : diary_beans = " + diary_beans);
-        System.out.println("                    : class_code = "      + diary_beans.getClass_code());
-        System.out.println("                    : insert_date = "     + diary_beans.getInsert_date());
-        System.out.println("                    : student_id = "      + diary_beans.getStudent_id());
-        System.out.println("                    : good_point = "      + diary_beans.getGood_point());
-        System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
+        System.out.println("                    : class_code = " + diary_beans.getClass_code());
+        System.out.println("                    : insert_date = " + diary_beans.getInsert_date());
+        System.out.println("                    : student_id = " + diary_beans.getStudent_id());
+        System.out.println("                    : good_point = " + diary_beans.getGood_point());
+        System.out.println("                    : bad_point = " + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +70,6 @@ public abstract class DiaryDao extends DaoBase {
      */
     abstract PreparedStatement configureValueInPlaceholderOfInsertSqlSentence(PreparedStatement stmt, DiaryBeans diary_beans);
 
-
     /**
      * データベースから指定した日誌の情報を削除(DELETE)する
      *
@@ -79,11 +79,11 @@ public abstract class DiaryDao extends DaoBase {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : deleteDiaryFromDb");
         System.out.println("param : diary_beans = " + diary_beans);
-        System.out.println("                    : class_code = "      + diary_beans.getClass_code());
-        System.out.println("                    : insert_date = "     + diary_beans.getInsert_date());
-        System.out.println("                    : student_id = "      + diary_beans.getStudent_id());
-        System.out.println("                    : good_point = "      + diary_beans.getGood_point());
-        System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
+        System.out.println("                    : class_code = " + diary_beans.getClass_code());
+        System.out.println("                    : insert_date = " + diary_beans.getInsert_date());
+        System.out.println("                    : student_id = " + diary_beans.getStudent_id());
+        System.out.println("                    : good_point = " + diary_beans.getGood_point());
+        System.out.println("                    : bad_point = " + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,7 +124,6 @@ public abstract class DiaryDao extends DaoBase {
      */
     abstract PreparedStatement configureValueInPlaceholderOfDeleteSqlSentence(PreparedStatement stmt, DiaryBeans diary_beans);
 
-
     /**
      * データベースの日誌の情報を入力した情報に更新(UPDATE)する
      *
@@ -134,11 +133,11 @@ public abstract class DiaryDao extends DaoBase {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : updateDiaryToDb");
         System.out.println("param : diary_beans = " + diary_beans);
-        System.out.println("                    : class_code = "      + diary_beans.getClass_code());
-        System.out.println("                    : insert_date = "     + diary_beans.getInsert_date());
-        System.out.println("                    : student_id = "      + diary_beans.getStudent_id());
-        System.out.println("                    : good_point = "      + diary_beans.getGood_point());
-        System.out.println("                    : bad_point = "       + diary_beans.getBad_point());
+        System.out.println("                    : class_code = " + diary_beans.getClass_code());
+        System.out.println("                    : insert_date = " + diary_beans.getInsert_date());
+        System.out.println("                    : student_id = " + diary_beans.getStudent_id());
+        System.out.println("                    : good_point = " + diary_beans.getGood_point());
+        System.out.println("                    : bad_point = " + diary_beans.getBad_point());
         System.out.println("                    : student_comment = " + diary_beans.getStudent_comment());
         System.out.println("                    : teacher_comment = " + diary_beans.getTeacher_comment());
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -179,7 +178,6 @@ public abstract class DiaryDao extends DaoBase {
      */
     abstract PreparedStatement configureValueInPlaceholderOfUpdateSqlSentence(PreparedStatement stmt, DiaryBeans diary_beans);
 
-
     /**
      * 指定されたカラムを指定された順番にソートした日誌の情報をすべて取得(SELECT)する
      *
@@ -191,9 +189,9 @@ public abstract class DiaryDao extends DaoBase {
     public List<DiaryBeans> fetchSortedDiaryListFromDb(String condition, String sort_column, String sort_order) {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : fetchSortedDiaryListFromDb");
-        System.out.println("param : condition = "   + condition);
+        System.out.println("param : condition = " + condition);
         System.out.println("param : sort_column = " + sort_column);
-        System.out.println("param : sort_order = "  + sort_order);
+        System.out.println("param : sort_order = " + sort_order);
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         DiaryBeans diary_beans = null;
@@ -212,10 +210,10 @@ public abstract class DiaryDao extends DaoBase {
             while (rs.next()) {
                 diary_beans = new DiaryBeans();
                 diary_beans.setClass_code(rs.getString("class_code"));
-                diary_beans.setInsert_date    (rs.getString("insert_date"));
-                diary_beans.setStudent_id     (rs.getString("student_id"));
-                diary_beans.setGood_point     (rs.getString("good_point"));
-                diary_beans.setBad_point      (rs.getString("bad_point"));
+                diary_beans.setInsert_date(rs.getString("insert_date"));
+                diary_beans.setStudent_id(rs.getString("student_id"));
+                diary_beans.setGood_point(rs.getString("good_point"));
+                diary_beans.setBad_point(rs.getString("bad_point"));
                 diary_beans.setStudent_comment(rs.getString("student_comment"));
                 diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
                 list.add(diary_beans);
@@ -256,7 +254,6 @@ public abstract class DiaryDao extends DaoBase {
      */
     abstract PreparedStatement configureValueInPlaceholderOfSortSqlSentence(PreparedStatement stmt, String condition);
 
-
     /**
      * 指定された単語をで曖昧検索を行って抽出された日誌の情報をすべて取得(SELECT)する
      *
@@ -267,7 +264,7 @@ public abstract class DiaryDao extends DaoBase {
     public List<DiaryBeans> fetchSearchedDiaryListFromDb(String condition, String search_word) {
         //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("DiaryDao : fetchSearchedDiaryListFromDb");
-        System.out.println("param : condition = "   + condition);
+        System.out.println("param : condition = " + condition);
         System.out.println("param : search_word = " + search_word);
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -287,10 +284,10 @@ public abstract class DiaryDao extends DaoBase {
             while (rs.next()) {
                 diary_beans = new DiaryBeans();
                 diary_beans.setClass_code(rs.getString("class_code"));
-                diary_beans.setInsert_date    (rs.getString("insert_date"));
-                diary_beans.setStudent_id     (rs.getString("student_id"));
-                diary_beans.setGood_point     (rs.getString("good_point"));
-                diary_beans.setBad_point      (rs.getString("bad_point"));
+                diary_beans.setInsert_date(rs.getString("insert_date"));
+                diary_beans.setStudent_id(rs.getString("student_id"));
+                diary_beans.setGood_point(rs.getString("good_point"));
+                diary_beans.setBad_point(rs.getString("bad_point"));
                 diary_beans.setStudent_comment(rs.getString("student_comment"));
                 diary_beans.setTeacher_comment(rs.getString("teacher_comment"));
                 list.add(diary_beans);
