@@ -23,10 +23,6 @@ public class DiaryUpdateCompleteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryUpdateCompleteServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");

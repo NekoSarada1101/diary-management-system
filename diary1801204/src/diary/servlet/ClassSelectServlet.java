@@ -24,10 +24,6 @@ public class ClassSelectServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("ClassSelectServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         List<TeacherBeans> teacher_list = (List<TeacherBeans>) session.getAttribute("teacher_list");

@@ -25,10 +25,6 @@ public class CommentUpdateServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("CommentUpdateServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");

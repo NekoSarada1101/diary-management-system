@@ -27,10 +27,6 @@ public class StudentSortServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("StudentSortServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
@@ -68,10 +64,6 @@ public class StudentSortServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiarySortServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("studenterror");
     }
 }

@@ -12,10 +12,6 @@ public class TeacherErrorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("TeacherErrorServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         request.getRequestDispatcher("WEB-INF/jsp/teacherError.jsp").forward(request, response);
     }
 }

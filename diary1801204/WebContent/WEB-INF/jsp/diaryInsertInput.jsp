@@ -1,9 +1,8 @@
-<%@ page import="diary.bean.TeacherBeans" %>
 <%@ page import="diary.bean.DiaryBeans" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
-    if(diary_beans == null){
+    if (diary_beans == null) {
         diary_beans = new DiaryBeans();
         diary_beans.setGood_point("");
         diary_beans.setBad_point("");
@@ -20,6 +19,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/insert.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 

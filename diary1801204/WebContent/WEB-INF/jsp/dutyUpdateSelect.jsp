@@ -15,6 +15,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="manipulationSelect.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 
@@ -35,12 +36,9 @@
                 <tbody>
                 <% for (int i = 0; i < duty_list.size(); i++) { %>
                 <tr class="row animated bounceInUp">
-                    <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%>
-                    </th>
-                    <th class="col-3 border-right"><%=duty_list.get(i).getStudent_id()%>
-                    </th>
-                    <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%>
-                    </td>
+                    <th class="col-3 border-right" scope="row"><%=duty_list.get(i).getInsert_date()%></th>
+                    <th class="col-3 border-right"><%=duty_list.get(i).getStudent_id()%></th>
+                    <td class="col-3 border-right"><%=duty_list.get(i).getStudent_name()%></td>
                     <td class="col-3">
                         <% if (duty_list.get(i).getInsert_date().equals(today)) { %>
                         <%--日誌当番登録確認画面へ--%>

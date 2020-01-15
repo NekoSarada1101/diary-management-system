@@ -1,0 +1,2619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="StickySelectionHighlights">
+    <option name="editorHighlights">
+      <map>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/bootstrap.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/classSelect.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentDeleteCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentDeleteComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentManipulationSelect.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentUpdateCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentUpdateComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/commentUpdateInput.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryDeleteCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryDeleteComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryInsertCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryInsertComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryInsertInput.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryManipulationSelect.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryUpdateCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryUpdateComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/diaryUpdateInput.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dispDiaryList.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyInsertCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyInsertComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyInsertSelect.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyUpdateCheck.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyUpdateComplete.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyUpdateInput.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/dutyUpdateSelect.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/menu.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/studentError.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/studentTop.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/teacherError.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/teacherLogin.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/teacherMenu.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/WebContent/WEB-INF/jsp/teacherTop.jsp">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/bean/DiaryBeans.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/CommonDiaryDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/DaoBase.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/DiaryDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/DutyDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/StudentDiaryDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/StudentListDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/TeacherDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/dao/UserDao.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/AuthServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/ClassSelectServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentDeleteCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentDeleteCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentDeleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentManipulationSelectServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentUpdateCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentUpdateCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentUpdateInputServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/CommentUpdateServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryDeleteCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryDeleteCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryDeleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryInsertCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryInsertCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryInsertInputServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryInsertServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryManipulationSelectServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryUpdateCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryUpdateCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryUpdateInputServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DiaryUpdateServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyInsertCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyInsertCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyInsertSelectServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyInsertServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyUpdateCheckServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyUpdateCompleteServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyUpdateInputServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyUpdateSelectServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/DutyUpdateServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/LoginServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/LogoutServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/MenuServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/StudentDiaryListServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/StudentErrorServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/StudentSearchServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/StudentSortServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherAuthServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherDiaryListServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherErrorServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherLoginServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherMenuServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherSearchServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/diary/servlet/TeacherSortServlet.java">
+          <value>
+            <PaintGroupHighlightMap>
+              <option name="paintGroups">
+                <map>
+                  <entry key="0">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="1">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="2">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                  <entry key="3">
+                    <value>
+                      <EditorHighlightsForPaintGroup />
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PaintGroupHighlightMap>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

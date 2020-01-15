@@ -26,10 +26,6 @@ public class StudentDiaryListServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("StudentDiaryListServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");

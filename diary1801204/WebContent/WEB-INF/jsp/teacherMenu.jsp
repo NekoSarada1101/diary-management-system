@@ -16,13 +16,13 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/menu.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 
 <div class="container-fluid vh-100 animated bounceInUp">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 m-auto p-5 bg-white z-depth-1">
-        <h1 class="text-center border-bottom border-dark"><%=teacher_beans.getCourse_name() + teacher_beans.getGrade() + teacher_beans.getClass_name()%>
-        </h1>
+        <h1 class="text-center border-bottom border-dark"><%=teacher_beans.getCourse_name() + teacher_beans.getGrade() + teacher_beans.getClass_name()%></h1>
 
         <p class="text-center text-danger"><%=error_message%></p>
 

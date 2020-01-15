@@ -7,6 +7,7 @@
     <%--MDB--%>
     <%@include file="/WEB-INF/jsp/bootstrap.jsp" %>
 </head>
+
 <body class="p-0">
 <header>
     <div class="image position-absolute animated fadeIn"></div>

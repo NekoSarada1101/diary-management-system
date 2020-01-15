@@ -25,10 +25,6 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryDeleteCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
@@ -50,10 +46,6 @@ public class DiaryDeleteCheckServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryDeleteCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("studenterror");
     }
 }

@@ -26,10 +26,6 @@ public class DutyUpdateCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DutyUpdateCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
@@ -63,10 +59,6 @@ public class DutyUpdateCheckServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DutyUpdateCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("teachererror");
     }
 }

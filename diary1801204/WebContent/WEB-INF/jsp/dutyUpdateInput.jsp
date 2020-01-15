@@ -1,6 +1,5 @@
-<%@ page import="diary.bean.StudentBeans" %>
-<%@ page import="java.util.List" %>
 <%@ page import="diary.bean.DutyBeans" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     List<DutyBeans> student_list = (List<DutyBeans>) session.getAttribute("student_list");
@@ -15,6 +14,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/update.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 

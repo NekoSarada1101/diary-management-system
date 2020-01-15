@@ -25,10 +25,6 @@ public class CommentUpdateCheckServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("CommentUpdateCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         TeacherBeans teacher_beans = (TeacherBeans) session.getAttribute("teacher_beans");
@@ -39,7 +35,7 @@ public class CommentUpdateCheckServlet extends HttpServlet {
         //入力が30字以下かチェックする/////////////////////////////////////////////////////////////////////
         StudentErrorCheck error_check = new StudentErrorCheck();
         String teacher_comment = request.getParameter("teacher-comment");
-        if(!error_check.checkMaxLength_30(teacher_comment)) {
+        if (!error_check.checkMaxLength_30(teacher_comment)) {
             response.sendRedirect("teachererror");
             return;
         }
@@ -56,10 +52,6 @@ public class CommentUpdateCheckServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("CommentUpdateCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("teachererror");
     }
 }

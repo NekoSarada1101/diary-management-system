@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>トップ</title>
 </head>
+
 <body>
 <header>
     <div class="image position-absolute animated fadeIn"></div>

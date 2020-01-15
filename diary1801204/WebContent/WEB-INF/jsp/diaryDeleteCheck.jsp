@@ -4,8 +4,8 @@
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
     StudentErrorCheck error_check = new StudentErrorCheck();
-    String good_point = error_check.inputEscape(diary_beans.getGood_point());
-    String bad_point = error_check.inputEscape(diary_beans.getBad_point());
+    String good_point      = error_check.inputEscape(diary_beans.getGood_point());
+    String bad_point       = error_check.inputEscape(diary_beans.getBad_point());
     String student_comment = error_check.inputEscape(diary_beans.getStudent_comment());
 %>
 <!DOCTYPE html>
@@ -18,6 +18,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/delete.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 

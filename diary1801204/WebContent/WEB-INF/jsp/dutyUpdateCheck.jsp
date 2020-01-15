@@ -16,6 +16,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/update.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 
@@ -30,11 +31,13 @@
         <table class="table table-striped table-borderless mr-auto ml-auto mb-0 col-12 mt-5">
             <tr class="row animated bounceInLeft faster">
                 <th class="col-4">学籍番号</th>
-                <td class="col-8"><%=duty_beans.getStudent_id()%></td>
+                <td class="col-8"><%=duty_beans.getStudent_id()%>
+                </td>
             </tr>
             <tr class="row animated bounceInLeft fast">
                 <th class="col-4">名前</th>
-                <td class="col-8"><%=duty_beans.getStudent_name()%></td>
+                <td class="col-8"><%=duty_beans.getStudent_name()%>
+                </td>
             </tr>
         </table>
 

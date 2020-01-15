@@ -1,8 +1,7 @@
-
 package diary.servlet;
 
-import java.io.IOException;
-import java.util.List;
+import diary.bean.TeacherBeans;
+import diary.dao.TeacherDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import diary.bean.TeacherBeans;
-import diary.dao.TeacherDao;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * ログイン認証を行った後画面遷移を行うServletクラス
@@ -28,10 +26,6 @@ public class TeacherAuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("TeacherAuthServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         String teacher_code = null;
         String teacher_password = null;
         try {
@@ -60,10 +54,6 @@ public class TeacherAuthServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("CommentUpdateCheckServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("teachererror");
     }
 }

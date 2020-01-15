@@ -20,6 +20,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/manipulationSelect.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 
@@ -44,7 +45,7 @@
                     String good_point = error_check.inputEscape(diary_list.get(i).getGood_point());
                     String bad_point = error_check.inputEscape(diary_list.get(i).getBad_point());
                     String student_comment = error_check.inputEscape(diary_list.get(i).getStudent_comment());
-                    if (diary_list.get(i).getTeacher_comment() == null)diary_list.get(i).setTeacher_comment("");
+                    if (diary_list.get(i).getTeacher_comment() == null) diary_list.get(i).setTeacher_comment("");
                     String teacher_comment = error_check.inputEscape(diary_list.get(i).getTeacher_comment());
                 %>
                 <tr class="row animated bounceInUp">

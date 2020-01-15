@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author ryouta
  */
 public class DiaryBeans implements Serializable {
-    private String class_code = null;
+    private String class_code      = null;
     private String insert_date     = null;
     private String student_id      = null;
     private String good_point      = null;

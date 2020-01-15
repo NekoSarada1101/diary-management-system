@@ -13,6 +13,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/insert.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/teacherTop.jsp" %>
 

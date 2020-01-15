@@ -18,6 +18,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/diaryList.css">
 </head>
+
 <body class="p-0">
 <% if (menu_name.equals("menu")) { %>
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
@@ -41,10 +42,10 @@
 
                 <tbody>
                 <% for (int i = 0; i < diary_list.size(); i++) {
-                    String good_point = error_check.inputEscape(diary_list.get(i).getGood_point());
-                    String bad_point = error_check.inputEscape(diary_list.get(i).getBad_point());
+                    String good_point      = error_check.inputEscape(diary_list.get(i).getGood_point());
+                    String bad_point       = error_check.inputEscape(diary_list.get(i).getBad_point());
                     String student_comment = error_check.inputEscape(diary_list.get(i).getStudent_comment());
-                    if (diary_list.get(i).getTeacher_comment() == null)diary_list.get(i).setTeacher_comment("");
+                    if (diary_list.get(i).getTeacher_comment() == null) diary_list.get(i).setTeacher_comment("");
                     String teacher_comment = error_check.inputEscape(diary_list.get(i).getTeacher_comment());
                 %>
                 <tr class="row animated bounceInUp">

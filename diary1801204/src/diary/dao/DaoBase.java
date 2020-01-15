@@ -18,7 +18,7 @@ public class DaoBase {
     public void dbConnect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/diary1801204?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false", "root", "cVnvEfW84P9gi2HG");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/diary1801204?characterEncoding=UTF-8&serverTimezone=JST&useSSL=false", "root", "root");
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

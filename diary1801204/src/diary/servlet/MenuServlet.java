@@ -26,10 +26,6 @@ public class MenuServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("MenuServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         //ログイン済みかチェックする///////////////////////////////////////////////////////////////////////
         HttpSession session = request.getSession();
         StudentBeans student_beans = (StudentBeans) session.getAttribute("login_info");
@@ -47,7 +43,7 @@ public class MenuServlet extends HttpServlet {
         session.setAttribute("today", today);
 
         DutyDao duty_dao = new DutyDao();
-        boolean is_registering = duty_dao.checkTodayDutyRegistered(student_beans.getClass_code(), today);
+        boolean is_registering = duty_dao.checkTodayDutyRegistered(student_beans.getStudent_id(), today);
 
         session.setAttribute("is_registering", is_registering);
         request.getRequestDispatcher("WEB-INF/jsp/menu.jsp").forward(request, response);

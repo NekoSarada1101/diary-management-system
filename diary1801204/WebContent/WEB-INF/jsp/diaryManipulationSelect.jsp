@@ -25,6 +25,7 @@
     <%--Original--%>
     <link rel="stylesheet" href="css/manipulationSelect.css">
 </head>
+
 <body class="p-0">
 <%@include file="/WEB-INF/jsp/studentTop.jsp" %>
 
@@ -55,7 +56,8 @@
                     String student_comment = error_check.inputEscape(diary_list.get(i).getStudent_comment());
                 %>
                 <tr class="row animated bounceInUp">
-                    <th class="col-3 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%></th>
+                    <th class="col-3 border-right" scope="row"><%=diary_list.get(i).getInsert_date()%>
+                    </th>
                     <td class="col-5 border-right">
                         <div class="treeview-animated">
                             <ul class="treeview-animated-list">

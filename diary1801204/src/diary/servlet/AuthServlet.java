@@ -25,10 +25,6 @@ public class AuthServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("AuthServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         String student_id = null;
         String student_password = null;
         try {
@@ -59,10 +55,6 @@ public class AuthServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //  TEST   /////////////////////////////////////////////////////////////////////////////////////////
-        System.out.println("DiaryUpdateInputServlet");
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-
         response.sendRedirect("studenterror");
     }
 }
