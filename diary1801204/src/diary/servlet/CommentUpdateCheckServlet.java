@@ -2,7 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.TeacherBeans;
-import diary.commmon.StudentErrorCheck;
+import diary.commmon.ErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +33,7 @@ public class CommentUpdateCheckServlet extends HttpServlet {
             return;
         }
         //入力が30字以下かチェックする/////////////////////////////////////////////////////////////////////
-        StudentErrorCheck error_check = new StudentErrorCheck();
+        ErrorCheck error_check = new ErrorCheck();
         String teacher_comment = request.getParameter("teacher-comment");
         if (!error_check.checkMaxLength_30(teacher_comment)) {
             response.sendRedirect("teachererror");

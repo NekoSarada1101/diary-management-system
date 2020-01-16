@@ -1,12 +1,12 @@
 <%@ page import="diary.bean.DiaryBeans" %>
-<%@ page import="diary.commmon.StudentErrorCheck" %>
+<%@ page import="diary.commmon.ErrorCheck" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     List<DiaryBeans> diary_list = (List<DiaryBeans>) session.getAttribute("diary_list");
     String menu_name = (String) session.getAttribute("menu_name");
 
-    StudentErrorCheck error_check = new StudentErrorCheck();
+    ErrorCheck error_check = new ErrorCheck();
 %>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,7 @@
 
 package diary.commmon;
 
-public class StudentErrorCheck {
+public class ErrorCheck {
     public String inputEscape(String str) {
         str = str.replace("&", "&amp");
         str = str.replace("<", "&lt");

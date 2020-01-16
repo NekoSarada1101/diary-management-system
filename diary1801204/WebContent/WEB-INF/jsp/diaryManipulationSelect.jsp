@@ -1,5 +1,5 @@
 <%@ page import="diary.bean.DiaryBeans" %>
-<%@ page import="diary.commmon.StudentErrorCheck" %>
+<%@ page import="diary.commmon.ErrorCheck" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
@@ -13,7 +13,7 @@
     if (error_message == null) error_message = "";
     session.removeAttribute("error_message");
 
-    StudentErrorCheck error_check = new StudentErrorCheck();
+    ErrorCheck error_check = new ErrorCheck();
 %>
 <!DOCTYPE html>
 <html>

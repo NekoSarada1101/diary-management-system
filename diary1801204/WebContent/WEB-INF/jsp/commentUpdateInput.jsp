@@ -1,12 +1,12 @@
 <%@ page import="diary.bean.DiaryBeans" %>
-<%@ page import="diary.commmon.StudentErrorCheck" %>
+<%@ page import="diary.commmon.ErrorCheck" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     DiaryBeans diary_beans = (DiaryBeans) session.getAttribute("diary_beans");
     if (diary_beans.getTeacher_comment() == null) {
         diary_beans.setTeacher_comment("");
     }
-    StudentErrorCheck error_check = new StudentErrorCheck();
+    ErrorCheck error_check = new ErrorCheck();
     String good_point      = error_check.inputEscape(diary_beans.getGood_point());
     String bad_point       = error_check.inputEscape(diary_beans.getBad_point());
     String student_comment = error_check.inputEscape(diary_beans.getStudent_comment());

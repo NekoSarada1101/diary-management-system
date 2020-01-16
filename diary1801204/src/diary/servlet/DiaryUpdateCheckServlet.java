@@ -2,7 +2,7 @@ package diary.servlet;
 
 import diary.bean.DiaryBeans;
 import diary.bean.StudentBeans;
-import diary.commmon.StudentErrorCheck;
+import diary.commmon.ErrorCheck;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,7 +61,7 @@ public class DiaryUpdateCheckServlet extends HttpServlet {
     }
 
     private boolean checkLength(String good_point, String bad_point, String student_comment) {
-        StudentErrorCheck error_check = new StudentErrorCheck();
+        ErrorCheck error_check = new ErrorCheck();
         if (!error_check.checkMaxLength_30(good_point)) {
             return false;
         } else if (!error_check.checkMaxLength_30(bad_point)) {
